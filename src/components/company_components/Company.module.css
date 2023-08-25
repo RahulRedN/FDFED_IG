@@ -1,0 +1,53 @@
+
+
+.container{
+    background-color: transparent;
+}
+
+.navbar a{
+    border-radius: 10px;
+    border: 5px solid transparent;
+    padding: 10px;
+}
+
+.logo
+{
+    display: flex;
+    justify-content: center;
+}
+
+.navbar
+{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: space-between;
+    background-color: lightblue;
+}
+
+.nav_elements 
+{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.end_elements
+{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.highlight
+{
+    border: 2px solid black;
+}
+
+.nav_elements :hover
+{
+    font-weight: bolder;
+    border-top: 5px solid white;
+    transition: 0.3s ease;
+}
