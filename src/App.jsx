@@ -1,4 +1,7 @@
 import React from "react";
+
+import { ChakraProvider } from '@chakra-ui/react'
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -45,11 +48,12 @@ const Router = createBrowserRouter(
   )
 );
 
+
 function App() {
   return (
-    <React.Fragment>
+    <ChakraProvider>
       <RouterProvider router={Router} />
-    </React.Fragment>
+    </ChakraProvider>
   );
 }
 
