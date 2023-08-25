@@ -15,6 +15,8 @@ import Student from "./pages/Student";
 import JobSeeker from "./pages/JobSeeker";
 import Company from "./pages/Company";
 import Tutor from "./pages/Tutor";
+import Aboutus from "./pages/Aboutus";
+// import StudentLanding from "./pages/StudentLanding";
 
 
 const Root = () => {
@@ -36,6 +38,9 @@ const Router = createBrowserRouter(
       <Route path="/jobseeker" element={<JobSeeker/>}/>
       <Route path="/tutor" element={<Tutor/>}/>
       <Route path="/company" element={<Company/>}/>
+      <Route path="/aboutus" element={<Aboutus/>}/>
+      {/* <Route path="/StudentLanding" element={<StudentLanding/>} */}
+
     </Route>
   )
 );
