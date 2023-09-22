@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react";
 
 import {
   createBrowserRouter,
@@ -10,6 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import { AuthContexts } from "./Firebase/AuthContexts";
 
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -18,8 +19,6 @@ import Student from "./pages/Student";
 import JobSeeker from "./pages/JobSeeker";
 import Company from "./pages/Company";
 import Tutor from "./pages/Tutor";
-import Aboutus from "./pages/Aboutus";
-// import StudentLanding from "./pages/StudentLanding";
 
 
 const Root = () => {
@@ -29,7 +28,6 @@ const Root = () => {
     </React.Fragment>
   );
 };
-
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,19 +39,17 @@ const Router = createBrowserRouter(
       <Route path="/jobseeker" element={<JobSeeker/>}/>
       <Route path="/tutor" element={<Tutor/>}/>
       <Route path="/company" element={<Company/>}/>
-      <Route path="/aboutus" element={<Aboutus/>}/>
-      {/* <Route path="/StudentLanding" element={<StudentLanding/>} */}
-
     </Route>
   )
 );
 
-
 function App() {
   return (
-    <ChakraProvider>
-      <RouterProvider router={Router} />
-    </ChakraProvider>
+    <AuthContexts>
+      <ChakraProvider>
+        <RouterProvider router={Router} />
+      </ChakraProvider>
+    </AuthContexts>
   );
 }
 
