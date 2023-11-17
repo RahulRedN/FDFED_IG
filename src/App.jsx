@@ -19,6 +19,7 @@ import Student from "./pages/Student";
 import JobSeeker from "./pages/JobSeeker";
 import Company from "./pages/Company";
 import Tutor from "./pages/Tutor";
+import AboutUs from "./pages/Aboutus";
 
 
 const Root = () => {
@@ -34,6 +35,7 @@ const Router = createBrowserRouter(
     <Route path="/" element={<Root />}>
       <Route index element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/aboutus" element={<AboutUs/>}/>
       <Route path="/signup" element={<SignUp/>}/>
       <Route path="/student" element={<Student/>} />
       <Route path="/jobseeker" element={<JobSeeker/>}/>
