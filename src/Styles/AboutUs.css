@@ -1,0 +1,49 @@
+.whole-page{
+  
+    justify-content: center;
+    /* background-image: linear-gradient(60deg, #148cec 0%, #0aebfb 100%);  */
+
+}
+.top-container {
+    background-image: linear-gradient(60deg, #148cec 0%, #0aebfb 100%);
+    height: 760px;
+    margin-top: 0px;
+    width: auto;
+   display: flex;
+   justify-content: center;
+    
+
+
+
+}
+.top-container-img{
+    margin-top:200px ;
+    height: 400px;
+    width:500px ;
+    border-radius:8px ;
+    margin-left: 610px;
+
+}
+
+.top-container-btn{
+
+
+}
+
+.aboutus-card{
+
+
+}
+
+.range-vis{
+
+}
+
+.about-com{}
+
+.team-card{}
+
+.testmonials{}
+
+
+.company-img-list{}
