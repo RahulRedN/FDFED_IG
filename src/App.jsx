@@ -15,7 +15,10 @@ import { AuthContexts } from "./Firebase/AuthContexts";
 // import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Student from "./pages/Student";
+
 import JobSeeker from "./pages/JobSeeker";
+import JLanding from "./components/JobSeeker/JobLanding";
+
 import Company from "./pages/Company";
 import Tutor from "./pages/Tutor";
 import AboutUs from "./pages/Aboutus";
@@ -25,26 +28,24 @@ import FindJobs from "./pages/FindJobs";
 import { Test } from "./test";
 
 const Root = () => {
-  return (
-    <React.Fragment>
-      <Outlet />
-    </React.Fragment>
-  );
+  return <Outlet />;
 };
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<Home/>}/>
-      <Route path="/login" element={<Login_SignUp/>}/>
-      <Route path="/aboutus" element={<AboutUs/>}/>
-      <Route path="/faqs" element={<Faqs/>}/>
-      <Route path="/student" element={<Student/>} />
-      <Route path="/jobseeker" element={<JobSeeker/>}/>
-      <Route path="/tutor" element={<Tutor/>}/>
-      <Route path="/company" element={<Company/>}/>
-       <Route path='/findjobs' element={<FindJobs/>} />
-      <Route path="/test" element={<Test/>} />
+      <Route index element={<Home />} />
+      <Route path="/login" element={<Login_SignUp />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/faqs" element={<Faqs />} />
+      <Route path="/student" element={<Student />} />
+      <Route path="/jobseeker" element={<JobSeeker />}>
+        <Route index element={<JLanding />} />
+        <Route path="findjobs" element={<FindJobs />} />
+      </Route>
+      <Route path="/tutor" element={<Tutor />} />
+      <Route path="/company" element={<Company />} />
+      <Route path="/test" element={<Test />} />
     </Route>
   )
 );
