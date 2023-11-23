@@ -1,30 +1,30 @@
 import '../Styles/AboutUs.css'
+import { Link } from 'react-router-dom';
+// import aboutustopimg from "../Resources/aboutus-top.jpg"
 
-import aboutustopimg from "../Resources/aboutus-top.jpg"
 const AboutUs = () => {
 
 
   return ( 
 
-    <div className='whole-page'>
+    <div className='aboutus-page'>
 
          <div className="top-container">
  
 
-              <h4>
-             ghvsdbds dmdksjkdj lk skldjdsl fk k
+          <h1> About Us </h1>
+          <div>
+     <p> 
+      <Link  className='top-p-link' to="/">Home</Link> {'  >  '}<span>About Us</span>
+     </p> 
+    </div>
+          
 
-              </h4>   
+{/* 
+        <button className='top-conatiner-btn'> conatact us </button> */}
 
-              <p> nkhhdjshdbkj dfhfff dfj</p>
-
-
-            <button className='top-conatiner-btn'> conatact us </button>
-
-         <img  className='top-container-img' src={aboutustopimg} alt="" />
-         hkdh
-         dshkdflex--grow-0
-         djdh
+         {/* <img  className='top-container-img' src={aboutustopimg} alt="" /> */}
+        
 
          </div>
 
@@ -32,14 +32,19 @@ const AboutUs = () => {
            <div className="aboutus-card">
        
            <div className="card">
+
             <h3>title</h3>
+
             <p>content</p>
           </div>
+      
+
       
           </div>
 
       <div className="range-vis">
         <h1>write a visualization with range about our company </h1>
+
       </div>
       
       <div className="about-com">
