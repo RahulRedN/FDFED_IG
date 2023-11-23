@@ -23,10 +23,14 @@ import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./pages/FindJobs";
 import { Test } from "./test";
+import Navbar from "./components/Navbar";
+import Profile_JobSeeker from "./pages/Profile_JobSeeker";
+import ContactUs from "./pages/ContactUs";
 
 const Root = () => {
   return (
     <React.Fragment>
+      <Navbar />
       <Outlet />
     </React.Fragment>
   );
@@ -35,16 +39,18 @@ const Root = () => {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<Home/>}/>
-      <Route path="/login" element={<Login_SignUp/>}/>
-      <Route path="/aboutus" element={<AboutUs/>}/>
-      <Route path="/faqs" element={<Faqs/>}/>
-      <Route path="/student" element={<Student/>} />
-      <Route path="/jobseeker" element={<JobSeeker/>}/>
-      <Route path="/tutor" element={<Tutor/>}/>
-      <Route path="/company" element={<Company/>}/>
-       <Route path='/findjobs' element={<FindJobs/>} />
-      <Route path="/test" element={<Test/>} />
+      <Route index element={<Home />} />
+      <Route path="/login" element={<Login_SignUp />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/faqs" element={<Faqs />} />
+      <Route path="/student" element={<Student />} />
+      <Route path="/jobseeker" element={<JobSeeker />} />
+      <Route path="/tutor" element={<Tutor />} />
+      <Route path="/company" element={<Company />} />
+      <Route path="/findjobs" element={<FindJobs />} />
+      <Route path="/profile" element={<Profile_JobSeeker />} />
+      <Route path="/contactus" element={<ContactUs/>} />
+      <Route path="/test" element={<Test />} />
     </Route>
   )
 );
