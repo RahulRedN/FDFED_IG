@@ -14,11 +14,11 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 1.3rem 10rem;
+  padding: 1.3rem 15rem;
   font-size: larger;
   font-weight: 600;
   align-items: center;
-  background: #f3f4f6;
+  background: #e5e7eb;
 }
 
 .sticky {
@@ -78,6 +78,6 @@
 
 
 .sliderContainer{
-  background: #f3f4f6;
+  background: #e5e7eb;
 
 }

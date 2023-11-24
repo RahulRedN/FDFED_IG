@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import classes from "./JobSeeker.module.css"
+import classes from "./JobSeeker.module.css";
+import { CgProfile } from "react-icons/cg";
 
-const Navbar = ({navClass}) => {
+const Navbar = ({ navClass }) => {
   return (
     <nav className={navClass}>
       <span>Inspiring Go</span>
       <ul className={classes.items}>
         <li>
-          <Link to="/">HOME</Link>
+          <Link to="">HOME</Link>
         </li>
         <li>
           <Link to="findjobs">BROWSE JOB</Link>
@@ -18,12 +19,12 @@ const Navbar = ({navClass}) => {
         <li>
           <Link to="/jobseeker">CONTACT</Link>
         </li>
-        <li>
-          <Link to="/jobseeker">PROFILE</Link>
-        </li>
       </ul>
+      <span style={{fontSize: "2rem"}}>
+        <CgProfile />
+      </span>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
