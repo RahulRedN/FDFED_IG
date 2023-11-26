@@ -55,7 +55,7 @@ function Testimonials() {
   useEffect(() => {
     showSlide(testimonialIndex);
     console.log("effect called");
-  }, [testimonialIndex, testimonials]);
+  }, [testimonialIndex]);
   return (
     <>
       <section className={classes.last_info}>
