@@ -1,0 +1,88 @@
+/* Services.css */
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 50px;
+  }
+  
+  .service-item {
+    flex: 1;
+    margin: 0 10px;
+
+  }
+  
+  .service-top{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 20px;
+
+
+
+  }
+  .service-details {
+    text-align: center;
+  }
+  
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .service-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .service-description {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .services-overview {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .overview-heading {
+    font-size: 2em;
+    color: #007bff;
+  }
+  
+  .overview-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .overview-description {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .view-more-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s ease-in-out;
+  }
+  
+  .view-more-btn:hover{
+    /* background-color: #0056b3;  */
+    transform: translateY(-5px); /* Adjust the value for the desired upward movement */
+  }
+  
+  

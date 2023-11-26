@@ -4,6 +4,9 @@ import Testimonial from "../components/AboutUs/Testimonial/Testimonial";
 import QuesCards from "../components/AboutUs/TeamCard/QuesCards";
 import AboutUsTop from "../components/AboutUs/AboutSections/AboutUsTop";
 import AboutUsTop2 from "../components/AboutUs/AboutSections/AboutUsTop2";
+import AboutUsTop3 from "../components/AboutUs/AboutSections/AboutUsTop3";
+import Services from "../components/AboutUs/AboutSections/Services";
+import Aboutusimg from "../components/AboutUs/AboutSections/Aboutusimg";
 // import aboutustopimg from "../Resources/aboutus-top.jpg"
 
 const AboutUs = () => {
@@ -32,6 +35,13 @@ const AboutUs = () => {
 
      <AboutUsTop/>
      <AboutUsTop2/>
+    <AboutUsTop3/>
+
+
+<Aboutusimg/>
+
+    <Services/>
+
 
 
       {/* <div className="aboutus-card">
@@ -58,9 +68,9 @@ const AboutUs = () => {
         <h1>testimonials section with feedback </h1>
       </div>
 
-      <div className="team-card">
+      
         <QuesCards />
-      </div>
+     
 
       {/* <div className="company-img-list">   
         <h1>Our trusted companies </h1>
