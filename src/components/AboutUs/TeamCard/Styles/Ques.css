@@ -1,46 +1,59 @@
 /* Add this CSS to your styles.css or in your component's style tag */
 
+/* Card Styles */
 .card-cont {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    text-align: center;
-  }
-  
-  .card-cont img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .que {
-    font-size: 1.5em;
-    margin-top: 10px;
-  }
-  
-  .ans {
-    color: #555;
-  }
-  
-  /* Add additional styling as needed */
-  
+  border: 2px solid #3498db;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 10px;
+  background-color: #fff;
+}
 
+.card-cont:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(52, 152, 219, 0.2);
+}
 
-  /* Css For The  NOt CArds */
+.card-cont img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
 
-  
+.que {
+  font-size: 1.8em;
+  margin-top: 15px;
+  color: #333;
+}
+
+.ans {
+  color: #777;
+}
+
+/* Additional styling as needed */
+
+/* Top Container Styles */
 .top-cont {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .top-cont h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .top-cont p {
-    color: #555;
-  }
-  
+  background-color: #ecf0f1;
+  padding: 30px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 12px;
+}
+
+.top-cont:hover {
+  background-color: #d2d7db;
+}
+
+.top-cont h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.top-cont p {
+  color: #555;
+  font-size: 16px;
+}

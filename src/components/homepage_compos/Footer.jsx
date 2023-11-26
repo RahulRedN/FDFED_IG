@@ -1,4 +1,4 @@
-import React from 'react'
+
 import classes from "./footerStyles.module.css"
 function Footer() {
   return (
