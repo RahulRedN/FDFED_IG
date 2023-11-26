@@ -1,0 +1,92 @@
+/* You can create a separate CSS file, for example, AboutUsTop2.css */
+
+.AboutUsTop2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+}
+
+.WhatWeServe {
+
+  flex: 1;
+  
+  margin: 0 30px 150px 25px;
+  
+}
+
+.WhatWeServe h3 {
+  font-size: 1.8em;
+  color: #5896f1;
+  font-weight: 600;
+}
+
+.WhatWeServe h2 {
+  font-size: 3.5em;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin-bottom: 10px;
+}
+
+.WhatWeServe p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.AboutUsTop2CardsContainer {
+  flex: 1;
+}
+
+.AboutUsTop2Cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  flex: 1;
+}
+
+.AboutUsTop2Card {
+  padding: 30px;
+  height: 200px;
+  transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+}
+
+
+.AboutUsTop2Card:nth-child(1) {
+  background-color: #2c74eb;
+  border-radius: 0 30px 0 30px;
+  color: #fff;
+}
+
+
+.AboutUsTop2Card:hover {
+  background-color: #2c74eb;
+  color: #fff;
+  border-radius: 30px;
+  border-radius: 0 30px 0 30px;
+}
+
+
+.AboutUsTop2Card:nth-child(1) p {
+  color: #fff;
+}
+
+.AboutUsTop2Card h3 {
+  font-size:2em;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 650;
+}
+
+.AboutUsTop2Card p {
+  font-size: 1em;
+  color: #666;
+  font-weight: 550;
+  transition: color 0.3s ease-in-out;
+  text-align: center;
+ 
+}
+
+/* Hover effect for p tag */
+.AboutUsTop2Card:hover p {
+  color: #fff;
+}
