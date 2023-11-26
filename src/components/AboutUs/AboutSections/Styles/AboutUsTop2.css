@@ -1,0 +1,60 @@
+/* You can create a separate CSS file, for example, AboutUsTop2.css */
+
+.AboutUsTop2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .WhatWeServe {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .WhatWeServe h3 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .WhatWeServe h2 {
+    font-size: 36px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .WhatWeServe p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .AboutUsTop2CardsContainer {
+    flex: 1;
+  }
+  
+
+  /* You can create a separate CSS file, for example, AboutUsTop2Cards.css */
+
+.AboutUsTop2Cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .AboutUsTop2Card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .AboutUsTop2Card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .AboutUsTop2Card p {
+    font-size: 14px;
+    color: #666;
+  }
+  

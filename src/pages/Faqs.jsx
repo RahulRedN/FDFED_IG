@@ -10,7 +10,7 @@ const Faqs = () => {
         <div className="faqs">
           {faqsData.map((faq, index) => (
             <div key={faq.id}>
-              <details className="faq-details">
+              <details className='faq-details'>
                 <summary>{faq.Faq_Que}</summary>
                 <p className="text">{faq.Faq_Ans}</p>
               </details>

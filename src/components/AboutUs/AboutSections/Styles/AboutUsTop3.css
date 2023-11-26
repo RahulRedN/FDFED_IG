@@ -1,0 +1,66 @@
+/* Update this CSS and save it in your AboutUsTop3.css file */
+
+.AboutUsTop3 {
+  display: flex;
+flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  gap: 30px;
+  background-color: #ffffff;
+  margin-left: 100px;
+  
+  overflow: hidden;
+  
+  padding: 30px;
+}
+
+.peoples {
+  text-align: center;
+  color: #fff;
+  background-color: #2b6ee3;
+
+  border-radius: 0 30px 0 30px ;
+  padding: 20px;
+  width: 340px;
+  align-items: center;
+ 
+ 
+ 
+}
+
+.peoples img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-color: #fff;
+  justify-items: center;
+  
+}
+
+.peoples h6 {
+  font-size: 2.9em;
+}
+.peoples p {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.provieds {
+
+  margin-top: 20px;
+  text-align:left;
+  background-color: #2b6ee3;
+  width: 400px;
+  height: 200px;
+  margin-left:50px;
+  padding: 25px;
+ 
+}
+.provieds h3 {
+  margin-left:20px ;
+  font-size: 2.5em;
+  font-weight:400px;
+  color: #ffffff;
+
+}
