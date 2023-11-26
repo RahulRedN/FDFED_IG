@@ -11,7 +11,7 @@ const AboutUsTop = () => {
 
       <div className="AboutUsTopContent">
         <h3>Welcome To InspiringGo</h3>
-        <h1>We Help Your <br /> Company To Grow</h1>
+        <h1>We Help Your  Company To Grow</h1>
         <p>Curabitur pharetra luctus vulputate. Proin finibus odio vel ipsum scelerisque, luctus bibendum purus pellentesque...</p>
         <button>Learn More</button>
       </div>

@@ -1,21 +1,21 @@
 const AboutUsTop2Cards = () => {
     const dummyData = [
       {
-        title: 'Development & Training',
-        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nulla doloribus dolorum odit! Vel cupiditate numquam animi, saepe dolor voluptate laborum magni minus sequi ex illo, ipsum, quae dolores aspernatur',
+        title: 'Develop & Training',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
       },
       {
         title: 'Job Placement',
-        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nulla doloribus dolorum odit! Vel cupiditate numquam animi, saepe dolor voluptate laborum magni minus sequi ex illo, ipsum, quae dolores aspernatur',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. ',
       },
-      // Add more dummy data as needed
+      
       {
         title: 'Job Counselling',
-        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nulla doloribus dolorum odit! Vel cupiditate numquam animi, saepe dolor voluptate laborum magni minus sequi ex illo, ipsum, quae dolores aspernatur',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
       },
       {
         title: 'Test & Interview',
-        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nulla doloribus dolorum odit! Vel cupiditate numquam animi, saepe dolor voluptate laborum magni minus sequi ex illo, ipsum, quae dolores aspernatur',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. ',
       },
     ];
   

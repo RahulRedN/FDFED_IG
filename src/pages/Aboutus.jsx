@@ -30,19 +30,14 @@ const AboutUs = () => {
         {/* <img  className='top-container-img' src={aboutustopimg} alt="" /> */}
       </div>
 
-   
+      <AboutUsTop />
+      <div className="top2-top3">
+      <AboutUsTop2 />
+      <AboutUsTop3 />
+      </div>
+      <Aboutusimg />
 
-
-     <AboutUsTop/>
-     <AboutUsTop2/>
-    <AboutUsTop3/>
-
-
-<Aboutusimg/>
-
-    <Services/>
-
-
+      <Services />
 
       {/* <div className="aboutus-card">
       
@@ -62,15 +57,13 @@ const AboutUs = () => {
         <h2>write all those things with the background image with no fixed position</h2>
       </div> */}
 
-      <div className="testmonials">
+      {/* <div className="testmonials"> */}
         <Testimonial />
 
-        <h1>testimonials section with feedback </h1>
-      </div>
+        {/* <h1>testimonials section with feedback </h1>
+      </div> */}
 
-      
-        <QuesCards />
-     
+      <QuesCards />
 
       {/* <div className="company-img-list">   
         <h1>Our trusted companies </h1>

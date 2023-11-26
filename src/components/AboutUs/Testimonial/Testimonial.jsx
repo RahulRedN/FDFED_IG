@@ -1,9 +1,9 @@
 
-import TestimonialList from "./TestimonialList";
+import TestimonialCard from "./TestimonialCard";
 import "../Testimonial/Styles/Testimonialstyles.css";
 
 const Testimonial = () => {
-  // Assuming you have a 'testimonials' array to pass to TestimonialList
+
   const testimonials = [
     
     {
@@ -41,8 +41,9 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="testimonial">
-      <div className="testimonial-container">
+    <div className="testimonial-container">
+
+      <div className="testimonial-top">
         <h1> What They Say ?</h1>
         <p>
           Vestibulum sit amet odio dui. Integer eleifend nibh massa, nec
@@ -50,8 +51,8 @@ const Testimonial = () => {
           eleifend interdum arcu tempor ac.
         </p>
       </div>
-      <div>
-        <TestimonialList testimonials={testimonials} />
+      <div className="testimonial-bottom">
+        <TestimonialCard testimonials={testimonials} />
       </div>
     </div>
   );
