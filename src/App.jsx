@@ -17,6 +17,7 @@ import Student from "./pages/Student";
 
 import JobSeeker from "./pages/JobSeeker";
 import JLanding from "./components/JobSeeker/JobLanding";
+import ContactUs from "./pages/ContactUs_jobseeker";
 
 import Company from "./pages/Company";
 import Tutor from "./pages/Tutor";
@@ -41,6 +42,7 @@ const Router = createBrowserRouter(
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
         <Route path="findjobs" element={<FindJobs />} />
+        <Route path="contactus" element={<ContactUs/>} />
       </Route>
       <Route path="/tutor" element={<Tutor />} />
       <Route path="/company" element={<Company />} />

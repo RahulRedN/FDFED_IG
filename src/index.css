@@ -10,17 +10,3 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-::-webkit-scrollbar {
-  background:white;
-  border-radius: 10px;
-  width: 12px;
-
-}
-
-
-::-webkit-scrollbar-thumb {
-  border-radius: 15px;
-  background:rgb(179, 179, 179);
-  border-radius: 10px;
-} 
-

@@ -1,29 +1,43 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import { NavLink, useLocation } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
+import classes from "./JobSeeker.module.css";
+import { CgProfile } from "react-icons/cg";
 
-import classes from "./JobSeeker.module.css"
+const Navbar = ({ navClass }) => {
+  const { pathname } = useLocation();
 
-const Navbar = ({navClass}) => {
+  const isLinkActive = (path) => {
+    return pathname === path;
+  };
+
   return (
-    <nav className={navClass}>
-      <span>Inspiring Go</span>
-      <ul className={classes.items}>
-        <li>
-          <Link to="/">HOME</Link>
-        </li>
-        <li>
-          <Link to="findjobs">BROWSE JOB</Link>
-        </li>
-        <li>
-          <Link to="/jobseeker">CONTACT</Link>
-        </li>
-        <li>
-          <Link to="/jobseeker">PROFILE</Link>
-        </li>
-      </ul>
+    <nav
+      className={
+        navClass +
+        " " +
+        (isLinkActive("/jobseeker/findjobs") ? classes.job : "")
+      }
+    >
+      <div className={classes.left}>
+        <span>Inspiring Go</span>
+        <ul className={classes.items}>
+          <li>
+            <NavLink to="">HOME</NavLink>
+          </li>
+          <li>
+            <NavLink to="findjobs">BROWSE JOB</NavLink>
+          </li>
+          <li>
+            <NavLink to="contactus">CONTACT</NavLink>
+          </li>
+        </ul>
+      </div>
+      <span className={classes.profile}>
+        <CgProfile />
+      </span>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
