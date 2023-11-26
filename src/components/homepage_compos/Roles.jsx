@@ -60,31 +60,31 @@ export default function CaptionCarousel() {
   const data = [
     {
       title: "Student",
-      text: "Are you a student who's struggling to find a tutor or unsure about how much they charge ? Our platform offers tutors from different fields of study,you can search for tutors based on specific preferences and contact them. Get detailed information on each tutor's qualifications, experience, and fees.",
+      text: "Are you a student who's struggling to find a tutor or unsure about Fee. Our platform offers tutors from different fields of study, you can search for tutors based on specific preferences and contact them.",
       image: "images/student_mansmile.jpg",
       buttonname: "Join now",
     },
     {
       title: "JobSeeker",
-      text: "Are you jobseeker who's unsure about which company to join or how many vacancies are available ? Our platform offers up-to-date job listings from a various industries. We believe that every jobseeker deserves access to the information they need to make carrer decisions and obviuosly succeed.",
+      text: "Are you jobseeker who's in need of a placement ?. Our platform offers every job listings. We believe you deserves access to the information they need to make carrer decisions and obviuosly succeed.",
       image: "images/jobseeker_womensmile.jpg",
       buttonname: "Join Now",
     },
     {
       title: "Tutor",
-      text: "Your expertise & domain knowledge could be just what our students need to achieve their academic or non-academic goals. We invite you to seize the opportunity to share what you know and join our team of dedicated tutors.Join us today and help students reach new heights of academic success.",
+      text: "Your expertise & domain knowledge could be just what our students need to achieve their goals. We invite you to seize the opportunity to share what you know. Join us today and help students reach new heights of success.",
       image: "images/tutoring.jpeg",
       buttonname: "Get oppurtunity to teach here",
     },
     {
       title: "Company Ally",
-      text: "We believe that our collaboration could be mutually beneficial for both of us. To provide you with detailed information about our company, vacancies, stipends,and more, we encourage you to join our website.We believe that transparency is key to building a successful partnership.",
+      text: "We believe that our collaboration could be mutually beneficial for both of us. To provide you with detailed information, we encourage you to join us.We believe that transparency is key to building a successful partnership.",
       image: "images/companydealing.jpg",
       buttonname: "Become Company Ally",
     },
     {
       title: "Mentor Team",
-      text: "As a mentor with our team, you will have the opportunity to guide and support students on their educational journey.With your help, we can make our service more reachable and helpful to students from all walks of life. Join our mentor team today and make a real difference in the lives of students.",
+      text: "As a mentor with our team, you will have the opportunity to guide and support the students.With your help, we can make our service more reachable. Join as mentor and make a difference in the lives of students.",
       image: "images/mentors.jpg",
       buttonname: "Apply Here",
     },

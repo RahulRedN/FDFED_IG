@@ -2,6 +2,7 @@ import React from "react";
 
 import classes from "./JobSeeker.module.css";
 import TopJobs from "./TopJobs";
+import TopCategories from './TopCategories'
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
         <div className={classes.back}>JOBS</div>
       </div>
       <TopJobs />
+      <TopCategories />
     </>
   );
 };
