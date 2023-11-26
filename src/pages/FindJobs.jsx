@@ -5,7 +5,7 @@ import ImageHeader from "../components/JobSeeker/ImageHeader";
 
 const FindJobs = () => {
   const jobs = useRef(null);
-
+  
   return (
     <div className="bg-zinc-100">
       <ImageHeader src={"FindJobs"} />
@@ -13,9 +13,7 @@ const FindJobs = () => {
         <Filters />
         <div ref={jobs} className="m-1 flex-[9] flex flex-wrap gap-2">
           <FindJobCard />
-          <FindJobCard />
-          <FindJobCard />
-          <FindJobCard />
+
         </div>
       </div>
     </div>

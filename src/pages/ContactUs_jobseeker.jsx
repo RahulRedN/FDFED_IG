@@ -4,6 +4,9 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdDriveFileRenameOutline, MdSubject } from "react-icons/md";
 import ContactCard from "../components/JobSeeker/ContactCard";
 
+
+const details = ["Phone" , "Email" , "Address" , "Physical address"];
+
 const ContactUs_jobseeker = () => {
   return (
     <>
@@ -95,16 +98,17 @@ const ContactUs_jobseeker = () => {
                   ></textarea>
                 </div>
 
-                <button className="bg-sky-500 p-4 rounded-md text-white font-[600] text-lg hover:bg-sky-600">SEND MESSAGE</button>
+                <button className="bg-sky-500 p-4 rounded-md text-white font-[600] text-lg hover:bg-sky-600">
+                  SEND MESSAGE
+                </button>
               </form>
             </div>
           </div>
 
           <div className="flex-[1] flex flex-col gap-5">
-            <ContactCard src={"Phone"} />
-            <ContactCard src={"Email"} />
-            <ContactCard src={"Address"} />
-            <ContactCard src={"Physical address"} />
+            {details.map((detail) => (
+              <ContactCard src={detail} key={detail} />
+            ))}
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 
 import classes from "./JobSeeker.module.css";
-import { CgProfile } from "react-icons/cg";
+import Avatar from "./Avatar";
 
 const Navbar = ({ navClass }) => {
   const { pathname } = useLocation();
@@ -33,9 +33,9 @@ const Navbar = ({ navClass }) => {
           </li>
         </ul>
       </div>
-      <span className={classes.profile}>
-        <CgProfile />
-      </span>
+      <div className={classes.profile}>
+        <Avatar />
+      </div>
     </nav>
   );
 };
