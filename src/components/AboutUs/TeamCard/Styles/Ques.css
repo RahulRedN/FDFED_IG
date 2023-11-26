@@ -1,0 +1,46 @@
+/* Add this CSS to your styles.css or in your component's style tag */
+
+.card-cont {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+  }
+  
+  .card-cont img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .que {
+    font-size: 1.5em;
+    margin-top: 10px;
+  }
+  
+  .ans {
+    color: #555;
+  }
+  
+  /* Add additional styling as needed */
+  
+
+
+  /* Css For The  NOt CArds */
+
+  
+.top-cont {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .top-cont h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .top-cont p {
+    color: #555;
+  }
+  

@@ -1,5 +1,7 @@
 import '../Styles/AboutUs.css'
 import { Link } from 'react-router-dom';
+import Testimonial from '../components/AboutUs/Testimonial/Testimonial';
+import QuesCards from '../components/AboutUs/TeamCard/QuesCards';
 // import aboutustopimg from "../Resources/aboutus-top.jpg"
 
 const AboutUs = () => {
@@ -55,17 +57,26 @@ const AboutUs = () => {
         <h2>write all those things with the background image with no fixed position</h2>
       </div>
 
-      <div className="team-card"> 
-        <h1>our team cards </h1> 
-      </div>
+    
 
-      <div className="testmonials"> 
+      <div className="testmonials">
+    <Testimonial/>
+
         <h1>testimonials section with feedback  </h1>
       </div>
 
-      <div className="company-img-list">   
-        <h1>Our trusted companies </h1>
+      <div className="team-card"> 
+      <QuesCards/>
       </div>
+
+
+
+
+
+      {/* <div className="company-img-list">   
+        <h1>Our trusted companies </h1>
+      </div> */}
+      
     </div>
   );
 }
