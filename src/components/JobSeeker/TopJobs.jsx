@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./TopJobs.module.css";
 
 const TopJobs = () => {
