@@ -1,0 +1,64 @@
+.heading {
+    font-size: 64px;
+    line-height: 68px;
+    margin-bottom: 100px;
+    letter-spacing: -0.03em;
+    margin-top: 50px;
+    font-weight: 700;
+    color: white;
+    padding-bottom: 4px;
+   
+    background: linear-gradient(271.72deg, rgb(162, 250, 207) 7.09%, rgb(100, 172, 255) 96.61%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+  }
+
+.box{
+  
+   width: 90%;
+   font-size: 20px;
+   margin: auto;
+   height: fit-content;
+   background:#0c1414;
+   border-radius: 7px;
+   box-shadow: 1px 2px 4px rgba(0,0,0,.3);
+   padding: 75px;
+}
+
+
+
+.faqs{
+   padding: 0px 20px 20px;
+}
+
+::-webkit-details-marker{
+   float: right;
+   margin-top: 3px;
+}
+
+details{
+   background: #0c1414;
+   padding: 10px 20px;
+   border-radius: 7px;
+   margin-top: 20px;
+   font-family: 'Ubuntu',sans-serif;
+   font-weight: 550;
+   font-size: 18px;
+   letter-spacing: 1px;
+   cursor: pointer;
+   color: #656260;
+}
+
+details summary{
+   outline: none;
+   font-weight: bold;
+   color: #eff6f6;
+}
+  
+  
+  .faq-divider {
+    margin: 15px 0;
+    border: 0;
+    border-top: 1px solid #ddd; 
+  }
