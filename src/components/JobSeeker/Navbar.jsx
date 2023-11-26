@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-
-import { NavLink, Link, useLocation } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { NavLink, useLocation } from "react-router-dom";
 
 import classes from "./JobSeeker.module.css";
 import { CgProfile } from "react-icons/cg";
-import { useStatStyles } from "@chakra-ui/react";
 
 const Navbar = ({ navClass }) => {
   const { pathname } = useLocation();
@@ -31,7 +29,7 @@ const Navbar = ({ navClass }) => {
             <NavLink to="findjobs">BROWSE JOB</NavLink>
           </li>
           <li>
-            <NavLink to="/jobseeker">CONTACT</NavLink>
+            <NavLink to="contactus">CONTACT</NavLink>
           </li>
         </ul>
       </div>

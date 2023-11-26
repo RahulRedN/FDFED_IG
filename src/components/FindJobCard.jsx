@@ -57,7 +57,7 @@ const FindJobCard = () => {
 
   return (
     <>
-      <div className="shadow-xl w-[45vw] h-fit p-4 border border-gray-100">
+      <div className="shadow-xl w-[45vw] h-fit p-4 border border-gray-100 bg-white">
         <div className="flex items-center justify-between">
           <div className="max-w-fit border border-gray-300 rounded-md flex items-center gap-2 p-1">
             <TrendingUp
@@ -70,7 +70,7 @@ const FindJobCard = () => {
             </p>
           </div>
           <Heart
-            className={`${
+            className={`hover:cursor-pointer ${
               isfav ? "fill-red-500 text-red-500" : ""
             } `}
             onClick={() => {
