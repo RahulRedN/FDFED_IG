@@ -26,6 +26,7 @@ import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./pages/FindJobs";
 import { Test } from "./test";
+import Profile_Job from "./pages/Profile_Job";
 
 const Root = () => {
   return <Outlet />;
@@ -39,14 +40,16 @@ const Router = createBrowserRouter(
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/faqs" element={<Faqs />} />
       <Route path="/student" element={<Student />} />
+      
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
         <Route path="findjobs" element={<FindJobs />} />
         <Route path="contactus" element={<ContactUs/>} />
+        <Route path="profile" element={<Profile_Job />} />
       </Route>
+
       <Route path="/tutor" element={<Tutor />} />
       <Route path="/company" element={<Company />} />
-      <Route path="/test" element={<Test />} />
     </Route>
   )
 );
