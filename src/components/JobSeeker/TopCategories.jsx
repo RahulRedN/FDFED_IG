@@ -1,7 +1,7 @@
 import React from "react";
 
 import classes from "./TopJobs.module.css";
-import CategoryCard from "./CategoryCard";
+import CategoryCard from "./cards/CategoryCard";
 
 import {
   Boxes,
