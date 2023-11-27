@@ -24,35 +24,37 @@
 }
 
 .peoples img {
-  width: 70px;
-  height: 70px;
+  width: 5px;
+  height: 75px;
   border-radius: 50%;
   margin-bottom: 10px;
   background-color: #fff;
   justify-items: center;
-  margin-left: 37%;
+  margin-left: 32%;
   
   
 }
 
 .Globe2{
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 55px;
   border-radius: 50%;
   margin-bottom: 10px;
  
   justify-items: center;
-  margin-left: 39%;
+  margin-left: 32%;
 }
 
 .peoples h6 {
   font-size: 2.9em;
-  font-weight:700px;
+ 
+  font-weight: 900;
 }
 .peoples p {
   font-size: 1.2em;
   margin: 5px 0;
-  font-weight:700px;
+  
+  font-weight: 900;
 }
 
 .provides {
@@ -68,10 +70,12 @@
  
 }
 .provides h3 {
-  margin-left:20px ;
+  
+  margin-left:20px;
   font-size: 2.5em;
   font-weight:700px;
   color: #ffffff;
-
+  font-weight: 900;
+  margin-top: 65px;
 
 }
