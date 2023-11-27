@@ -1,19 +1,28 @@
-
-
 .container{
     background-color: transparent;
 }
 
+.c_body
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50rem;
+}
+
 .navbar a{
     border-radius: 10px;
-    border: 5px solid transparent;
     padding: 10px;
 }
+
 
 .logo
 {
     display: flex;
     justify-content: center;
+}
+.nav_elements a , .profile{
+    font-weight: bold;
 }
 
 .navbar
@@ -23,7 +32,7 @@
     flex-direction: row;
     gap: 50px;
     justify-content: space-between;
-    background-color: lightblue;
+    background-color: #91C8E4;
 }
 
 .nav_elements 
@@ -42,12 +51,56 @@
 
 .highlight
 {
-    border: 2px solid black;
+    font-weight: bolder;
+    background-color: #279EFF;
+    color: black;
+    /* border: 3px solid rgb(0, 0, 0);    */
+    transition: color 0.2s ease,background-color 0.2s ease;
+}
+
+.highlight:hover,.highlight:focus
+{
+    color: white;
+    background-color: #362FD9;
+    border-color: green;
+}
+
+.profile:hover
+{
+    font-weight: bolder;
+    color: white;
+    transition: 0.1s ease;
 }
 
 .nav_elements :hover
 {
     font-weight: bolder;
-    border-top: 5px solid white;
-    transition: 0.3s ease;
+    color: white;
+    transition: 0.1s ease;
 }
+
+.form
+{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.user_details
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input_row
+{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
