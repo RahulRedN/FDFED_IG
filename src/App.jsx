@@ -50,7 +50,6 @@ const Router = createBrowserRouter(
 
       <Route path="/tutor" element={<Tutor />} />
       <Route path="/company" element={<Company />} />
-      <Route path="/test" element={<Test />} />
     </Route>
   )
 );
