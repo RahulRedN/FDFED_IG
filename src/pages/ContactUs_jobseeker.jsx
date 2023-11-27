@@ -11,7 +11,7 @@ const ContactUs_jobseeker = () => {
   return (
     <>
       <ImageHeader src={"contactus"} />
-      <div className="mt-[5rem] flex h-fit">
+      <div className="mt-[5rem] flex h-fit pb-10">
         <div className="flex m-auto w-[70vw] gap-16 flex-wrap">
           <div className="flex-[2] h-fit border border-gray-400 rounded-sm">
             <div className="p-8">

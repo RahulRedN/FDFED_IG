@@ -1,10 +1,16 @@
 import { Facebook, Instagram, Github, Twitter } from "lucide-react";
 import styles from "./Footer_Job.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Footer_Job = () => {
+  const { pathname } = useLocation();
+  
+  const isLink = (path) => {
+    return path === pathname;
+  }
+
   return (
-    <div className="mt-16 bg-gray-100 w-full">
+    <div className={`${isLink("/jobseeker/findjobs") ?"bg-white": "bg-gray-100"} w-full`}>
       <div className="flex w-[80vw] mx-auto p-5">
         <div className="flex-[4] flex flex-col justify-between">
           <div className="flex flex-col gap-6">
@@ -12,7 +18,7 @@ const Footer_Job = () => {
             <p className="max-w-[25vw] leading-8 text-gray-500">
               In a world of change, our consultancy brings stability and success
               to your doorstep.Transform challenges into opportunities with our
-              expert consultancy services.
+              expert consultancy.
             </p>
           </div>
           <div className="flex gap-3">
