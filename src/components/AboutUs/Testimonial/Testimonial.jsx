@@ -29,8 +29,7 @@ const Testimonial = () => {
       imageSrc: "url-to-image-3",
       altText: "Customer Photo 3",
       name: "Robert Johnson"
-  },
-  {
+  }, {
       id: 4,
       heading: "Customer Testimonial 4",
       quote: "Fast delivery and excellent customer support. I recommend this company to everyone.",

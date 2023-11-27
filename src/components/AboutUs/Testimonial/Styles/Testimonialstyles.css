@@ -9,11 +9,61 @@
   overflow: hidden;
  
 }
+/* Testimonialstyles.css */
 
-.testimonial-card{
-background-color:rgb(218, 52, 52);
-border-radius:0 30px 0 0 ;
-height: 100%;
-width: auto;
-
+.testimonial-slider {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 600px;
+  margin: auto;
+  transition: transform 0.5s ease; /* Add a smooth transition for the transform property */
 }
+
+.testimonial-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.testimonial-card {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.testimonial-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: opacity 0.5s ease; /* Add a smooth transition for the opacity property */
+}
+
+.testimonial-card-heading {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.testimonial-card-quote {
+  margin-bottom: 10px;
+}
+
+.testimonial-card-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease; /* Add a smooth transition for the transform property */
+}
+
+.testimonial-card-name {
+  font-weight: bold;
+}
+
+/* Add additional styles as needed */
