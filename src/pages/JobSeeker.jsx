@@ -7,6 +7,9 @@ import classes from "../components/JobSeeker/JobSeeker.module.css";
 import Navbar from "../components/JobSeeker/Navbar";
 import Footer_Job from "../components/JobSeeker/Footer_Job";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const JobSeeker = () => {
   const { pathname } = useLocation();
   const [navClass, setNavClass] = useState(classes.navbar);
