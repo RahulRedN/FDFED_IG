@@ -1,59 +1,144 @@
-/* Add this CSS to your styles.css or in your component's style tag */
-
-/* Card Styles */
-.card-cont {
-  border: 2px solid #3498db;
-  padding: 20px;
-  margin: 20px;
-  text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border-radius: 10px;
+.whole-cont {
   background-color: #fff;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+
+  flex-direction: column;
+
 }
 
-.card-cont:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(52, 152, 219, 0.2);
+
+
+.top-cont h1 {
+  font-size: 3.3em;
+  margin-bottom: 40px;
+  color: #323332;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.top-cont h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #007bff;
+  font-weight: 700;
+}
+
+.top-cont p {
+  color: #7A7B7B;
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.card-cont {
+  padding: 25px;
+  margin: auto;
+  height: 600px;
+  width: 430px;
+  margin-top: 0%;
+  margin-bottom: 800px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+ 
 }
 
 .card-cont img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0px;
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  
 }
 
-.que {
-  font-size: 1.8em;
-  margin-top: 15px;
-  color: #333;
+
+
+.card-cont img,
+.card-cont .que {
+  transition: filter 0.3s ease, transform 0.3s ease;
+  
 }
+
+.card-cont:hover img {
+  transform: rotate(2.5deg) scale(1.03);
+  /* filter: brightness(0.9); */
+  opacity: 0.9;
+
+}
+
+
+
+
+.card-cont:not(:hover) .que {
+  color: #2A72EF;
+
+}
+
+
+
+.que {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 15px;
+  color: #1c1c1c;
+  line-height: 1.3;
+  transition: transform 0.5s ease,;
+}
+
+
+
 
 .ans {
   color: #777;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 15px;
+  font-size: 1.1em;
+  line-height: 1.5;
+
 }
 
-/* Additional styling as needed */
-
-/* Top Container Styles */
 .top-cont {
-  background-color: #ecf0f1;
+  background-color: #ffffff;
   padding: 30px;
   text-align: center;
-  transition: background-color 0.3s ease-in-out;
-  border-radius: 12px;
+
 }
 
-.top-cont:hover {
-  background-color: #d2d7db;
+.cards-cont {
+  margin-top: 5px;
+  display: flex;
+  gap: 7px;
+  padding: 4%;
+  flex-direction: row;
+  background-color: rgb(255, 255, 255);
 }
 
-.top-cont h1 {
-  font-size: 2.5em;
-  margin-bottom: 15px;
-  color: #2c3e50;
-}
-
-.top-cont p {
-  color: #555;
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
   font-size: 16px;
+  font-weight: bold;
+  height: 48px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  margin-top: 20px;
+  margin-left: -67%;
+}
+
+.btn:hover {
+
+  transform: translateY(-5px);
 }
