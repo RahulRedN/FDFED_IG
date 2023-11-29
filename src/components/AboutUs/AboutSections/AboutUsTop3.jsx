@@ -1,7 +1,5 @@
 import "../AboutSections/Styles/AboutUsTop3.css";
-// import handshake from "../AboutSections/Resources/handshake.png"
-// // import social from "../AboutSections/Resources/social.png"
-// import globe from "../AboutSections/Resources/Globe Selection.gif"
+
 
 import { HeartHandshake ,Globe2} from 'lucide-react';
 

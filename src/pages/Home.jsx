@@ -4,6 +4,10 @@ import Chakra_temp from "../components/homepage_compos/ImageSlider_Chakra"
 import Roles from "../components/homepage_compos/Roles"
 import Testimonials from "../components/homepage_compos/Testimonials"
 import Footer from "../components/homepage_compos/Footer"
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Home = () => {
   return (
     <>

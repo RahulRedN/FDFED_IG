@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
-import classes from "../components/JobSeeker/JobSeeker.module.css"
+import classes from "../components/JobSeeker/JobSeeker.module.css";
 
 import Navbar from "../components/JobSeeker/Navbar";
+import Footer_Job from "../components/JobSeeker/Footer_Job";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const JobSeeker = () => {
+  const { pathname } = useLocation();
   const [navClass, setNavClass] = useState(classes.navbar);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     window.onscroll = () => {
@@ -23,6 +32,7 @@ const JobSeeker = () => {
     <>
       <Navbar navClass={navClass} />
       <Outlet />
+      <Footer_Job />
     </>
   );
 };

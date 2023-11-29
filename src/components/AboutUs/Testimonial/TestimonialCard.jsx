@@ -1,14 +1,13 @@
+// TestimonialCard.js
 
-import Slider from "react-slick";
+import { useState, useEffect } from "react";
 import "../Testimonial/Styles/Testimonialstyles.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
-// Renamed the rendering component to TestCard
 const TestCard = ({ heading, quote, imageSrc, altText, name }) => {
   return (
-    <div className="testimonial-card">
-      <h1 className="testimonial-card-heading">{heading}</h1>
+    <div className="testimonial-card visible">
+      <img src={heading} className="testimonial-card-heading-img" />
       <p className="testimonial-card-quote">{quote}</p>
       <img className="testimonial-card-image" src={imageSrc} alt={altText} />
       <p className="testimonial-card-name">{name}</p>
@@ -16,32 +15,41 @@ const TestCard = ({ heading, quote, imageSrc, altText, name }) => {
   );
 };
 
-// Changed the component name to TestimonialList for clarity
 const TestimonialCard = ({ testimonials }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 5
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNext(); // Auto transition to the next testimonial
+    }, 5000); // Adjust the interval as needed (e.g., 5000 milliseconds = 5 seconds)
+
+    return () => clearInterval(intervalId);
+  }, [testimonials, currentIndex]);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
     <div className="testimonial-slider">
-      <Slider {...settings}>
-        {testimonials.map((testimonial, index) => (
-          // Used the correct component name TestCard
+      {testimonials.map((testimonial, index) => (
+        <div
+          key={index}
+          className={`testimonial-card ${
+            index === currentIndex ? "visible" : "hidden"
+          }`}
+        >
           <TestCard
-            key={index}
             heading={testimonial.heading}
             quote={testimonial.quote}
             imageSrc={testimonial.imageSrc}
             altText={testimonial.altText}
             name={testimonial.name}
           />
-        ))}
-      </Slider>
+        </div>
+      ))}
     </div>
   );
 };

@@ -22,7 +22,7 @@ const ContactCard = ({ src }) => {
   }
 
   return (
-    <div className="flex bg-sky-500 h-[15vh] rounded-lg items-center">
+    <div className="flex bg-sky-500 h-[15vh] rounded-lg items-center shadow-lg">
       <div className="h-full flex items-center justify-center p-5">
         <div className="bg-white p-3 rounded-[100px]">{icon}</div>
       </div>
