@@ -6,7 +6,7 @@ const FindJobs = () => {
   const jobs = useRef(null);
   
   return (
-    <div className="bg-zinc-100 pb-5">
+    <div className="bg-gray-50 pb-5">
       <ImageHeader src={"FindJobs"} />
       <div className="ml-[15rem] mt-5 flex gap-10 relative">
         <Filters />

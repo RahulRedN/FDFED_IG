@@ -1,4 +1,10 @@
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 const AboutUsTop2Cards = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   const dummyData = [
     {
       title: "Develop & Training",
@@ -22,10 +28,17 @@ const AboutUsTop2Cards = () => {
   return (
     <div className="AboutUsTop2Cards">
       {dummyData.map((data, index) => (
-        <div className="AboutUsTop2Card" key={index}>
+        <motion.div
+          ref={ref}
+          initial={{ x: 100, opacity: 0 }}
+          animate={inView ? { x: 0, opacity: 1 } : "hidden"}
+          transition={{ ease: "easeInOut", delay: index * 0.1 , duration: 0.3}}
+          className="AboutUsTop2Card"
+          key={index}
+        >
           <h3>{data.title}</h3>
           <p>{data.content}</p>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

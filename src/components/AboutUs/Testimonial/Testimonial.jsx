@@ -51,8 +51,8 @@ const Testimonial = () => {
       <div className="testimonial-top">
         <h1> What They Say ?</h1>
         <p>
-          Vestibulum sit amet odio dui. Integer eleifend nibh massa,  <br />nec
-          vehicula metus efficitur non. Pellentesque iaculis tincidunt <br /> purus,
+          Vestibulum sit amet odio dui. Integer eleifend nibh massa, nec
+          vehicula metus efficitur non. Pellentesque iaculis tincidunt  purus,
           eleifend interdum arcu tempor ac.
         </p>
       </div>

@@ -3,6 +3,7 @@ import "../AboutSections/Styles/AboutUsTop2.css";
 
 const AboutUsTop2 = () => {
   return (
+    
     <div className="AboutUsTop2">
       <div className="WhatWeServe">
         <h3>What We Serve</h3>
@@ -21,6 +22,7 @@ const AboutUsTop2 = () => {
         <AboutUsTop2Cards />
       </div>
     </div>
+   
   );
 };
 

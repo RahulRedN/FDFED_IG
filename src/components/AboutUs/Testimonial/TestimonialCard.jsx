@@ -7,7 +7,7 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 const TestCard = ({ heading, quote, imageSrc, altText, name }) => {
   return (
     <div className="testimonial-card visible">
-      <img src={heading} className="testimonial-card-heading" />
+      <img src={heading} className="testimonial-card-heading-img" />
       <p className="testimonial-card-quote">{quote}</p>
       <img className="testimonial-card-image" src={imageSrc} alt={altText} />
       <p className="testimonial-card-name">{name}</p>

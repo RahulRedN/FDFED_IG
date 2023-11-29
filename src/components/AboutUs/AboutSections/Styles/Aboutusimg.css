@@ -2,7 +2,7 @@
 
 .about-us-img-container {
     position: relative;
-    height: 540px;
+    height: 500px;
     /* Set the height as needed */
     background-image: url('../Resources/aboutusimg.jpg');
     /* Replace with the actual path to your image */
@@ -23,7 +23,7 @@
     text-align: center;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.6);
-    height: 540px;
+    height: 500px;
     width: 100%;
 }
 
