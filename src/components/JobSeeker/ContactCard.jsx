@@ -2,14 +2,15 @@ import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa6";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { HiOutlineMailOpen } from "react-icons/hi";
+import { motion } from "framer-motion";
 
-const ContactCard = ({ src }) => {
+const ContactCard = ({ src, delay }) => {
   let icon;
   let content;
 
   if (src === "Phone") {
     icon = <MdOutlinePhoneInTalk size={50} className="text-sky-500" />;
-    content = "+91 1234567890";
+    content = "+91 7569871641";
   } else if (src === "Email") {
     icon = <HiOutlineMailOpen size={50} className="text-sky-500" />;
     content = "abc@gmail.com";
@@ -22,17 +23,19 @@ const ContactCard = ({ src }) => {
   }
 
   return (
-    <div className="flex bg-sky-500 h-[15vh] rounded-lg items-center shadow-lg">
+    <motion.div
+     initial={{ x: 100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.5, delay: delay * 0.8 }}
+     className="flex bg-sky-500 h-[15vh] rounded-lg items-center shadow-lg">
       <div className="h-full flex items-center justify-center p-5">
         <div className="bg-white p-3 rounded-[100px]">{icon}</div>
       </div>
       <div className="flex flex-col gap-2">
         <h1 className="text-white text-2xl font-semibold">{src}</h1>
-        <p className="text-white text-md font-medium">
-            {content}
-        </p>
+        <p className="text-white text-md font-medium">{content}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

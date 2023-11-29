@@ -13,19 +13,16 @@ import { AuthContexts } from "./Firebase/AuthContexts";
 
 // import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Student from "./pages/Student";
 
 import JobSeeker from "./pages/JobSeeker";
 import JLanding from "./components/JobSeeker/JobLanding";
 import ContactUs from "./pages/ContactUs_jobseeker";
 
 import Company from "./pages/Company";
-import Tutor from "./pages/Tutor";
 import AboutUs from "./pages/Aboutus";
 import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./pages/FindJobs";
-import { Test } from "./test";
 import Profile_Job from "./pages/Profile_Job";
 
 const Root = () => {
@@ -39,7 +36,6 @@ const Router = createBrowserRouter(
       <Route path="/login" element={<Login_SignUp />} />
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/faqs" element={<Faqs />} />
-      <Route path="/student" element={<Student />} />
       
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
@@ -48,7 +44,6 @@ const Router = createBrowserRouter(
         <Route path="profile" element={<Profile_Job />} />
       </Route>
 
-      <Route path="/tutor" element={<Tutor />} />
       <Route path="/company" element={<Company />} />
     </Route>
   )

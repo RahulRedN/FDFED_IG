@@ -3,12 +3,11 @@ import "../AboutSections/Styles/AboutUsTop3.css";
 // // import social from "../AboutSections/Resources/social.png"
 // import globe from "../AboutSections/Resources/Globe Selection.gif"
 
-import { HeartHandshake ,Globe2} from 'lucide-react';
+import { HeartHandshake, Globe2 } from "lucide-react";
 
 const AboutUsTop3 = () => {
   return (
     <div className="AboutUsTop3">
-
       <div className="peoples">
         {/* <img src={<HeartHandshake />} alt="" /> */}
         <Globe2 className="Globe2" />
@@ -17,16 +16,15 @@ const AboutUsTop3 = () => {
       </div>
 
       <div className="peoples">
-        <HeartHandshake  className="Globe2"/>
+        <HeartHandshake className="Globe2" />
         <h6>672+</h6>
         <p>Satisfied Company</p>
-        <div/>
+        <div />
       </div>
 
-
       <div className="provides">
-          <h3>We Provide Awesome Service</h3>
-        </div>
+        <h3>We Provide Awesome Service</h3>
+      </div>
     </div>
   );
 };

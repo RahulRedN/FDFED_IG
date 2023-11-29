@@ -3,9 +3,9 @@ import { Mail } from "lucide-react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdDriveFileRenameOutline, MdSubject } from "react-icons/md";
 import ContactCard from "../components/JobSeeker/ContactCard";
+import { motion } from "framer-motion";
 
-
-const details = ["Phone" , "Email" , "Address" , "Physical address"];
+const details = ["Phone", "Email", "Address", "Physical address"];
 
 const ContactUs_jobseeker = () => {
   return (
@@ -13,7 +13,12 @@ const ContactUs_jobseeker = () => {
       <ImageHeader src={"contactus"} />
       <div className="mt-[5rem] flex h-fit pb-10">
         <div className="flex m-auto w-[70vw] gap-16 flex-wrap">
-          <div className="flex-[2] h-fit border border-gray-400 rounded-sm">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.5 }}
+            className="flex-[2] h-fit border border-gray-400 rounded-sm"
+          >
             <div className="p-8">
               <h1 className="text-4xl font-[600]">
                 Interested in{" "}
@@ -103,11 +108,11 @@ const ContactUs_jobseeker = () => {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
 
           <div className="flex-[1] flex flex-col gap-5">
-            {details.map((detail) => (
-              <ContactCard src={detail} key={detail} />
+            {details.map((detail,idx) => (
+              <ContactCard src={detail} key={detail} delay={0.1*idx}/>
             ))}
           </div>
         </div>
