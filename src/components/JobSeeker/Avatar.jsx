@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoMdExit } from "react-icons/io";
 import { NavLink } from "react-router-dom";
@@ -8,8 +7,16 @@ import styles from "./Avatar.module.css";
 const Dropdown = () => {
   return (
     <div className={styles.container}>
-      <div className={"cursor-pointer border-[4px] border-[#25cc8b] rounded-[50%] p-1"}>
-        <BsFillPersonFill strokeWidth={0.5} className=" text-[#25cc8b]" size={40} />
+      <div
+        className={
+          "cursor-pointer border-[4px] border-[#25cc8b] rounded-[50%] p-1"
+        }
+      >
+        <BsFillPersonFill
+          strokeWidth={0.5}
+          className=" text-[#25cc8b]"
+          size={40}
+        />
       </div>
 
       <div className={styles.content}>
