@@ -13,7 +13,7 @@ const data = [
 
 const Sidebar = () => {
   return (
-    <div className="flex-[1] min-h-[80vh] max-h-full bg-[#455cc6]">
+    <div className="flex-[1] min-h-[80vh] max-h-full bg-blue-500">
       <h1 className="mt-4 text-[2rem] text-center font-[600] text-white tracking-wider">
         Inspiring Go
       </h1>
