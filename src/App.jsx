@@ -15,15 +15,15 @@ import { AuthContexts } from "./Firebase/AuthContexts";
 import Home from "./pages/Home";
 
 import JobSeeker from "./pages/JobSeeker";
-import JLanding from "./components/JobSeeker/JobLanding";
-import ContactUs from "./pages/ContactUs_jobseeker";
+import JLanding from "./components/JobSeeker/Home/JobLanding";
+import ContactUs from "./components/JobSeeker/ContactUs/ContactUs_jobseeker";
 
 import Company from "./pages/Company";
 import AboutUs from "./pages/Aboutus";
 import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
-import FindJobs from "./pages/FindJobs";
-import Profile_Job from "./pages/Profile_Job";
+import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
+import Profile_Job from "./components/JobSeeker/Profile/Profile_Job";
 
 const Root = () => {
   return <Outlet />;

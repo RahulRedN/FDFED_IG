@@ -16,7 +16,12 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { CgProfile } from "react-icons/cg";
 
+import { easeIn, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 const FindJobCard = () => {
+  const [ref, inView] = useInView({ triggerOnce: true });
+
   const isLocation = true;
   const Posted = false;
   const isJustNow = true;
@@ -34,7 +39,7 @@ const FindJobCard = () => {
       document.body.style.overflow = "auto"; // Reset overflow on component unmount
     };
   }, [modalIsOpen]);
-  
+
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -70,7 +75,13 @@ const FindJobCard = () => {
 
   return (
     <>
-      <div className="shadow-xl w-[45vw] h-fit p-4 border border-gray-100 bg-white">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={inView ? { opacity: 1, scale: 1 } : "hidden"}
+        transition={{ ease: "easeIn", duration: 0.3 }}
+        className="shadow-xl w-[45vw] h-fit p-4 border border-gray-100 bg-white"
+      >
         <div className="flex items-center justify-between">
           <div className="max-w-fit border border-gray-300 rounded-md flex items-center gap-2 p-1">
             <TrendingUp
@@ -179,17 +190,20 @@ const FindJobCard = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <Modals modalIsOpen={modalIsOpen} closeModal={closeModal} customStyles={customStyles}/>
+      <Modals
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        customStyles={customStyles}
+      />
     </>
   );
 };
 
 export default FindJobCard;
 
-const Modals = ({modalIsOpen, closeModal, customStyles}) => {
-  
+const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
   return ReactDOM.createPortal(
     <Modal
       isOpen={modalIsOpen}

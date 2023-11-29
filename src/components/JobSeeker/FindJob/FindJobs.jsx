@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import FindJobCard from '../components/JobSeeker/FindJobCard';
-import ImageHeader from "../components/JobSeeker/ImageHeader";
-import Filters from "../components/JobSeeker/Filters";
+import FindJobCard from "./FindJobCard";
+import ImageHeader from "../ImageHeader";
+import Filters from "./Filters";
 const FindJobs = () => {
   const jobs = useRef(null);
-  
+
   return (
     <div className="bg-gray-50 pb-5">
       <ImageHeader src={"FindJobs"} />

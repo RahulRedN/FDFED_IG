@@ -1,8 +1,8 @@
-import ImageHeader from "../components/JobSeeker/ImageHeader";
+import ImageHeader from "../ImageHeader";
 import { Mail } from "lucide-react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdDriveFileRenameOutline, MdSubject } from "react-icons/md";
-import ContactCard from "../components/JobSeeker/ContactCard";
+import ContactCard from "./ContactCard";
 import { motion } from "framer-motion";
 
 const details = ["Phone", "Email", "Address", "Physical address"];
@@ -111,8 +111,8 @@ const ContactUs_jobseeker = () => {
           </motion.div>
 
           <div className="flex-[1] flex flex-col gap-5">
-            {details.map((detail,idx) => (
-              <ContactCard src={detail} key={detail} delay={0.1*idx}/>
+            {details.map((detail, idx) => (
+              <ContactCard src={detail} key={detail} delay={0.1 * idx} />
             ))}
           </div>
         </div>
