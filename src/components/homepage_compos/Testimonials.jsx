@@ -35,7 +35,8 @@ function Testimonials() {
       review:
         "Inspiring Go transformed my career as an app developer, connecting me with my dream job and a supportive community that accelerated my success. This platform is a game-changer for anyone seeking meaningful career opportunities.",
     },
-  ];
+  ];//len 5
+  const testimonialsColors = ["#dbeafe","#bfdbfe","#93c5fd","#60a5fa","#3b82f6"]
   const showSlide = (index) => {
     if (index < 0) {
       setTestimonialIndex(testimonials.length - 1);

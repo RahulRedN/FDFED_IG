@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { NavLink, useLocation } from "react-router-dom";
 
 import classes from "./JobSeeker.module.css";
@@ -6,7 +5,6 @@ import { CgProfile } from "react-icons/cg";
 
 const Navbar = ({ navClass }) => {
   const { pathname } = useLocation();
-
   const isLinkActive = (path) => {
     return pathname === path;
   };

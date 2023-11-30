@@ -5,6 +5,7 @@ function Testimonial(props) {
     <>
       <div
         key={props.testimonial.username}
+        style={{backgroundColor:props.color}}
         className={
           props.Idx === props.tIdx ? classes.activ : classes.testimonial_card
         }>

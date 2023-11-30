@@ -71,16 +71,16 @@ export default function CaptionCarousel() {
       buttonname: "Join Now",
     },
     {
-      title: "Tutor",
-      text: "Your expertise & domain knowledge could be just what our students need to achieve their goals. We invite you to seize the opportunity to share what you know. Join us today and help students reach new heights of success.",
-      image: "images/tutoring.jpeg",
-      buttonname: "Get oppurtunity to teach here",
-    },
-    {
       title: "Company Ally",
       text: "We believe that our collaboration could be mutually beneficial for both of us. To provide you with detailed information, we encourage you to join us.We believe that transparency is key to building a successful partnership.",
       image: "images/companydealing.jpg",
       buttonname: "Become Company Ally",
+    },
+    {
+      title: "Tutor",
+      text: "Your expertise & domain knowledge could be just what our students need to achieve their goals. We invite you to seize the opportunity to share what you know. Join us today and help students reach new heights of success.",
+      image: "images/tutoring.jpeg",
+      buttonname: "Get oppurtunity to teach here",
     },
     {
       title: "Mentor Team",

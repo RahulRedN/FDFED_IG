@@ -7,7 +7,6 @@ import Footer from "../components/homepage_compos/Footer"
 const Home = () => {
   return (
     <>
-      {/*<Navbar_home/>*/}
       <Chakra_temp/>
       <Roles/>
       <Testimonials/>

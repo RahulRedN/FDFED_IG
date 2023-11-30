@@ -3,7 +3,6 @@ body{
   margin: 0px;
   font-family: 'Ubuntu',sans-serif;
   background-size: contain;
-  backdrop-filter: blur(10px);
   overflow-x: hidden;
 }
 
@@ -15,22 +14,15 @@ body{
     width:97%;
     margin: auto;
     padding: 1rem;
-    /* font-weight:bold; */
  }
 .opptrs4u
 {
   display:flex;
-  margin-top :1.7rem;
-  /* width: 155%; */
   transition: transform 0.5s ease;
-  /* overflow: hidden; */
-  /* putting a overflow hidden here not displaying 4th card at all */
-  /* flex-wrap: no-wrap; == > prevst */
 }
 .parentSlide
 {
   overflow: hidden;
-  height : 90vh;
 }
 .oppcard
 {
@@ -73,7 +65,7 @@ body{
 
 .cardcatg
 {
-  background-color: #48466D;
+  background-color: #172554;
   color: white;
   font-size: 1.3rem;
   text-align: center;
@@ -88,8 +80,7 @@ body{
 
 .oppcardbtn 
 {
-  background-color: #48466D;
-  color:#ffffff;
+  background-color: #172554;  color:#ffffff;
   font-size: 1rem;
   border-radius: 5px;
   padding: 10px 20px;
@@ -121,9 +112,7 @@ h2.middle_heads_dark
 
 .last_info
 {
-  background-color: rgba(161, 198, 245, 0.7);
   width: 98%;
-  /* margin-left:auto; */
   margin: auto;
   border-radius:20px;
 }
@@ -156,7 +145,6 @@ h2.middle_heads_dark
 {
   width:90%;
   margin: auto;
-  /* max-width: 700px; */
   display: flex;
   justify-content: space-around;
 }
@@ -172,7 +160,7 @@ h2.middle_heads_dark
   color: black;
   border-radius: 0 20px ;
   border:3px solid #0a0a5a;
-  background-color: #7fb2f0;
+  background-color: #93c5fd;
   margin: 20px auto;
   height: 14rem;
   aspect-ratio: 3;
