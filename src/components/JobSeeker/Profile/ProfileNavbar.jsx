@@ -3,7 +3,7 @@ import classes from "./ProfileNavbar.module.css";
 import { FaBell, FaSearch } from "react-icons/fa";
 import { IoMail, IoPerson } from "react-icons/io5";
 
-const ProfileNavbar = () => {
+const ProfileNavbar = ({ notification, mail }) => {
   return (
     <nav className={classes.container}>
       <div className={classes.search}>
@@ -13,9 +13,11 @@ const ProfileNavbar = () => {
       <div className={classes.content}>
         <span>
           <FaBell size={20} />
+          {notification && <p>{notification}</p>}
         </span>
         <span>
           <IoMail size={20} />
+          {mail && <p>{mail}</p>}
         </span>
         <div className={classes.userInfo}>
           <span>
