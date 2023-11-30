@@ -3,11 +3,31 @@ import note from "../AboutSections/Resources/note.png";
 import hr from "../AboutSections/Resources/Hr.png";
 import expert from "../AboutSections/Resources/expert.png";
 import exective from "../AboutSections/Resources/exective.png";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 
 const Services = () => {
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <div className="services-container">
-      <div className="service-top">
+
+
+<motion.div
+        ref={ref}
+        initial={{ x: -50, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : "hidden"}
+        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.0}} // Add delay of 0.3 seconds
+    
+        // key={index}
+      
+
+       className="service-top">
+
         <div className="service-item">
           <img src={note} alt="" className="service-icon" />
           <div className="service-details">
@@ -50,7 +70,7 @@ const Services = () => {
             </p>
           </div>
         </div>
-      </div>
+        </motion.div>
 
       <div className="services-overview">
         <h3 className="overview-heading">Our Services</h3>
