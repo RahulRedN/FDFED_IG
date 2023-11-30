@@ -1,13 +1,9 @@
 import React from "react";
 
 import classes from "./TopJobs.module.css";
-import CategoryCard from "./cards/CategoryCard";
+import CategoryCard from "../cards/CategoryCard";
 
-import {
-  Boxes,
-  LineChart,
-  Database,
-} from "lucide-react";
+import { Boxes, LineChart, Database } from "lucide-react";
 
 import { RiTeamLine } from "react-icons/ri";
 
@@ -82,7 +78,7 @@ const TopCategories = () => {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
     },
     {
-      SVG: <RiTeamLine size={40}/>,
+      SVG: <RiTeamLine size={40} />,
       title: "Management",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
     },

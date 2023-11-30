@@ -2,7 +2,7 @@ import React from "react";
 
 import { IoPersonCircle } from "react-icons/io5";
 
-import classes from "../Testimonials.module.css";
+import classes from "../Home/Testimonials.module.css";
 
 const TestimonialCard = () => {
   return (

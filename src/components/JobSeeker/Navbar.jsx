@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
-import classes from "./JobSeeker.module.css";
+import classes from "./Home/JobSeeker.module.css";
 
 import Avatar from "./Avatar";
 

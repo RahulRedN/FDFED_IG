@@ -33,16 +33,16 @@
 .container:hover .content,
 .content:hover  {
   display: flex;
-  animation: DownUp 0.5s ease-in-out;
+  animation: scaleIntoView 0.4s ease-in-out;
 }
 
-@keyframes DownUp {
+@keyframes scaleIntoView {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: scale(0.5);
   }
   100% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: scale(1);
   }
 }

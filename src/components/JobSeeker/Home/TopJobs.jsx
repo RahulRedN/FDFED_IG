@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 import Slider from "react-slick";
 
 import classes from "./TopJobs.module.css";
-import TopJobCard from "./cards/TopJobCard";
+import TopJobCard from "../cards/TopJobCard";
 
 const TopJobs = () => {
   const settings = {
@@ -37,7 +37,7 @@ const TopJobs = () => {
             <TopJobCard sticker={true} />
             <TopJobCard />
             <TopJobCard />
-            <TopJobCard sticker={true}/>
+            <TopJobCard sticker={true} />
             <TopJobCard />
           </Slider>
         </Box>

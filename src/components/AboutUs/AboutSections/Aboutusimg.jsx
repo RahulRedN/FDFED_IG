@@ -1,6 +1,5 @@
-
-import '../AboutSections/Styles/Aboutusimg.css';  
-import  video from "../AboutSections/Resources/video button.gif"
+import "../AboutSections/Styles/Aboutusimg.css";
+import video from "../AboutSections/Resources/video button.gif";
 
 const Aboutusimg = () => {
   return (
@@ -10,7 +9,10 @@ const Aboutusimg = () => {
           We Continue Helping Company <br />
           Finding The Right Employee
         </p>
-        <button> <img src={video} alt="" /> </button>
+        <button>
+          {" "}
+          <img src={video} alt="" />{" "}
+        </button>
       </div>
     </div>
   );

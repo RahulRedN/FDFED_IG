@@ -3,7 +3,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 import Slider from "react-slick";
 
-import TestimonialCard from "./cards/TestimonialCard";
+import TestimonialCard from "../cards/TestimonialCard";
 
 import classes from "./Testimonials.module.css";
 

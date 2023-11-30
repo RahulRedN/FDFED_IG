@@ -12,9 +12,8 @@ export default function CaptionCarousel() {
       const newIdx = (prev + 1) % arrLen;
       cardSliderRef.current.style.transform = `translate(-${newIdx * 33.3}%)`;
       return newIdx;
-    })};
-
-
+    });
+  };
 
   const handlePrev = () => {
     const arrLen = 3;
@@ -22,7 +21,8 @@ export default function CaptionCarousel() {
       const newIdx = (prev - 1 + arrLen) % arrLen;
       cardSliderRef.current.style.transform = `translate(-${newIdx * 33.3}%)`;
       return newIdx;
-    })};
+    });
+  };
 
   const cardSliderRef = useRef(null);
   //     //animations for oppcards intersection observer
@@ -111,7 +111,7 @@ export default function CaptionCarousel() {
       <div className={classes.parentSlide}>
         <div ref={cardSliderRef} className={classes.opptrs4u} id="roles">
           {data.map((card, index) => (
-            <RoleCard key={card.title} card={card}/>
+            <RoleCard key={card.title} card={card} />
           ))}
         </div>
       </div>

@@ -12,7 +12,11 @@ const AboutUsTop2 = () => {
           We help You To Find <br />
           The Right Choice
         </h2>
-        <p>Quisque eu diam a mi vulputate lacinia. Aliquam eros neque, luctus ut ligula in, faucibus fermentum sem.Nulla varius auctor varius. Mauris erat nisl, aliquet sed libero et, ultrices venenatis nunc..</p>
+        <p>
+          Quisque eu diam a mi vulputate lacinia. Aliquam eros neque, luctus ut
+          ligula in, faucibus fermentum sem.Nulla varius auctor varius. Mauris
+          erat nisl, aliquet sed libero et, ultrices venenatis nunc..
+        </p>
       </div>
 
       <div className="AboutUsTop2CardsContainer">
