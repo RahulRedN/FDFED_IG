@@ -5,8 +5,8 @@ import { Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Toolti
 
 const Filters = () => {
 
-    const [isClicked, setIsClicked] = useState(false);
-    const [isClickedLoc, setIsClickedLoc] = useState(false);
+    const [isClicked, setIsClicked] = useState(true);
+    const [isClickedLoc, setIsClickedLoc] = useState(true);
     const [sliderValue, setSliderValue] = useState(5)
     const [showTooltip, setShowTooltip] = useState(false)
 

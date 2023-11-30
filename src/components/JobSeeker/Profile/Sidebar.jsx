@@ -7,7 +7,7 @@ const data = [
   { icon: ShoppingBag, text: "My Job Feed" },
   { icon: IoMdPerson, text: "Profile" },
   { icon: Bookmark, text: "Saved Jobs" },
-  { icon: Settings, text: "Settings" },
+  { icon: Settings, text: "Edit Profile" },
   { icon: IoExitOutline, text: "Back to Home" },
 ];
 
