@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 
 const Profile_Job = () => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex">
       <Sidebar />
       <Profilebrowse />
     </div>

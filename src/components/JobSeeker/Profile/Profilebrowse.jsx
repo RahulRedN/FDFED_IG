@@ -5,7 +5,6 @@ import JobFeed from "./JobFeed";
 const Profilebrowse = () => {
   return (
     <div className="flex-[4] max-h-screen overflow-y-auto scrollbar-none">
-      <ProfileNavbar />
       <JobFeed />
       <UpdateInfoProfile_Job />
     </div>

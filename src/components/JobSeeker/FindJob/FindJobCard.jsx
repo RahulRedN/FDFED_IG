@@ -16,8 +16,11 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { CgProfile } from "react-icons/cg";
 
-import { easeIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+
+const roles = ["Role", "React", "CSS", "Java"];
+const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
 
 const FindJobCard = () => {
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -113,8 +116,8 @@ const FindJobCard = () => {
         </div>
 
         <div className="mt-5">
-          {!isLocation ? (
-            <div className="flex items-center gap-2">
+          {isLocation ? (
+            <div className="flex items-start gap-2">
               <MapPin size={18} />
               <p className="text-sm">Location</p>
             </div>
@@ -167,16 +170,15 @@ const FindJobCard = () => {
                 <p className="text-sm text-blue-400">2 days ago</p>
               </div>
             )}
-            <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">
-              Role
-            </p>
-            <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">
-              React
-            </p>
-            <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">CSS</p>
-            <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">
-              Java
-            </p>
+
+            {roles.map((role, index) => (
+              <p
+                key={index}
+                className="text-sm p-1 bg-gray-200 text-gray-500 rounded"
+              >
+                {role}
+              </p>
+            ))}
           </div>
 
           <hr className="my-5 text-black" />
@@ -274,10 +276,14 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
 
       <h1 className="mt-8 text-lg font-[600]">Skills Required</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">Role</p>
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">React</p>
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">CSS</p>
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">Java</p>
+        {roles.map((role, index) => (
+          <p
+            key={index}
+            className="text-sm p-1 bg-gray-200 text-gray-500 rounded"
+          >
+            {role}
+          </p>
+        ))}
       </div>
 
       <h1 className="mt-8 text-lg font-[600]">Salary</h1>
@@ -287,12 +293,14 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
 
       <h1 className="mt-8 text-lg font-[600]">Benefits</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">Health</p>
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">Stocks</p>
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">Wifi</p>
-        <p className="text-sm p-1 bg-gray-200 text-gray-500 rounded">
-          Free snacks & beverages
-        </p>
+        {benifits.map((benifit, index) => (
+          <p
+            key={index}
+            className="text-sm p-1 bg-gray-200 text-gray-500 rounded"
+          >
+            {benifit}
+          </p>
+        ))}
       </div>
 
       <h1 className="mt-5 text-lg font-[600]">Number of available slots</h1>

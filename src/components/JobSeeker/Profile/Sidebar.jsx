@@ -13,11 +13,11 @@ const data = [
 
 const Sidebar = () => {
   return (
-    <div className="flex-[1] min-h-[80vh] max-h-full bg-blue-500">
+    <div className="flex-[1] max-h-full bg-blue-500">
       <h1 className="mt-4 text-[2rem] text-center font-[600] text-white tracking-wider">
         Inspiring Go
       </h1>
-      <div className="mt-8 flex flex-col h-full">
+      <div className="mt-8 flex flex-col">
         {data.map((item, index) => (
           <NavCardProfile key={index} Icons={item.icon} text={item.text} link={item.link} />
         ))}

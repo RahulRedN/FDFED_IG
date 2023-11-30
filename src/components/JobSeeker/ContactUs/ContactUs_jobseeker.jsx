@@ -8,6 +8,13 @@ import { motion } from "framer-motion";
 const details = ["Phone", "Email", "Address", "Physical address"];
 
 const ContactUs_jobseeker = () => {
+
+
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  }
+
   return (
     <>
       <ImageHeader src={"contactus"} />
@@ -30,7 +37,7 @@ const ContactUs_jobseeker = () => {
               <h3 className="mt-5 text2xl text-gray-500">
                 Active & Ready to use Contact Form!
               </h3>
-              <form className="mt-5 flex flex-col gap-2 w-full">
+              <form onSubmit={SubmitHandler} className="mt-5 flex flex-col gap-2 w-full">
                 <div className="flex flex-wrap gap-6 items-center">
                   <div className="flex-[1] min-w-[15vw] max-w-[20vw]">
                     <label className="font-normal text-gray-500">NAME</label>
@@ -103,9 +110,15 @@ const ContactUs_jobseeker = () => {
                   ></textarea>
                 </div>
 
-                <button className="bg-sky-500 p-4 rounded-md text-white font-[600] text-lg hover:bg-sky-600">
+                <motion.button
+                  whileTap={{ scale: 0.8 }}
+                  type="submit"
+                  animate={{ opacity: 1 }}
+                  transition={{ ease: "easeIn", duration: 0.3 }}
+                  className="bg-sky-500 p-4 rounded-md text-white font-[600] text-lg hover:bg-sky-600"
+                >
                   SEND MESSAGE
-                </button>
+                </motion.button>
               </form>
             </div>
           </motion.div>
