@@ -3,6 +3,8 @@ import { HeartHandshake, Globe2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+import Counter from "../../UI/Counter";
+
 const AboutUsTop3 = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -11,13 +13,13 @@ const AboutUsTop3 = () => {
     {
       id: 1,
       text: "People Hired",
-      count: "687+",
+      count: 687,
       icon: <Globe2 className="Globe2" />,
     },
     {
       id: 2,
       text: "Satisfied Company",
-      count: "672+",
+      count: 672,
       icon: <HeartHandshake className="Globe2" />,
     },
   ];
@@ -45,7 +47,7 @@ const AboutUsTop3 = () => {
             className="peoples"
           >
             {item.icon}
-            <h6>{item.count}</h6>
+            <h6><Counter from={0} to={item.count} duration={2}/>+</h6>
             <p>{item.text}</p>
           </motion.div>
         );

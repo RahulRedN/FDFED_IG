@@ -1,6 +1,6 @@
 const UpdateInfoProfile_Job = () => {
   return (
-    <div className="max-w-[50%] mx-auto mt-20 p-[2rem] bg-white rounded-lg shadow-2xl">
+    <div className="max-w-[60%] mx-auto mt-20 p-[2rem] bg-white rounded-lg shadow-2xl">
       <h2 className="text-2xl font-semibold mb-4">
         Change User Information here
       </h2>
