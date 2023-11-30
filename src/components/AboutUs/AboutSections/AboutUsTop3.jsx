@@ -1,30 +1,59 @@
 import "../AboutSections/Styles/AboutUsTop3.css";
-
-
-import { HeartHandshake ,Globe2} from 'lucide-react';
+import { HeartHandshake, Globe2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const AboutUsTop3 = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+  const data = [
+    {
+      id: 1,
+      text: "People Hired",
+      count: "687+",
+      icon: <Globe2 className="Globe2" />,
+    },
+    {
+      id: 2,
+      text: "Satisfied Company",
+      count: "672+",
+      icon: <HeartHandshake className="Globe2" />,
+    },
+  ];
+
   return (
     <div className="AboutUsTop3">
-
-      <div className="peoples">
-        {/* <img src={<HeartHandshake />} alt="" /> */}
-        <Globe2 className="Globe2" />
-        <h6>687+</h6>
-        <p>People Hired</p>
-      </div>
-
-      <div className="peoples">
-        <HeartHandshake  className="Globe2"/>
-        <h6>672+</h6>
-        <p>Satisfied Company</p>
-        <div/>
-      </div>
-
+      {data.map((item, index) => {
+        return (
+          <motion.div
+            key={item.id}
+            ref={ref}
+            initial={
+              index === 0 ? { x: -100, opacity: 0 } : { x: -60, opacity: 0 }
+            }
+            animate={
+              inView
+                ? { x: 0, opacity: 1 }
+                : { x: index === 0 ? -100 : -50, opacity: 0 }
+            }
+            transition={{
+              ease: "easeInOut",
+              duration: 0.9,
+              delay: index === 0 ? 0.2 : 0.5, // Change the delay values as needed
+            }}
+            className="peoples"
+          >
+            {item.icon}
+            <h6>{item.count}</h6>
+            <p>{item.text}</p>
+          </motion.div>
+        );
+      })}
 
       <div className="provides">
-          <h3>We Provide Awesome Service</h3>
-        </div>
+        <h3>We Provide Awesome Service</h3>
+      </div>
     </div>
   );
 };
