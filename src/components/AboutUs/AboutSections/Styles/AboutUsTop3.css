@@ -1,66 +1,73 @@
-/* Update this CSS and save it in your AboutUsTop3.css file */
-
 .AboutUsTop3 {
   display: flex;
-flex-direction: row;
-  justify-content:flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   gap: 30px;
-  background-color: #ffffff;
-  margin-left: 100px;
-  
-  overflow: hidden;
-  
+  background-color: #F8FBFF;
+  /* margin-left: 100px; */
   padding: 30px;
+  margin-top: -50px;
+
+  
 }
 
 .peoples {
   text-align: center;
   color: #fff;
   background-color: #2b6ee3;
-
-  border-radius: 0 30px 0 30px ;
+  border-radius: 0 30px 0 30px;
   padding: 20px;
-  width: 340px;
+  width: 450px;
   align-items: center;
- 
- 
- 
+
+
+
 }
 
-.peoples img {
-  width: 70px;
-  height: 70px;
+
+.Globe2 {
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   margin-bottom: 10px;
-  background-color: #fff;
+
   justify-items: center;
-  
+  margin-left: 38%;
 }
 
 .peoples h6 {
-  font-size: 2.9em;
+  font-size: 2.2em;
+
+  font-weight: 700;
 }
+
 .peoples p {
   font-size: 1.2em;
   margin: 5px 0;
+  font-weight: 900;
 }
 
-.provieds {
+.provides {
 
   margin-top: 20px;
-  text-align:left;
+  text-align: left;
   background-color: #2b6ee3;
-  width: 400px;
+  width: 100%;
   height: 200px;
-  margin-left:50px;
+  margin-left: 50px;
   padding: 25px;
- 
+  margin-right: -300px;
+
 }
-.provieds h3 {
-  margin-left:20px ;
-  font-size: 2.5em;
-  font-weight:400px;
+
+.provides h3 {
+
+  margin-left: 20px;
+  font-size: 2.0em;
+  font-weight: 700px;
   color: #ffffff;
+  font-weight: 800;
+  margin-top: 48px;
 
 }

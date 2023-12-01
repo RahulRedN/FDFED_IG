@@ -12,9 +12,8 @@ export default function CaptionCarousel() {
       const newIdx = (prev + 1) % arrLen;
       cardSliderRef.current.style.transform = `translate(-${newIdx * 33.3}%)`;
       return newIdx;
-    })};
-
-
+    });
+  };
 
   const handlePrev = () => {
     const arrLen = 3;
@@ -22,7 +21,8 @@ export default function CaptionCarousel() {
       const newIdx = (prev - 1 + arrLen) % arrLen;
       cardSliderRef.current.style.transform = `translate(-${newIdx * 33.3}%)`;
       return newIdx;
-    })};
+    });
+  };
 
   const cardSliderRef = useRef(null);
   //     //animations for oppcards intersection observer
@@ -60,7 +60,7 @@ export default function CaptionCarousel() {
   const data = [
     {
       title: "Student",
-      text: "Are you a student who's struggling to find a tutor or unsure about Fee. Our platform offers tutors from different fields of study, you can search for tutors based on specific preferences and contact them.",
+      text: "Are you a student who's struggling to find  tutor or unsure about Fee. Our platform offers tutors from different fields of study, you can search for tutors based on specific preferences and contact them.",
       image: "images/student_mansmile.jpg",
       buttonname: "Join now",
     },
@@ -72,13 +72,13 @@ export default function CaptionCarousel() {
     },
     {
       title: "Company Ally",
-      text: "We believe that our collaboration could be mutually beneficial for both of us. To provide you with detailed information, we encourage you to join us.We believe that transparency is key to building a successful partnership.",
+      text: "We believe that our collaboration could be mutually beneficial for both of us.To provide you with detailed information, we encourage you to join us.Transparency is key to building a successful partnership.",
       image: "images/companydealing.jpg",
       buttonname: "Become Company Ally",
     },
     {
       title: "Tutor",
-      text: "Your expertise & domain knowledge could be just what our students need to achieve their goals. We invite you to seize the opportunity to share what you know. Join us today and help students reach new heights of success.",
+      text: "Your expertise & domain knowledge could be just what our students need to achieve their goals. Come & seize the opportunity to join us today and help students reach new heights of success.",
       image: "images/tutoring.jpeg",
       buttonname: "Get oppurtunity to teach here",
     },
@@ -111,7 +111,7 @@ export default function CaptionCarousel() {
       <div className={classes.parentSlide}>
         <div ref={cardSliderRef} className={classes.opptrs4u} id="roles">
           {data.map((card, index) => (
-            <RoleCard key={card.title} card={card}/>
+            <RoleCard key={card.title} card={card} />
           ))}
         </div>
       </div>
