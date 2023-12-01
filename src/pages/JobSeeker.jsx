@@ -32,9 +32,13 @@ const JobSeeker = () => {
     };
   }, []);
 
+  if (isLink("/jobseeker/profile")) {
+    return <Outlet />;
+  }
+
   return (
     <>
-      {isLink("/jobseeker/profile") ? "" : <Navbar navClass={navClass} />}
+      <Navbar navClass={navClass} />
       <Outlet />
       <Footer_Job />
     </>

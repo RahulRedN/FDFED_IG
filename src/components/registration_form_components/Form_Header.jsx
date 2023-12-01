@@ -8,7 +8,7 @@ const Form_Header = ({tab}) => {
       <div
         className={classes.form_header + " flex gap-3 mb-4 text-xs text-center"}
       >
-        <span className={classes.stepIndicator + " flex-1 pb-8 relative " + (tab==0?classes.active:" ") + (tab>0 ? classes.finish : " ")}>
+        <span className={classes.stepIndicator + " flex-1 pb-8 relative " + (tab==0?classes.active:"") + (tab>0 ? classes.finish : " ")}>
           Contact Information
         </span>
         <span className={classes.stepIndicator + " flex-1 pb-8 relative " + (tab==1?classes.active:"") + (tab>1 ? classes.finish : " ")}>

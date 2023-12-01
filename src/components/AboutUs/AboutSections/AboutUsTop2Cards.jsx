@@ -28,14 +28,16 @@ const AboutUsTop2Cards = () => {
   return (
     <div className="AboutUsTop2Cards">
       {dummyData.map((data, index) => (
+
         <motion.div
-          ref={ref}
-          initial={{ x: 100, opacity: 0 }}
-          animate={inView ? { x: 0, opacity: 1 } : "hidden"}
-          transition={{ ease: "easeInOut", delay: index * 0.1 , duration: 0.3}}
-          className="AboutUsTop2Card"
-          key={index}
-        >
+        ref={ref}
+        initial={{ x: 100, y: 0, scale: 0.8, opacity: 0 }}
+        animate={inView ? { x: 0, y: 0, scale: 1, opacity: 1 } : "hidden"}
+        // transition={{ ease: "easeInOut", delay: index * 0.3, duration: 0.5}}
+        transition={{ ease: "easeInOut", duration: 0.5}}
+        className="AboutUsTop2Card"
+        key={index}
+      >
           <h3>{data.title}</h3>
           <p>{data.content}</p>
         </motion.div>

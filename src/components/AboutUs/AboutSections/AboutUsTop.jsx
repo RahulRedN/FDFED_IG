@@ -1,15 +1,33 @@
 import "../AboutSections/Styles/AboutUsTop.css";
 import TopImage from "../AboutSections/Resources/TopImage.jpg";
-// import { background } from "@chakra-ui/react";
-// import { color } from "framer-motion";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const AboutUsTop = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   return (
     <div className="AboutUsTop">
-      <div>
+      {/* <motion.div
+        ref={ref}
+        initial={{ x: -100, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : "hidden"}
+        transition={{ ease: "easeInOut", duration: 0.8 }}
+        className=""
+        // key={index}
+      > */}
         <img src={TopImage} alt="" />
-      </div>
-      <div className="extra-bg-div"></div>
+      {/* </motion.div> */}
+
+      <motion.div
+        ref={ref}
+        initial={{ x: -100, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : "hidden"}
+        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.0}} // Add delay of 0.3 seconds
+        className="extra-bg-div"
+        // key={index}
+      ></motion.div>
 
       <div className="AboutUsTopContent">
         <h3>Welcome To InspiringGo</h3>
