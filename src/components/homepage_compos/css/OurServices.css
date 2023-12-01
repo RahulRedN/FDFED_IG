@@ -1,0 +1,54 @@
+#our_services {
+  align-self: center;
+  width: 70%;
+  position: relative;
+}
+
+.our_services_child {
+  margin: 30px 0px;
+  padding: 20px;
+  height: 60vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background: #6b9cd8;
+
+}
+
+.dn {
+  display: none;
+}
+.os_svgs {
+  width: 26vw;
+  object-fit: cover;
+  min-width: 100px;
+}
+.os_tagline {
+  margin-top: 5%;
+  width: 50%;
+}
+
+.os_tagline h2 {
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+.os_tagline p {
+  margin-top: 2rem;
+  padding-left: 3%;
+  text-align: justify;
+  font-size: 25px;
+}
+
+.middle_heads_dark {
+  color: #48466d;
+  text-decoration: none;
+  text-align: center;
+  font-size: 3rem;
+  padding: 3px;
+}
+
+h2.middle_heads_dark {
+  margin: 0.5rem 0px;
+}
