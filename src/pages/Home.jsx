@@ -1,9 +1,9 @@
 // import Slideshow from "../components/homepage_compos/Slideshow"
 // import Navbar_home from "../components/homepage_compos/Navbar_home"
-import Chakra_temp from "../components/homepage_compos/ImageSlider_Chakra"
+import Slider from "../components/homepage_compos/ImageSlider_Chakra"
 import Roles from "../components/homepage_compos/Roles"
 import Testimonials from "../components/homepage_compos/Testimonials"
-import Footer from "../components/homepage_compos/Footer"
+import Footer_Job from "../components/homepage_compos/Footer_Job"
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,10 +11,10 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
   return (
     <>
-      <Chakra_temp/>
+      <Slider/>
       <Roles/>
       <Testimonials/>
-      <Footer/>
+      <Footer_Job/>
     </>
   )
 }

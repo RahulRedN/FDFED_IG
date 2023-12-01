@@ -2,8 +2,7 @@ import React from "react";
 import classes from "./homepageStyles.module.css";
 function RoleCard({ card }) {
   return (
-    <>
-      <div className={classes.oppcard}>
+    <div className={classes.oppcard+" "}>
         <img className={classes.oppcardimg} src={card.image} alt={card.title} />
         <h2 className={classes.cardcatg}>{card.title}</h2>
         <p>{card.text}</p>
@@ -11,7 +10,6 @@ function RoleCard({ card }) {
           {card.buttonname}
         </a>
       </div>
-    </>
   );
 }
 
