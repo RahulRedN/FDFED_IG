@@ -46,9 +46,10 @@ const FindJobCard = () => {
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.6)",
+      zIndex: 1000,
     },
     content: {
-      top: `${window.scrollY + 500}px`,
+      top: `${window.scrollY + 390}px`,
       left: "50%",
       right: "auto",
       bottom: "auto",
@@ -65,6 +66,7 @@ const FindJobCard = () => {
       boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for the modal
       scrollbarWidth: "thin", // For Firefox
       scrollbarColor: "#4a4a4a #e5e5e5", // For Firefox
+      zIndex: 1001,
     },
   };
 

@@ -5,7 +5,7 @@ import JobFeed from "./JobFeed";
 const Profilebrowse = () => {
   return (
     <div className="flex-[4] max-h-screen overflow-y-auto scrollbar-none">
-      <JobFeed />
+      <JobFeed status={"Pending"}/>
       <UpdateInfoProfile_Job />
     </div>
   );
