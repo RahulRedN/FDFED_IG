@@ -11,7 +11,7 @@ const Filters = () => {
     const [showTooltip, setShowTooltip] = useState(false)
 
     return (
-        <div className="w-[20vw] h-[70vh] p-3 top-[15%] sticky flex-[2] shadow-xl border border-gray-100 bg-white">
+        <div className="w-[20vw] h-[70vh] p-3 top-[15%] sticky flex-[3] shadow-xl border border-gray-100 bg-white">
 
 
             <div className="mt-5 flex justify-center items-center gap-1">

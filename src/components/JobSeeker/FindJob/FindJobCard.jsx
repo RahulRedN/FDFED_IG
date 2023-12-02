@@ -18,6 +18,7 @@ import { CgProfile } from "react-icons/cg";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import RoleCard from "./RoleCard";
 
 const roles = ["Role", "React", "CSS", "Java"];
 const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
@@ -174,12 +175,8 @@ const FindJobCard = () => {
             )}
 
             {roles.map((role, index) => (
-              <p
-                key={index}
-                className="text-sm p-1 bg-gray-200 text-gray-500 rounded"
-              >
-                {role}
-              </p>
+              // eslint-disable-next-line react/jsx-key
+              <RoleCard key={index} role={role} />
             ))}
           </div>
 
@@ -216,21 +213,13 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
       contentLabel="Example Modal"
     >
       <h1 className="font-bold text-4xl text-center">Company Name</h1>
-      <div className="mt-5 p-3 border w-full rounded shadow">
-        <h1 className="tracking-wide text-xl font-[600]">About the Company</h1>
-        <p className="mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          bibendum laoreet vulputate. Pellentesque sed libero a dui imperdiet
-          imperdiet. Suspendisse potenti. Vestibulum dignissim sapien mi. Sed
-          ultrices bibendum augue. Nunc luctus sit amet felis a egestas. Nunc
-          imperdiet elit ex, ut rhoncus metus elementum vitae. Phasellus aliquam
-          fringilla orci non tristique. Maecenas quis dolor eget leo accumsan
-          ultricies. Aenean quis bibendum diam. Fusce facilisis quam et ipsum
-          vulputate bibendum. Curabitur arcu nunc, sodales ut varius eget,
-          efficitur vel ligula. Sed placerat augue vitae purus ultrices
-          efficitur.
-        </p>
-      </div>
+
+      <h1 className="mt-5 text-lg font-[600]">Job Description</h1>
+      <p className="mt-2 text-[500] text-gray-500">
+        Vestibulum dignissim sapien mi. Sed ultrices bibendum augue. Nunc luctus
+        sit amet felis a egestas. Nunc imperdiet elit ex, ut rhoncus metus
+        elementum vitae. Phasellus aliquam fringilla orci non tristique.
+      </p>
 
       <div className="w-fit mt-6 p-4 border flex flex-col gap-3 rounded shadow">
         <h1 className="font-[600]">Activity on InspiringGo</h1>
@@ -249,15 +238,9 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
           </div>
         </div>
       </div>
-      <h1 className="mt-5 text-lg font-[600]">About the job</h1>
-      <p className="mt-2 text-[500]">
-        Vestibulum dignissim sapien mi. Sed ultrices bibendum augue. Nunc luctus
-        sit amet felis a egestas. Nunc imperdiet elit ex, ut rhoncus metus
-        elementum vitae. Phasellus aliquam fringilla orci non tristique.
-      </p>
-
-      <h3 className="mt-4 font-[600]">Responsibilities:</h3>
-      <ul className="ml-5" style={{ listStyleType: "disc" }}>
+      
+      <h3 className="mt-4 font-[600]">Responsibility</h3>
+      <ul className="ml-5 text-gray-500" style={{ listStyleType: "disc" }}>
         <br></br>
         <li>
           Vestibulum dignissim sapien mi. Sed ultrices bibendum augue.
@@ -276,22 +259,15 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         </li>
       </ul>
 
-      <h1 className="mt-8 text-lg font-[600]">Skills Required</h1>
+      <h1 className="mt-8 text-lg font-[600]">Qualifications</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
         {roles.map((role, index) => (
-          <p
-            key={index}
-            className="text-sm p-1 bg-gray-200 text-gray-500 rounded"
-          >
-            {role}
-          </p>
+          // eslint-disable-next-line react/jsx-key
+          <RoleCard key={index} role={role} />
         ))}
       </div>
 
-      <h1 className="mt-8 text-lg font-[600]">Salary</h1>
-      <h3 className="mt-2 text-md font-[400] tracking-wide">
-        Annual CTC: 500000/year
-      </h3>
+      
 
       <h1 className="mt-8 text-lg font-[600]">Benefits</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
@@ -305,12 +281,20 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         ))}
       </div>
 
-      <h1 className="mt-5 text-lg font-[600]">Number of available slots</h1>
-      <h3 className="mt-2 text-md font-[400] tracking-wide">10</h3>
-
+      <h1 className="mt-8 text-lg font-[600]">Job Summary</h1>
+      <ul className="ml-5 text-gray-500" style={{ listStyleType: "disc" }}>
+        <br></br>
+        <li>Posted on:</li>
+        <li>Vacancy :</li>
+        <li>Salary :</li>
+        <li>Location :</li>
+        <li>
+          Job Nature :
+        </li>
+      </ul>
       <button
         onClick={() => {}}
-        className="mt-5 text-center m-auto bg-blue-600 hover:bg-blue-700 text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline
+        className="mt-8 text-center m-auto bg-blue-600 hover:bg-blue-700 text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline
       "
       >
         Apply now

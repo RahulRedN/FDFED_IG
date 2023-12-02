@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Box } from "@chakra-ui/react";
 import Slider from "react-slick";
 
@@ -31,6 +29,7 @@ const TopJobs = () => {
           padding={"0rem 1rem"}
           width={"100vw"}
           height={"fit-content"}
+          flexDirection={"row"}
         >
           <Slider {...settings}>
             <TopJobCard />

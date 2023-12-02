@@ -46,7 +46,7 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="testimonial-container bg-gray-100">
+    <div className="testimonial-container">
 
       <div className="testimonial-top">
         <h1> What They Say ?</h1>

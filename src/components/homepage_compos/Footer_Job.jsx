@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Github, Twitter } from "lucide-react";
-import styles from "./Footer_Job.module.css";
+import styles from "./css/Footer_Job.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 
 const Footer_Job = () => {

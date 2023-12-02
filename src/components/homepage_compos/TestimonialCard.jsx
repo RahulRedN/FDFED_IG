@@ -1,17 +1,29 @@
 // TestimonialCard.js
 
 import { useState, useEffect } from "react";
-import "../AboutUs/Testimonial/Styles/Testimonialstyles.css"
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import "../AboutUs/Testimonial/Styles/Testimonialstyles.css";
+
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const TestCard = ({ heading, quote, imageSrc, altText, name }) => {
+  const [ref, inView] = useInView();
   return (
-    <div className="testimonial-card visible">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={
+        inView
+          ? { opacity: 1, transition: { ease: "easeInOut", duration: 0.6 } }
+          : "hidden"
+      }
+      className="testimonial-card visible"
+    >
       <img src={heading} className="testimonial-card-heading-img" />
       <p className="testimonial-card-quote">{quote}</p>
       <img className="testimonial-card-image" src={imageSrc} alt={altText} />
       <p className="testimonial-card-name">{name}</p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -21,7 +33,7 @@ const TestimonialCard = ({ testimonials }) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       handleNext(); // Auto transition to the next testimonial
-    }, 5000); // Adjust the interval as needed (e.g., 5000 milliseconds = 5 seconds)
+    },5000); // Adjust the interval as needed (e.g., 5000 milliseconds = 5 seconds)
 
     return () => clearInterval(intervalId);
   }, [testimonials, currentIndex]);
@@ -55,9 +67,6 @@ const TestimonialCard = ({ testimonials }) => {
 };
 
 export default TestimonialCard;
-
-
-
 
 // import React from "react";
 // import classes from "./homepageStyles.module.css";

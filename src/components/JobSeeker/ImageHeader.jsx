@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import contactUs from "../../Resources/Contact_us.jpg";
 import FindJob from "../../Resources/Finding_Jobs.jpg";
+import Aboutus from "../../Resources/aboutus_top.jpg"
 import { ChevronRight } from "lucide-react";
 
 import classes from "./ImageHeader.module.css";
@@ -15,8 +16,8 @@ const ImageHeader = ({ src }) => {
   } else if (src === "FindJobs") {
     img = FindJob;
     content = "Find Jobs";
-  } else if (src === "About Us") {
-    img = FindJob;
+  } else if (src === "aboutus") {
+    img = Aboutus;
     content = "About us";
   }
 
