@@ -5,7 +5,10 @@ import Form_Header from "./Form_Header";
 import NextPrevButton from "./NextPrevButton";
 import countryList from "./countryList";
 
-const Reg_Form = () => {
+import { motion } from "framer-motion";
+
+const Reg_Form = ({ className }) => {
+  const [backAnimate, setBackAnimate] = useState(true);
   var index = 0;
   const countryMap = countryList.map((country, index) => {
     index = index + 1;
@@ -40,6 +43,7 @@ const Reg_Form = () => {
   const nextTab = (event) => {
     event.preventDefault();
     if (tab < steps.length - 1) {
+      setBackAnimate(true);
       setTab(tab + 1);
     }
   };
@@ -47,6 +51,7 @@ const Reg_Form = () => {
   const prevTab = (event) => {
     event.preventDefault();
     if (tab > 0) {
+      setBackAnimate(false);
       setTab(tab - 1);
     }
   };
@@ -61,11 +66,17 @@ const Reg_Form = () => {
 
   const handleSubmit = () => {
     console.log(Data);
-  }
+  };
 
   const steps = [
     // Step One
-    <div className={classes.step} key={0}>
+    <motion.div
+      initial={{ opacity: 0.3, x: backAnimate ? 200 : -200 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      className={classes.step}
+      key={0}
+    >
       <p className="text-md text-gray-900 leading-tight text-center mb-5">
         Create your account
       </p>
@@ -115,10 +126,16 @@ const Reg_Form = () => {
           className="w-full px-4 py-3 rounded-md text-gray-700 font-medium border-solid border-2 border-gray-200"
         />
       </div>
-    </div>,
+    </motion.div>,
 
     //   Step Two
-    <div className={classes.step} key={1}>
+    <motion.div
+      initial={{ opacity: 0.3, x: backAnimate ? 200 : -200 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      className={classes.step}
+      key={1}
+    >
       <div className="mb-6">
         <label>DOB</label>
         <input
@@ -182,10 +199,16 @@ const Reg_Form = () => {
           <option value="widowed">Widowed</option>
         </select>
       </div>
-    </div>,
+    </motion.div>,
 
     //   Step Three
-    <div className={classes.step} key={2}>
+    <motion.div
+      initial={{ opacity: 0.3, x: backAnimate ? 200 : -200 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      className={classes.step}
+      key={2}
+    >
       <p className="text-md text-black-700 leading-tight text-center  mb-5">
         Highest Qualification
       </p>
@@ -260,10 +283,16 @@ const Reg_Form = () => {
           className="w-full px-4 py-3 rounded-md text-gray-700 font-medium border-solid border-2 border-gray-200"
         />
       </div>
-    </div>,
+    </motion.div>,
 
     // Step Four
-    <div className={classes.step} key={3}>
+    <motion.div
+      initial={{ opacity: 0.3, x: backAnimate ? 200 : -200 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      className={classes.step}
+      key={3}
+    >
       <div className="mb-6">
         <input
           type="text"
@@ -302,33 +331,35 @@ const Reg_Form = () => {
           className="w-full text-lg px-4 py-3 rounded-md text-gray-700 font-medium border-solid border-2 border-gray-200"
         />
       </div>
-    </div>,
+    </motion.div>,
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <form
-      onSubmit={()=> { console.log(Data) }}
-        className={
-          classes.signUpForm +
-          " " +
-          classes.form +
-          " p-12 shadow-md rounded-2xl bg-white mx-auto border-solid  border-2 border-gray-100 mb-8"
-        }
-        action="#"
-      >
-        <Form_Header tab={tab} />
-        {steps[tab]}
-        <NextPrevButton
-          count={tab}
-          len={steps.length}
-          handleNext={nextTab}
-          handlePrev={prevTab}
-          isLast={isLastStep}
-          handleSubmit={handleSubmit}
-        />
-      </form>
-    </div>
+    <form
+      onSubmit={() => {
+        console.log(Data);
+      }}
+      className={
+        className +
+        " " +
+        classes.signUpForm +
+        " " +
+        classes.form +
+        " p-12 shadow-md rounded-2xl bg-white mx-auto border-solid  border-2 border-gray-100 mb-8"
+      }
+      action="#"
+    >
+      <Form_Header tab={tab} />
+      {steps[tab]}
+      <NextPrevButton
+        count={tab}
+        len={steps.length}
+        handleNext={nextTab}
+        handlePrev={prevTab}
+        isLast={isLastStep}
+        handleSubmit={handleSubmit}
+      />
+    </form>
   );
 };
 

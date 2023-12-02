@@ -1,8 +1,20 @@
 import ProfileNavbar from "./ProfileNavbar";
-
 import classes from "./JobFeed.module.css";
+import { BsBoxArrowUpRight } from "react-icons/bs";
 
-const JobFeed = () => {
+import "./ReactPaginate.css";
+
+const JobFeed = ({ status }) => {
+  const color = (status) => {
+    if (status === "Rejected") {
+      return "bg-red-200 text-red-600 ";
+    } else if (status === "Accepted") {
+      return "bg-green-200 text-green-600";
+    } else {
+      return "bg-yellow-100 text-yellow-500";
+    }
+  };
+
   return (
     <div className="max-h-full" id="jobFeed">
       <ProfileNavbar />
@@ -22,29 +34,22 @@ const JobFeed = () => {
             <tbody>
               <tr className="border-b-2 border-gray-100">
                 <td>Google</td>
-                <td>Position</td>
-                <td>14 Oct'23</td>
-                <td>3124</td>
-                <td>
-                  <span>Accepted</span>
+                <td className="flex items-center justify-between gap-2">
+                  <h1>Position</h1>
+                  <span>
+                    <BsBoxArrowUpRight
+                      size={13}
+                      className="text-blue-500"
+                      strokeWidth={0.6}
+                    />
+                  </span>
                 </td>
-              </tr>
-              <tr className="border-b-2 border-gray-100">
-                <td>Google</td>
-                <td>Position</td>
                 <td>14 Oct'23</td>
                 <td>3124</td>
                 <td>
-                  <span>Accepted</span>
-                </td>
-              </tr>
-              <tr className="border-b-2 border-gray-100">
-                <td>Google</td>
-                <td>Position</td>
-                <td>14 Oct'23</td>
-                <td>3124</td>
-                <td>
-                  <span>Accepted</span>
+                  <span className={`p-2 rounded-2xl ` + color(status)}>
+                    {status}
+                  </span>
                 </td>
               </tr>
             </tbody>

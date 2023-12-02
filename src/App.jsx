@@ -1,4 +1,3 @@
-
 import { ChakraProvider } from "@chakra-ui/react";
 
 import {
@@ -13,10 +12,12 @@ import { AuthContexts } from "./Firebase/AuthContexts";
 
 // import Login from "./pages/Login";
 import Home from "./pages/Home";
+import HomePage from "./components/homepage_compos/HomePage";
+import ContactUs_Home from "./components/homepage_compos/ContactUs_Home/ContactUs_Home";
 
 import JobSeeker from "./pages/JobSeeker";
-import JLanding from "./components/JobSeeker/Home/JobLanding";
 import ContactUs from "./components/JobSeeker/ContactUs/ContactUs_jobseeker";
+import JLanding from "./components/JobSeeker/Home/JobLanding";
 
 import Company from "./pages/Company";
 import AboutUs from "./pages/Aboutus";
@@ -32,16 +33,18 @@ const Root = () => {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-
-      <Route index element={<Home />} />
+      <Route path="/" element={<Home />}>
+        <Route index element={<HomePage />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/contactus" element={<ContactUs_Home />} />
+      </Route>
       <Route path="/login" element={<Login_SignUp />} />
-      <Route path="/aboutus" element={<AboutUs />} />
-      <Route path="/faqs" element={<Faqs />} />
-      
+
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
-        <Route path="findjobs" element={<FindJobs />} /> k
-        <Route path="contactus" element={<ContactUs/>} />
+        <Route path="findjobs" element={<FindJobs />} />
+        <Route path="contactus" element={<ContactUs />} />
         <Route path="profile" element={<Profile_Job />} />
       </Route>
 

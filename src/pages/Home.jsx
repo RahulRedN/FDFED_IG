@@ -1,23 +1,38 @@
-// import Slideshow from "../components/homepage_compos/Slideshow"
-// import Navbar_home from "../components/homepage_compos/Navbar_home"
-import Chakra_temp from "../components/homepage_compos/ImageSlider_Chakra"
-import Roles from "../components/homepage_compos/Roles"
-import Testimonials from "../components/homepage_compos/Testimonials"
-import Footer from "../components/homepage_compos/Footer"
+import { useState, useEffect } from "react";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import classes from "../components/homepage_compos/css/Navbar_Home_Styles.module.css"
+
+import Footer_Job from "../components/homepage_compos/Footer_Job";
+
+import { Outlet, useLocation } from "react-router-dom";
+
+import Navbar from "../components/homepage_compos/Navbar_Home.jsx"
 
 const Home = () => {
+  const { pathname } = useLocation();
+
+  const isLink = (path) => {
+    return path === pathname;
+  };
+
+  const [navClass, setNavClass] = useState(classes.navbar);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.scrollY > 400) {
+        setNavClass(`${classes.navbar} ${classes.sticky}`);
+      } else {
+        setNavClass(classes.navbar);
+      }
+    };
+  }, []);
   return (
     <>
-      {/*<Navbar_home/>*/}
-      <Chakra_temp/>
-      <Roles/>
-      <Testimonials/>
-      <Footer/>
+      <Navbar navClass={navClass+" "+(isLink('/')?classes.home:"")}/>
+        <Outlet/>
+      <Footer_Job />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
