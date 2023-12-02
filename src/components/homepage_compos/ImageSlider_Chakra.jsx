@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classes from  "../JobSeeker/ImageHeader.module.css";
 import {
   Box,
   IconButton,
@@ -20,7 +21,7 @@ const settings = {
   infinite: true,
   autoplay: true,
   speed: 1500,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 4000,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
@@ -40,28 +41,44 @@ export default function CaptionCarousel() {
   const cards = [
     {
       title: "1",
-      text: "",
+      header:  <h1 className="text-[1.8rem] font-[700] tracking-wider">
+        Leading Tech Companies, including Google and Amazon, <br/>Announce Massive Hiring Initiatives in 2023.</h1>,
+      tagline :"- Tech giants are gearing up for expansion, creating numerous job opportunities for skilled professionals.",
       image: "images/trust_hands_promise.jpg",
+      top :"-37%",
+      right:0
     },
     {
       title: "2",
-      text: "",
+      header: <h1 className="text-[1.8rem] font-[700] tracking-wider">Remote Work Here to Stay:<br/> Survey Reveals 80% of Companies Embrace Flexible Work Models.</h1>,
+      tagline :"- The shift towards remote work continues, impacting job seekers' preferences and companies' hiring strategies.",
       image: "images/team_sitting_on_steps_dicussing.jpg",
+      top :"-37%",
+      right:0
     },
     {
       title: "3",
-      text: "",
+      header: <h1 className="text-[1.8rem] font-[700] tracking-wider">Startups Flourish in 2023:<br/>Emerges as a Hub for Innovation and New Job Opportunities.</h1>,
+      tagline :"- The startup scene is thriving, with emerging companies attracting both talent and investors.",
       image: "images/team_consultancy.jpg",
+      top :"-37%",
+      right:0
     },
     {
       title: "4",
-      text: "",
+      header: <h1 className="text-[1.8rem] font-[700] tracking-wider">Companies Prioritize Diversity:<br/>Zoho Sets New Standards in Inclusive Hiring Practices</h1>,
+      tagline :"- Diversity and inclusion take center stage as companies recognize the importance of a varied and equitable workforce.",
       image: "images/woman_with_laptop.jpg",
+      top :"-37%",
+      right:0
     },
     {
       title: "5",
-      text: "",
+      header: <h1 className="text-[1.8rem] font-[700] tracking-wider">Tech Companies Revolutionize Hiring:<br/>Media.net Introduces Gamified Interview Process</h1>,
+      tagline :"- Companies are adopting creative and innovative recruitment methods to attract top talent.",
       image: "images/group_discussing.jpg",
+      top :"-37%",
+      right:0
     },
   ];
 
@@ -117,9 +134,18 @@ export default function CaptionCarousel() {
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
           >
-            {/* This is the block you need to change, to customize the caption */}
             <div>
-              <img src={card.image}></img>
+              <div className="w-full">
+                <div className="bg-[#092a49] w-full h-full">
+                  <img src={card.image} alt="Contact Us" className={classes.image} />
+                  <div className={ "absolute top-[-50%] inset-0 flex flex-col gap-8 text-white items-center justify-center"}>
+                      {card.header}
+                    <div className="flex items-center gap-3 text-[1.3rem]">
+                      {card.tagline}
+                    </div>
+                  </div>
+                </div>
+              </div>
               {/* <p style={{ position: "absolute", top: "20%", fontSize: "3rem" }}>
                 Hello Trending topics here for you
               </p> */}
@@ -129,22 +155,4 @@ export default function CaptionCarousel() {
       </Slider>
     </Box>
   );
-  {
-    /* <Container size="container.lg" height="85vh" position="relative">
-    <Stack
-      spacing={6}
-      w={'full'}
-      maxW={'lg'}
-      position="absolute"
-      top="50%"
-      transform="translate(0, -50%)">
-      <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-        {card.title}
-      </Heading>
-      <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-        {card.text}
-      </Text>
-    </Stack>
-  </Container> */
-  }
 }
