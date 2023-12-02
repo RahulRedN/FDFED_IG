@@ -6,8 +6,6 @@ import Footer_Job from "../components/homepage_compos/Footer_Job";
 
 import { Outlet, useLocation } from "react-router-dom";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Navbar from "../components/homepage_compos/Navbar_Home.jsx"
 
 const Home = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./homepageStyles.module.css";
+import classes from "./css/homepageStyles.module.css";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
