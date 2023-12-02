@@ -32,6 +32,7 @@ const Root = () => {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
+
       <Route index element={<Home />} />
       <Route path="/login" element={<Login_SignUp />} />
       <Route path="/aboutus" element={<AboutUs />} />
@@ -39,7 +40,7 @@ const Router = createBrowserRouter(
       
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
-        <Route path="findjobs" element={<FindJobs />} />
+        <Route path="findjobs" element={<FindJobs />} /> k
         <Route path="contactus" element={<ContactUs/>} />
         <Route path="profile" element={<Profile_Job />} />
       </Route>

@@ -30,10 +30,16 @@
     width: 40vw;
 }
 
+.search input::placeholder{
+    color: gray;
+}
+
+
 .content{
     display: flex;
     align-items: center;
     gap: 1rem;
+    color: black;
 }
 
 .content svg{

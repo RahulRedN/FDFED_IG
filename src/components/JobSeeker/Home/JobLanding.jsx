@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./JobSeeker.module.css";
 import TopJobs from "./TopJobs";
 import TopCategories from "./TopCategories";

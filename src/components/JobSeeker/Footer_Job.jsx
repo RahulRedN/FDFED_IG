@@ -11,8 +11,9 @@ const Footer_Job = () => {
 
   return (
     <div className={`${isLink("/jobseeker/findjobs") ?"bg-white": "bg-gray-100"} w-full`}>
-      <div className="flex w-[80vw] mx-auto p-5">
-        <div className="flex-[4] flex flex-col justify-between">
+      <div className="flex w-[80vw] mx-auto flex-wrap p-5">
+
+        <div className="flex-[4] flex flex-col w-fit justify-between">
           <div className="flex flex-col gap-6">
             <h1 className="text-3xl text-gray-900 font-[600]">Inspiring Go</h1>
             <p className="max-w-[25vw] leading-8 text-gray-500">
