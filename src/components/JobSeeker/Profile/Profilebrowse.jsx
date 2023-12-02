@@ -1,11 +1,16 @@
-import ProfileNavbar from "./ProfileNavbar";
+/* eslint-disable react/prop-types */
 import UpdateInfoProfile_Job from "./UpdateInfoProfile_Job";
 import JobFeed from "./JobFeed";
+import SavedJobs from "./SavedJobs";
 
-const Profilebrowse = () => {
+const Profilebrowse = ({ref}) => {
+  
   return (
-    <div className="flex-[4] max-h-screen overflow-y-auto scrollbar-none">
-      <JobFeed status={"Pending"}/>
+    <div
+    ref={ref}
+     className="flex-[4] max-h-screen overflow-y-auto scrollbar-none">
+      <JobFeed />
+      <SavedJobs />
       <UpdateInfoProfile_Job />
     </div>
   );

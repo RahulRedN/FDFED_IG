@@ -7,7 +7,7 @@ const ProfileNavbar = ({ notification, mail }) => {
   return (
     <nav className={classes.container}>
       <div className={classes.search}>
-        <input type="text" placeholder="search anything" />
+        <input type="text" placeholder="Search anything.." />
         <FaSearch />
       </div>
       <div className={classes.content}>
