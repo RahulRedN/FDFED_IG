@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import classes from "../homepage_compos/homepageStyles.module.css";
+import classes from "../homepage_compos/css/homepageStyles.module.css";
 import RoleCard from "./RoleCard";
 
 export default function CaptionCarousel() {

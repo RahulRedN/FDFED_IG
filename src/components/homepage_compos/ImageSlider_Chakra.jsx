@@ -17,7 +17,7 @@ import Slider from "react-slick";
 const settings = {
   dots: true,
   arrows: true,
-  fade: false,
+  fade: true,
   infinite: true,
   autoplay: true,
   speed: 1500,
@@ -93,7 +93,6 @@ export default function CaptionCarousel() {
       height={"85vh"}
       overflow={"hidden"}
       backgroundPosition={"center"}
-      backgroundColor={" antiquewhite"}
       border={"0px solid black"}
       borderRadius={"0 0 10px 10px"}
     >
@@ -136,7 +135,7 @@ export default function CaptionCarousel() {
           >
             <div>
               <div className="w-full">
-                <div className="bg-[#092a49] w-full h-full">
+                <div className="bg-[#000000] w-full h-full">
                   <img src={card.image} alt="Contact Us" className={classes.image} />
                   <div className={ "absolute top-[-50%] inset-0 flex flex-col gap-8 text-white items-center justify-center"}>
                       {card.header}

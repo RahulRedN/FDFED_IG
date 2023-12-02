@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./homepageStyles.module.css";
+import classes from "./css/homepageStyles.module.css";
 function RoleCard({ card }) {
   return (
     <div className={classes.oppcard + " pb-6"}>
