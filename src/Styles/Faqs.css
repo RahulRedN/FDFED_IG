@@ -16,12 +16,14 @@
 
 .box{
   
-   width: 90%;
+   width: 70%;
    font-size: 20px;
-   margin: auto;
+   margin:200px  200px 200px  200px;
    height: fit-content;
    background:#0c1414;
-   border-radius: 7px;
+   /* background:#fdfdfd; */
+
+   border-radius: 30px;
    box-shadow: 1px 2px 4px rgba(0,0,0,.3);
    padding: 75px;
 }
