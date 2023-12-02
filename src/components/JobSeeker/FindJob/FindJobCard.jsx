@@ -49,7 +49,7 @@ const FindJobCard = () => {
       zIndex: 1000,
     },
     content: {
-      top: `${window.scrollY + 390}px`,
+      top: `${window.scrollY+170}px`,
       left: "50%",
       right: "auto",
       bottom: "auto",
