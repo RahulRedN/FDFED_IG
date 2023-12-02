@@ -2,15 +2,19 @@ import "./css/OurServices.css";
 
 import Slider from "react-slick";
 
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+
 const OurServices = () => {
   const settings = {
     focusOnSelect: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 2000,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <ChevronRightIcon color="black" strokeWidth={4} />,
+    prevArrow: <ChevronLeftIcon color="black" strokeWidth={4} />,
   };
 
   const content = [
@@ -34,7 +38,7 @@ const OurServices = () => {
     },
   ];
   return (
-    <section className="flex flex-col justify-center relative">
+    <section className="flex flex-col justify-center bg-gray-50 min-h-[95vh]">
       <h2 className="middle_heads_dark">Our Services</h2>
       <div id="our_services">
         <Slider {...settings} className="our_services_container">
@@ -53,7 +57,6 @@ const OurServices = () => {
           ))}
         </Slider>
       </div>
-      <div className="absolute left-0 right-0 bottom-0 h-[50%] bg-gray-100 z-[-1]"></div>
     </section>
   );
 };

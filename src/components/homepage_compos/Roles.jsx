@@ -29,25 +29,13 @@ export default function CaptionCarousel() {
   ];
 
   return (
-    <section className={"p-6 pt-10"}>
+    <section className={"min-h-[90vh] bg-gray-50"}>
       <h2 className={classes.middle_heads_dark} id="roles">
         Roles For You
       </h2>
-      <div className={classes.centerpara}>
-        <p>
-          <span style={{ fontWeight: 600 }}>{companyName}</span> is an
-          innovative web-based company that is dedicated to connecting students
-          with qualified tutors and job seekers with fulfilling careers. With a
-          mission to make education and career advancement accessible to
-          everyone, <span style={{ fontWeight: 600 }}>{companyName}</span> has
-          created a platform that simplifies the process of finding tutors and
-          jobs. By providing quality tutors and job opportunities, they empower
-          individuals to achieve their goals and improve their lives
-        </p>
-      </div>
       <div ref={cardSliderRef} className={classes.opptrs4u} id="roles">
         {data.map((card, index) => (
-          <RoleCard key={card.title} card={card} />
+          <RoleCard key={card.title} card={card} delay={0.1*index}/>
         ))}
       </div>
     </section>

@@ -33,7 +33,7 @@ body {
   background-color: white;
   border-radius: 3px;
   position: relative;
-  height: 75vh;
+  height: fit-content;
   min-width: 31%;
   max-width: 36%;
   margin: 0.9rem;
@@ -46,16 +46,45 @@ body {
   box-shadow: -10px 10px 76px rgba(54, 127, 255, 0.12);
 }
 .oppcardimg {
+  width: 100%;
   object-fit: cover;
   vertical-align: middle;
-  height: 50%;
-}
-.oppcard p {
-  padding: 0.8rem;
-  font-size: 1rem;
-  height: auto;
+  height: 40vh;
 }
 
+@keyframes fadeIn {
+  from {
+    transform: translateY(50%);
+    height: 50%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.overlay {
+  display: none;
+}
+
+.container:hover .overlay {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.container:hover p{
+  display: block;
+}
+
+.oppcard p {
+  display: none;
+  position: absolute;
+  bottom: 10%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  height: auto;
+  color: white;
+  z-index: 3;
+}
 .oppcard hr {
   align-self: center;
   width: 89%;
@@ -81,9 +110,9 @@ body {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.oppcard:hover .oppcardbtn {
+.oppcardbtn:hover {
   color: #2b72ee;
-  font-size: 1.1rem;
+  scale: 1.07;
 }
 
 .middle_heads_dark {

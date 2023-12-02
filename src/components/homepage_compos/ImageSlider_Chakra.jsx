@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import {
   Box,
-  IconButton,
   useBreakpointValue,
-  Stack,
-  Heading,
-  Text,
-  Container,
 } from "@chakra-ui/react";
 
-import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
 
 // Settings for the slider
@@ -26,15 +20,6 @@ const settings = {
 };
 
 export default function CaptionCarousel() {
-  // As we have used custom buttons, we need a reference variable to
-  // change the state
-  const [slider, setSlider] = useState(null);
-
-  // These are the breakpoints which changes the position of the
-  // buttons as the screen size changes
-  const top = useBreakpointValue({ base: "90%", md: "50%" });
-  const side = useBreakpointValue({ base: "30%", md: "40px" });
-
   // This list contains all the data for carousels
   // This can be static or loaded from a server
   const cards = [
@@ -80,34 +65,8 @@ export default function CaptionCarousel() {
       border={"0px solid black"}
       borderRadius={"0 0 10px 10px"}
     >
-      {/* Left Icon */}
-      <IconButton
-        aria-label="left-arrow"
-        //variant="ghost" //gives no background for arrow icon
-        position="absolute"
-        left={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}
-      >
-        <ArrowLeftIcon />
-      </IconButton>
-      {/* Right Icon */}
-      <IconButton
-        aria-label="right-arrow"
-        // variant="ghost"
-        position="absolute"
-        right={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickNext()}
-      >
-        <ArrowRightIcon />
-      </IconButton>
       {/* Slider */}
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+      <Slider {...settings}>
         {cards.map((card, index) => (
           <Box
             key={index}
