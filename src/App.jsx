@@ -25,6 +25,9 @@ import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
 import Profile_Job from "./components/JobSeeker/Profile/Profile_Job";
+// import Navbar from "./components/company_components/Navbar";
+// import { Dashboard } from "@mui/icons-material";
+// import Sidebar from "./components/company_components/Sidebar";
 
 const Root = () => {
   return <Outlet />;
@@ -47,9 +50,10 @@ const Router = createBrowserRouter(
         <Route path="contactus" element={<ContactUs />} />
         <Route path="profile" element={<Profile_Job />} />
       </Route>
-
-      <Route path="/company" element={<Company />} />
-    </Route>
+{/* 
+      <Route path="/company" element={<Sidebar />} />
+        <Route path="navbar" element={<Navbar />} /> */}
+      </Route>
   )
 );
 
