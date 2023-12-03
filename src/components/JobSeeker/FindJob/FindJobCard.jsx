@@ -23,13 +23,13 @@ import RoleCard from "./RoleCard";
 const roles = ["Role", "React", "CSS", "Java"];
 const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
 
-const FindJobCard = () => {
+const FindJobCard = ({ job, fav, setFavHandler }) => {
   const [ref, inView] = useInView({ triggerOnce: true });
 
   const isLocation = true;
   const Posted = false;
   const isJustNow = true;
-  const [isfav, setIsfav] = useState(false);
+  const [isfav, setIsfav] = useState(fav && fav[job.id]);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -44,13 +44,29 @@ const FindJobCard = () => {
     };
   }, [modalIsOpen]);
 
+  const favHandler = () => {
+    setIsfav((state) => {
+      if (fav) {
+        const newFav = { ...fav };
+        newFav[job.id] = !state;
+        setFavHandler(newFav);
+      } else {
+        const newFav = {};
+        newFav[job.id] = !state;
+        setFavHandler(newFav);
+      }
+
+      return !state;
+    });
+  };
+
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.6)",
       zIndex: 1000,
     },
     content: {
-      top: '390px',
+      top: "390px",
       left: "50%",
       right: "auto",
       bottom: "auto",
@@ -103,16 +119,14 @@ const FindJobCard = () => {
             className={`hover:cursor-pointer ${
               isfav ? "fill-red-500 text-red-500" : ""
             } `}
-            onClick={() => {
-              setIsfav(!isfav);
-            }}
+            onClick={favHandler}
           />
         </div>
         <div className="flex justify-between items-center mt-5">
           <div className="flex flex-col gap-1">
-            <h2 className="tracking-wide text-xl font-bold">Position</h2>
+            <h2 className="tracking-wide text-xl font-bold">{job?.position}</h2>
             <h6 className="text-sm text-gray-400 font-bold tracking-wide">
-              Company name
+              {job?.companyName}
             </h6>
           </div>
           <Building2 size={30} />
@@ -238,7 +252,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
           </div>
         </div>
       </div>
-      
+
       <h3 className="mt-4 font-[600]">Responsibility</h3>
       <ul className="ml-5 text-gray-500" style={{ listStyleType: "disc" }}>
         <br></br>
@@ -267,8 +281,6 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         ))}
       </div>
 
-      
-
       <h1 className="mt-8 text-lg font-[600]">Benefits</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
         {benifits.map((benifit, index) => (
@@ -288,9 +300,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         <li>Vacancy :</li>
         <li>Salary :</li>
         <li>Location :</li>
-        <li>
-          Job Nature :
-        </li>
+        <li>Job Nature :</li>
       </ul>
       <button
         onClick={() => {}}

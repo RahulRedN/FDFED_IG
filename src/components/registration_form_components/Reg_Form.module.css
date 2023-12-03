@@ -79,6 +79,12 @@ body {
 
 .signUpForm input.invalid {
   border: 2px solid #ffaba5;
+  outline: none;
+}
+
+.invalid, select.invalid {
+  border: 2px solid #ffaba5;
+  outline: none;
 }
 
 .signUpForm .step {

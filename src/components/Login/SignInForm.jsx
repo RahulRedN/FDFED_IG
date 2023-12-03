@@ -1,29 +1,25 @@
 import { useState } from "react";
-// import { useForm } from 'react-hook-form';
-// import { loginWithEmail } from './LoginManager';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-// import SocialMedia from './SocialMedia';
-// import toast from 'react-hot-toast';
 
 import styles from "../../pages/css/Login_SignUp.module.css";
 import GoogleButton from "../UI/GoogleButton/GoogleButton";
 import { useAuth } from "../../Firebase/AuthContexts";
 import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 
-const SignInForm = () => {
-  // const onSubmit = ({email, password}) => {
-  //     const loading = toast.loading('Please wait...');
-  //     loginWithEmail(email, password)
-  //     .then(res => {
-  //         if(res.error){
-  //             toast.dismiss(loading);
-  //             toast.error(res.error)
-  //         }
-  //         handleResponse(res)
-  //         toast.dismiss(loading);
-  //     })
-  // }
+const SignInForm = ({ signIn }) => {
+  const [credentials, SetCred] = useState({ email: "", password: "" });
+  const onSubmit = async () => {
+    const { email, password } = credentials;
+    if (email.trim() === "" || password.trim() === "") {
+      alert("Please Enter Valid details!");
+    } else {
+      try {
+        await signIn(email, password);
+      } catch (error) {
+        console.error(error);
+        alert(error.code);
+      }
+    }
+  };
 
   const [isLoading, setIsLoading] = useState(false);
   const { signInWithGoogle } = useAuth();
@@ -48,17 +44,34 @@ const SignInForm = () => {
         <span className={styles.fIcon}>
           <EmailIcon color="gray.600" className="flex text-2xl" />
         </span>
-        <input defaultValue="admin@mail.com" placeholder="Email" />
+        <input
+          type="email"
+          name="email"
+          onChange={(e) => {
+            SetCred((state) => ({ ...state, email: e.target.value }));
+          }}
+          placeholder="Email"
+        />
       </div>
       {/* {errors.email && <span className="text-warning">This field is required</span>} */}
       <div className={styles["input-field"]}>
         <span className={styles.fIcon}>
           <LockIcon color="gray.600" className="text-2xl" />
         </span>
-        <input defaultValue="admin123" type="password" placeholder="Password" />
+        <input
+          onChange={(e) => {
+            SetCred((state) => ({ ...state, password: e.target.value }));
+          }}
+          type="password"
+          placeholder="Password"
+        />
       </div>
       {/* {errors.password && <span className="text-warning">This field is required</span>} */}
-      <button className=" bg-sky-500 hover:bg-sky-600 shadow-lg mt-5 w-[20vw] h-12 rounded-lg text-white font-semibold">
+      <button
+        type="button"
+        className=" bg-sky-500 hover:bg-sky-600 shadow-lg mt-5 w-[20vw] h-12 rounded-lg text-white font-semibold"
+        onClick={onSubmit}
+      >
         SIGN IN
       </button>
       <p className={styles["social-text"]}>Or </p>
