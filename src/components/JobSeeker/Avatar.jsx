@@ -3,8 +3,10 @@ import { IoMdExit } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 
 import styles from "./Avatar.module.css";
+import { useAuth } from "../../Firebase/AuthContexts";
 
 const Dropdown = () => {
+  const { logout } = useAuth();
   return (
     <div className={styles.container}>
       <div
@@ -26,7 +28,7 @@ const Dropdown = () => {
         </div>
         <div className="flex-[1] p-2 text-xl rounded-b-lg flex items-center gap-1 text-gray-800 hover:bg-red-500 hover:text-white w-full transition ease-in-out duration-300">
           <IoMdExit size={23} />
-          <button>Sign Out</button>
+          <button onClick={logout}>Sign Out</button>
         </div>
       </div>
     </div>

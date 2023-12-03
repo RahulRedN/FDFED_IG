@@ -4,8 +4,10 @@ import classes from "./JobSeeker.module.css";
 import TopJobs from "./TopJobs";
 import TopCategories from "./TopCategories";
 import Testimonials from "./Testimonials";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const nav = useNavigate();
   return (
     <>
       <div className={classes.sliderContainer}>
@@ -15,7 +17,7 @@ const Home = () => {
             <h1>
               <span>Find Your Next</span> <span>Dream Job</span>
             </h1>
-            <button className={classes.find}>LOOKING FOR A JOB?</button>
+            <button onClick={()=>{nav('findjobs')}} className={classes.find}>LOOKING FOR A JOB?</button>
           </div>
         </div>
         <div className={classes.sliderBG1}>
