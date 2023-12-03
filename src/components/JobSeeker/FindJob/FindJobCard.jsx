@@ -19,8 +19,7 @@ import { CgCross, CgProfile } from "react-icons/cg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RoleCard from "./RoleCard";
-import { FaCross } from "react-icons/fa";
-import { IoClose, IoCloseCircle } from "react-icons/io5";
+import { IoCloseCircle } from "react-icons/io5";
 
 const roles = ["Role", "React", "CSS", "Java"];
 const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
