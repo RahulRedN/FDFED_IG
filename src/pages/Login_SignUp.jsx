@@ -54,16 +54,16 @@ const Login_SignUp = () => {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi beatae quas magnam!</p>
               <button className={`${styles.iBtn} ${styles.transparent}}`} onClick={() => setSignUp(true)}>Sign Up</button>
             </div>
-            {/* <img src={} alt="" className={styles.pImg}/> */}
+            <img src={'/assets/left_panel.svg'} alt="" className={styles.pImg}/>
           </div>
 
           <div className={`${styles.panel} ${styles['right-panel']}`}>
+              <img src={'/assets/right_panel.svg'} alt="" className={styles.pImg}/>
             <div className={styles.content}>
               <h3>One of us ?</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi beatae quas magnam!</p>
               <button className={`${styles.iBtn} ${styles.transparent}}`} onClick={() => setSignUp(false)}>Sign In</button>
             </div>
-            {/*   <img src={`${desk}`} alt="" className={styles.pImg}/> */}
           </div>
        </div>
     </div>

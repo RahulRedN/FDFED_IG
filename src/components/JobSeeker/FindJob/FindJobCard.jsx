@@ -50,7 +50,7 @@ const FindJobCard = () => {
       zIndex: 1000,
     },
     content: {
-      top: `${window.scrollY + 390}px`,
+      top: '370px',
       left: "50%",
       right: "auto",
       bottom: "auto",
@@ -60,9 +60,9 @@ const FindJobCard = () => {
       borderRadius: "10px",
       outline: "none",
       padding: "2rem",
-      position: "absolute",
-      width: "80vw",
-      height: "80vh",
+      position: "fixed",
+      width: "85vw",
+      height: "90vh",
       overflowY: "scroll",
       boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for the modal
       scrollbarWidth: "thin", // For Firefox
@@ -300,6 +300,6 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         Apply now
       </button>
     </Modal>,
-    document.getElementById("root")
+    document.getElementById("modals")
   );
 };
