@@ -32,6 +32,9 @@ import Dashboard from "./components/Company/Dashboard/Dashboard";
 import Employees from "./components/Company/Employees/Employees";
 import PendingList from "./components/Company/PendingList/PendingList";
 import PostJob from "./components/Company/PostJob/PostJob";
+import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
+import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
+
 const Root = () => {
   return <Outlet />;
 };
@@ -45,7 +48,12 @@ const Router = createBrowserRouter(
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
       </Route>
+
       <Route path="/login" element={<Login_SignUp />} />
+      <Route path="/logincompany" element={<LoginCompany />} />
+      <Route path="/companyregister" element={<CompanyRegister />} />
+
+
 
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
