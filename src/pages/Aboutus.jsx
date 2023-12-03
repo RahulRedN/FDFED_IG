@@ -22,8 +22,7 @@ const AboutUs = () => {
       <Aboutusimg />
 
       <Services />
-
-      <Testimonial />
+      {/* <Testimonial /> */}
 
       <QuesCards />
     </div>

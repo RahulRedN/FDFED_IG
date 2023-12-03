@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Profilebrowse from "./Profilebrowse";
 import Sidebar from "./Sidebar";
-import LoadingBar from 'react-top-loading-bar'
 
 const Profile_Job = () => {
 
