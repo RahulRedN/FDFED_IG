@@ -2,7 +2,8 @@ import ProfileNavbar from "./ProfileNavbar";
 import classes from "./JobFeed.module.css";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 
-import "./ReactPaginate.css";
+// import "./ReactPaginate.css";
+
 
 const JobFeed = ({ status }) => {
   const color = (status) => {
