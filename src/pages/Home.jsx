@@ -10,6 +10,10 @@ import Navbar from "../components/homepage_compos/Navbar_Home.jsx";
 
 const Home = () => {
   const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const isLink = (path) => {
     return path === pathname;

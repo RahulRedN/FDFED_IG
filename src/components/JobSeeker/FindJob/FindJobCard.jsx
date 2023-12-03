@@ -14,11 +14,13 @@ import {
 import ReactDOM from "react-dom";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { CgProfile } from "react-icons/cg";
+import { CgCross, CgProfile } from "react-icons/cg";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RoleCard from "./RoleCard";
+import { FaCross } from "react-icons/fa";
+import { IoClose, IoCloseCircle } from "react-icons/io5";
 
 const roles = ["Role", "React", "CSS", "Java"];
 const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
@@ -77,8 +79,8 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
       outline: "none",
       padding: "2rem",
       position: "fixed",
-      width: "80vw",
-      height: "80vh",
+      width: "85vw",
+      height: "90vh",
       overflowY: "scroll",
       boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for the modal
       scrollbarWidth: "thin", // For Firefox
@@ -226,9 +228,14 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <h1 className="font-bold text-4xl text-center">Company Name</h1>
+      <div className="flex gap-96">
+        <button onClick={closeModal}>
+          <IoCloseCircle className="text-3xl" />
+        </button>
+          <h1 className="font-bold text-4xl text-center">Company Name</h1>
+      </div>
 
-      <h1 className="mt-5 text-lg font-[600]">Job Description</h1>
+      <h1 className="mt-6 text-lg font-[600]">Job Description</h1>
       <p className="mt-2 text-[500] text-gray-500">
         Vestibulum dignissim sapien mi. Sed ultrices bibendum augue. Nunc luctus
         sit amet felis a egestas. Nunc imperdiet elit ex, ut rhoncus metus

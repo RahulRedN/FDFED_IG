@@ -22,7 +22,7 @@ const Filters = () => {
             <div className="mt-5">
                 <label className='font-[600]'>Search by Position</label>
                 <div className="relative flex items-center">
-                    <SearchCode size={20} className="absolute left-2 top-[0.95rem]" />
+                    <SearchCode size={20} className="absolute left-2 text-gray-500 top-[0.95rem]" />
                     <input
                         type="text"
                         placeholder="Search Job..."
@@ -45,14 +45,14 @@ const Filters = () => {
 
 
             <div onClick={() => { setIsClicked(!isClicked); }}
-                className={`mt-5 p-2 w-fit flex items-center border-2 font-[600] gap-2 cursor-pointer border-sky-500 rounded-md ${isClicked ? "bg-sky-500 text-white" : "text-sky-500 bg-white"} transition-colors duration-500 ease-in-out`}>
+                className={`max-w-[12vw] mt-5 p-2 flex items-center border-2 font-[600] gap-2 cursor-pointer border-sky-500 rounded-md ${isClicked ? "bg-sky-500 text-white" : "text-sky-500 bg-white"} transition-colors duration-500 ease-in-out`}>
                 <FaHouse size={18} />
                 <h1 className='font-[600]'>Work from home</h1>
             </div>
 
 
             <div onClick={() => { setIsClickedLoc(!isClickedLoc); }}
-                className={`mt-5 p-2 w-fit flex items-center border-2 font-[600] cursor-pointer gap-2 border-green-500 rounded-md ${isClickedLoc ? "bg-green-500 text-white" : "text-green-500 bg-white"} transition-colors duration-500 ease-in-out`}>
+                className={`mt-5 p-2 max-w-[12vw] flex items-center border-2 font-[600] cursor-pointer gap-2 border-green-500 rounded-md ${isClickedLoc ? "bg-green-500 text-white" : "text-green-500 bg-white"} transition-colors duration-500 ease-in-out`}>
                 <ArrowDown10 size={25} />
                 <h1 className='font-[600] tracking-wide'>Sort by salary</h1>
             </div>
