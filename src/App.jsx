@@ -35,6 +35,7 @@ const Root = () => {
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
+    
     <Route path="/" element={<Root />}>
       <Route path="/" element={<Home />}>
         <Route index element={<HomePage />} />

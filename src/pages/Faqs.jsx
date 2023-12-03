@@ -1,24 +1,42 @@
 import "../Styles/Faqs.css";
-import faqsData from "../components/faqsData";
+
+
+
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import FaqSpeak from "../components/Faq/faqspeak";
+import FaqQuestions from "../components/Faq/FaqsQuestions";
 
 const Faqs = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   return (
-    <div className="box">
-      <div className="box-content">
-        <p className="heading">Frequently asked questions</p>
-
-        <div className="faqs">
-          {faqsData.map((faq, index) => (
-            <div key={faq.id}>
-              <details className='faq-details'>
-                <summary>{faq.Faq_Que}</summary>
-                <p className="text">{faq.Faq_Ans}</p>
-              </details>
-              {index < faqsData.length - 1 && <hr className="faq-divider" />}
-            </div>
-          ))}
-        </div>
+    <div className="faq-page">
+      <div className="faq-top">
+        <motion.div
+          ref={ref}
+          initial={{ y: 100, opacity: 0 }} // Change y to 100 to start from the bottom
+          animate={inView ? { y: 0, opacity: 1 } : "hidden"} // Change y to 0 to move up
+          transition={{ ease: "easeInOut", duration: 0.9, delay: 0.3 }} // Add delay of 0.3 seconds
+          className="formotion"
+          // key={index}
+        >
+          <h1>Frequently asked questions</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+            quis nihil doloribus.
+          </p>
+          <hr />
+        </motion.div>
       </div>
+
+    <FaqQuestions/>
+
+      <FaqSpeak/>
+
+      
+     
     </div>
   );
 };
