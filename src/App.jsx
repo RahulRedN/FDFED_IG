@@ -25,6 +25,8 @@ import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
 import Profile_Job from "./components/JobSeeker/Profile/Profile_Job";
+import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
+import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
 
 const Root = () => {
   return <Outlet />;
@@ -40,7 +42,12 @@ const Router = createBrowserRouter(
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs_Home />} />
       </Route>
+
       <Route path="/login" element={<Login_SignUp />} />
+      <Route path="/logincompany" element={<LoginCompany />} />
+      <Route path="/companyregister" element={<CompanyRegister />} />
+
+
 
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
