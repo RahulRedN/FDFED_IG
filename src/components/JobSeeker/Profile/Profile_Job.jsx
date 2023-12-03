@@ -37,11 +37,11 @@ const Profile_Job = () => {
 
   return (
     <div className="flex">
-      <LoadingBar
+      {/* <LoadingBar
         color='#f11946'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
-      />
+      /> */}
       <Sidebar />
       <Profilebrowse ref={ref}/>
     </div>
