@@ -14,11 +14,13 @@ import {
 import ReactDOM from "react-dom";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { CgProfile } from "react-icons/cg";
+import { CgCross, CgProfile } from "react-icons/cg";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RoleCard from "./RoleCard";
+import { FaCross } from "react-icons/fa";
+import { IoClose, IoCloseCircle } from "react-icons/io5";
 
 const roles = ["Role", "React", "CSS", "Java"];
 const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
@@ -50,7 +52,7 @@ const FindJobCard = () => {
       zIndex: 1000,
     },
     content: {
-      top: '370px',
+      top: "370px",
       left: "50%",
       right: "auto",
       bottom: "auto",
@@ -212,9 +214,14 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <h1 className="font-bold text-4xl text-center">Company Name</h1>
+      <div className="flex gap-96">
+        <button onClick={closeModal}>
+          <IoCloseCircle className="text-3xl" />
+        </button>
+          <h1 className="font-bold text-4xl text-center">Company Name</h1>
+      </div>
 
-      <h1 className="mt-5 text-lg font-[600]">Job Description</h1>
+      <h1 className="mt-6 text-lg font-[600]">Job Description</h1>
       <p className="mt-2 text-[500] text-gray-500">
         Vestibulum dignissim sapien mi. Sed ultrices bibendum augue. Nunc luctus
         sit amet felis a egestas. Nunc imperdiet elit ex, ut rhoncus metus
@@ -238,7 +245,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
           </div>
         </div>
       </div>
-      
+
       <h3 className="mt-4 font-[600]">Responsibility</h3>
       <ul className="ml-5 text-gray-500" style={{ listStyleType: "disc" }}>
         <br></br>
@@ -267,8 +274,6 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         ))}
       </div>
 
-      
-
       <h1 className="mt-8 text-lg font-[600]">Benefits</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
         {benifits.map((benifit, index) => (
@@ -288,9 +293,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         <li>Vacancy :</li>
         <li>Salary :</li>
         <li>Location :</li>
-        <li>
-          Job Nature :
-        </li>
+        <li>Job Nature :</li>
       </ul>
       <button
         onClick={() => {}}
