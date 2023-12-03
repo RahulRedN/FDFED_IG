@@ -14,14 +14,14 @@ import { AuthContexts } from "./Firebase/AuthContexts";
 import Home from "./pages/Home";
 import HomePage from "./components/homepage_compos/HomePage";
 import ContactUs_Home from "./components/homepage_compos/ContactUs_Home/ContactUs_Home";
+import AboutUs from "./components/homepage_compos/Aboutus";
+import Faqs from "./components/homepage_compos/Faqs";
 
 import JobSeeker from "./pages/JobSeeker";
 import ContactUs from "./components/JobSeeker/ContactUs/ContactUs_jobseeker";
 import JLanding from "./components/JobSeeker/Home/JobLanding";
 
 import Company from "./pages/Company";
-import AboutUs from "./pages/Aboutus";
-import Faqs from "./pages/Faqs";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
 import Profile_Job from "./components/JobSeeker/Profile/Profile_Job";

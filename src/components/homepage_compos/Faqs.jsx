@@ -1,11 +1,9 @@
-import "../Styles/Faqs.css";
-
-
+import "../../Styles/Faqs.css";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import FaqSpeak from "../components/Faq/faqspeak";
-import FaqQuestions from "../components/Faq/FaqsQuestions";
+import FaqSpeak from "../Faq/faqspeak";
+import FaqQuestions from "../Faq/FaqsQuestions";
 
 const Faqs = () => {
   const [ref, inView] = useInView({
@@ -31,12 +29,9 @@ const Faqs = () => {
         </motion.div>
       </div>
 
-    <FaqQuestions/>
+      <FaqQuestions />
 
-      <FaqSpeak/>
-
-      
-     
+      <FaqSpeak />
     </div>
   );
 };
