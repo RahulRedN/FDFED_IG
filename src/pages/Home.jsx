@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import classes from "../components/homepage_compos/css/Navbar_Home_Styles.module.css"
+import classes from "../components/homepage_compos/css/Navbar_Home_Styles.module.css";
 
 import Footer_Job from "../components/homepage_compos/Footer_Job";
 
 import { Outlet, useLocation } from "react-router-dom";
 
-import Navbar from "../components/homepage_compos/Navbar_Home.jsx"
+import Navbar from "../components/homepage_compos/Navbar_Home.jsx";
 
 const Home = () => {
   const { pathname } = useLocation();
@@ -28,8 +28,8 @@ const Home = () => {
   }, []);
   return (
     <>
-      <Navbar navClass={navClass+" "+(isLink('/')?classes.home:"")}/>
-        <Outlet/>
+      <Navbar navClass={navClass + " " + (isLink("/") ? classes.home : "")} />
+      <Outlet />
       <Footer_Job />
     </>
   );

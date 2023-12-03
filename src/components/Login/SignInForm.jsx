@@ -9,6 +9,7 @@ import { useState } from "react";
 import styles from "../../pages/css/Login_SignUp.module.css";
 import GoogleButton from "../UI/GoogleButton/GoogleButton";
 import { useAuth } from "../../Firebase/AuthContexts";
+import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 
 const SignInForm = () => {
   // const onSubmit = ({email, password}) => {
@@ -44,18 +45,20 @@ const SignInForm = () => {
     <form className={styles["sign-in-form"]}>
       <h2 className={styles.title}>Sign in</h2>
       <div className={styles["input-field"]}>
-        <span className={styles.fIcon}>x</span>
+        <span className={styles.fIcon}>
+          <EmailIcon color="gray.600" className="flex text-2xl" />
+        </span>
         <input defaultValue="admin@mail.com" placeholder="Email" />
       </div>
       {/* {errors.email && <span className="text-warning">This field is required</span>} */}
       <div className={styles["input-field"]}>
-        <span className={styles.fIcon}>L</span>
+        <span className={styles.fIcon}>
+          <LockIcon color="gray.600" className="text-2xl" />
+        </span>
         <input defaultValue="admin123" type="password" placeholder="Password" />
       </div>
       {/* {errors.password && <span className="text-warning">This field is required</span>} */}
-      <button
-      className="bg-gray-400 hover:bg-gray-500 shadow-lg mt-5 w-[20vw] h-12 rounded-lg text-white font-semibold"
-      >
+      <button className=" bg-sky-500 hover:bg-sky-600 shadow-lg mt-5 w-[20vw] h-12 rounded-lg text-white font-semibold">
         SIGN IN
       </button>
       <p className={styles["social-text"]}>Or </p>

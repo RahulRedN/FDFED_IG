@@ -10,7 +10,10 @@
     transform: translateZ(0);
   }
 }
-
+.logo{
+  object-fit: cover;
+  width:4rem;
+}
 .navbar {
   display: flex;
   padding: 1.3rem 15rem;

@@ -9,7 +9,7 @@ const JobFeed = ({ status }) => {
     } else if (status === "Accepted") {
       return "bg-green-200 text-green-600";
     } else {
-      return "bg-yellow-100 text-yellow-500";
+      return "bg-yellow-100 text-yellow-500"; 
     }
   };
 

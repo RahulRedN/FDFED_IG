@@ -114,7 +114,6 @@ export default function CaptionCarousel() {
       overflow={"hidden"}
       backgroundPosition={"center"}
       border={"0px solid black"}
-      borderRadius={"0 0 10px 10px"}
     >
       {/* Slider */}
       <Slider {...settings}>
