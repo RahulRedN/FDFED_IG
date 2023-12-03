@@ -24,7 +24,7 @@ const SavedJobs = () => {
           <SavedJobCard />
         </div>
         <div className="flex justify-between px-5">
-          <button className="text-black p-2 rounded-md">
+          <button className=" text-black p-2 rounded-md">
            &lt; Previous
           </button>
           <button className=" text-black p-2 rounded-md">

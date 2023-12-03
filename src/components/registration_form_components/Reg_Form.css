@@ -24,7 +24,7 @@ body{
 
 .signUpForm .form_header .stepIndicator.finish {            
     font-weight: 600;            
-    color: #5a67d8;        
+    color: rgb(29,78,216);        
 }        
 
 .signUpForm .form_header .stepIndicator::before {            
@@ -47,7 +47,7 @@ body{
 }        
 
 .signUpForm .form_header .stepIndicator.finish::before {            
-    background-color: #5a67d8;            
+    background-color: rgb(29,78,216);                   
     border: 3px solid #c3dafe;        
 }        
 
@@ -66,7 +66,8 @@ body{
 }        
 
 .signUpForm .form_header .stepIndicator.finish::after {            
-    background-color: #5a67d8;        
+    background-color: rgb(29,78,216);        
+       
 }        
 
 .signUpForm .form_header .stepIndicator:last-child:after {            

@@ -97,7 +97,7 @@ const UpdateInfoProfile_Job = () => {
                 <p>User Information</p>
               )}
             </h2>
-            <form onSubmit={SubmitHandler} className="h-[86%]">
+            <form className="h-[86%]">
               <div className="flex flex-col justify-between h-full">
                 <div className="flex flex-wrap gap-y-4 gap-x-7">
                   <div className="flex flex-col min-w-[47%]">
@@ -132,7 +132,7 @@ const UpdateInfoProfile_Job = () => {
                       type="email"
                       name="Email"
                       disabled={!edit}
-                      value="Email"
+                      value="something@gmail.com"
                       placeholder="Enter new Email"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -286,7 +286,7 @@ const UpdateInfoProfile_Job = () => {
                   <div className="flex gap-3">
                     <motion.button
                       whileTap={{ scale: 0.8 }}
-                      type="submit"
+                      type="button"
                       animate={{ opacity: 1 }}
                       transition={{ ease: "easeIn", duration: 0.3 }}
                       className=" p-3 w-36 text-white rounded-md bg-blue-500 hover:bg-blue-600"
@@ -295,7 +295,7 @@ const UpdateInfoProfile_Job = () => {
                     </motion.button>
                     <motion.button
                       whileTap={{ scale: 0.8 }}
-                      type="submit"
+                      type="button"
                       animate={{ opacity: 1 }}
                       transition={{ ease: "easeIn", duration: 0.3 }}
                       className=" p-3 w-36 text-white rounded-md bg-red-500 hover:bg-red-600"
@@ -308,7 +308,7 @@ const UpdateInfoProfile_Job = () => {
                   <div className="flex gap-3">
                     <motion.button
                       whileTap={{ scale: 0.8 }}
-                      type="submit"
+                      type="button"
                       animate={{ opacity: 1 }}
                       transition={{ ease: "easeIn", duration: 0.3 }}
                       className=" p-3 w-48 text-white rounded-md bg-blue-500 hover:bg-blue-600"

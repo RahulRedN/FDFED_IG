@@ -42,7 +42,7 @@ const LoginCompany = () => {
           <hr />
 
 <div className="register">
-          <p> Don't have an account? <Link to="/companyregister">Register here</Link></p>
+          <p> Dont have an account? <Link to="/companyregister">Register here</Link></p>
 
           </div>
 

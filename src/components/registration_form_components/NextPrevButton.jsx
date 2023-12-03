@@ -21,7 +21,7 @@ const NextPrevButton = ({len,count,handleNext,handlePrev,isLast,handleSubmit}) =
         <button
           type={count === len - 1 ? "submit" : "button"}
           id="nextBtn"
-          className="flex-1 border border-transparent focus:outline-none p-3 rounded-md text-center text-white bg-indigo-600 hover:bg-indigo-700 text-lg"
+          className="w-[15vw] flex-1 border border-transparent focus:outline-none p-3 rounded-md text-center text-white bg-sky-600 hover:bg-sky-700 text-lg"
           onClick={count === len - 1 ? handleSubmit : handleNext}
         >
           {count === len - 1 ? "Submit" : "Next"}
