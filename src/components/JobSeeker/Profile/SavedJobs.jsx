@@ -3,8 +3,9 @@ import SavedJobCard from "./SavedJobCard";
 import { useSelector } from "react-redux";
 
 const SavedJobs = () => {
-  const fav = useSelector((state) => state.jobseeker.data.fav);
-  const jobs = useSelector((state) => state.jobs.jobs);
+  const user = useSelector((state) => state.jobseeker);
+
+  const [state, setState] = useState({ fav: user?.data.fav, jobs: user?.jobs });
 
   return (
     <div id="saved" className="flex justify-center items-center h-screen p-5">
@@ -18,10 +19,10 @@ const SavedJobs = () => {
           </div>
         </div>
         <div className="mt-5 h-[78vh] items-center flex flex-col flex-wrap gap-y-9 gap-x-4 overflow-x-auto scrollbar-none">
-          {jobs
-            ?.filter((job) => fav[job.id])
+          {state.jobs
+            ?.filter((job) => state.fav[job.id])
             .map((jobCard, idx) => (
-              <SavedJobCard key={idx} job={jobCard}/>
+              <SavedJobCard key={idx} job={jobCard} />
             ))}
         </div>
         <div className="flex justify-between px-5">

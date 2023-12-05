@@ -13,7 +13,6 @@ import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 
 import { setData } from "../redux/jobseekerReducer";
 import { useDispatch } from "react-redux";
-import { setJobs } from "../redux/jobsReducer";
 
 const AuthContext = React.createContext();
 
@@ -58,8 +57,6 @@ export const AuthContexts = ({ children }) => {
             }));
 
             if (data[0].role === "jobseeker") {
-              dispatch(setData({ data: data[0] }));
-
               try {
                 const collectionRef = collection(db, "jobs");
                 const res1 = await getDocs(collectionRef);
@@ -69,7 +66,16 @@ export const AuthContexts = ({ children }) => {
                     ...doc.data(),
                     id: doc.id,
                   }));
-                  dispatch(setJobs(temp));
+
+                  temp.sort((a, b) => {
+                    const dateA = new Date(a.postedDate);
+                    const dateB = new Date(b.postedDate);
+
+                    // Compare the dates
+                    return dateB-dateA;
+                  });
+
+                  dispatch(setData({ data: data[0], jobs: temp }));
                 }
               } catch (error) {
                 console.error(error);

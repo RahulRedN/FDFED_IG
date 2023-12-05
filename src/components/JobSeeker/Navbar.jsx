@@ -8,13 +8,13 @@ const Navbar = ({ navClass }) => {
   return (
     <nav className={navClass}>
       <div className={classes.left}>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center w-fit">
           <img
             className={classes.logo}
             src="/images/IG_logo_Dark.png"
             alt="Logo"
           />
-          <NavLink to="" className={"text-xl"}>
+          <NavLink to="" className={"text-3xl"}>
             Inspiring Go
           </NavLink>
         </div>
