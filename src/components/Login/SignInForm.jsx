@@ -4,19 +4,20 @@ import styles from "../../pages/css/Login_SignUp.module.css";
 import GoogleButton from "../UI/GoogleButton/GoogleButton";
 import { useAuth } from "../../Firebase/AuthContexts";
 import { EmailIcon, LockIcon } from "@chakra-ui/icons";
+import toast from "react-hot-toast";
 
 const SignInForm = ({ signIn }) => {
   const [credentials, SetCred] = useState({ email: "", password: "" });
   const onSubmit = async () => {
     const { email, password } = credentials;
     if (email.trim() === "" || password.trim() === "") {
-      alert("Please Enter Valid details!");
-    } else {
+      toast.error("Enter all the fields")
+    }else {
       try {
         await signIn(email, password);
       } catch (error) {
-        console.error(error);
-        alert(error.code);
+        console.error(error.message);
+        toast.error("Check your credentials again and try!")
       }
     }
   };
@@ -29,11 +30,11 @@ const SignInForm = ({ signIn }) => {
       const res = await signInWithGoogle();
       if (res.user.uid) {
         setIsLoading(false);
-        alert("Logged In!");
+        toast.success("Logged in!!");
       }
     } catch (err) {
       console.error(err);
-      alert("Something happened!!!");
+      toast.error("Something wrong happened!");
       setIsLoading(false);
     }
   };
