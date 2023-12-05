@@ -1,11 +1,5 @@
-import React, { useState } from "react";
 import SavedJobCard from "./SavedJobCard";
 import { useSelector } from "react-redux";
-const jobCard = {
-  position: "XY",
-  companyName: "XY",
-};
-
 const SavedJobs = () => {
   const fav = useSelector((state) => state.jobseeker.data.fav);
   const jobs = useSelector((state) => state.jobs.jobs);
@@ -40,13 +34,6 @@ const SavedJobs = () => {
             .map((jobCard, idx) => (
               <SavedJobCard key={idx} job={jobCard} />
             ))}
-          <SavedJobCard job={jobCard} />
-          <SavedJobCard job={jobCard} />
-          <SavedJobCard job={jobCard} />
-          <SavedJobCard job={jobCard} />
-          <SavedJobCard job={jobCard} />
-          <SavedJobCard job={jobCard} />
-          <SavedJobCard job={jobCard} />
         </div>
         <div className="flex justify-between px-52">
           <div className="bg-gray-300 rounded hover:bg-gray-400">
