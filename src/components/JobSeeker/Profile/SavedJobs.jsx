@@ -1,8 +1,9 @@
 import SavedJobCard from "./SavedJobCard";
 import { useSelector } from "react-redux";
 const SavedJobs = () => {
-  const fav = useSelector((state) => state.jobseeker.data.fav);
-  const jobs = useSelector((state) => state.jobs.jobs);
+  const user = useSelector((state) => state.jobseeker);
+
+  const [state, setState] = useState({ fav: user?.data.fav, jobs: user?.jobs });
 
   const scrollLeft = () => {
     var scrollContainer = document.getElementById("scrollContainer");
@@ -25,12 +26,9 @@ const SavedJobs = () => {
             </p>
           </div>
         </div>
-        <div
-          id="scrollContainer"
-          className="mt-5 h-[78vh] items-center flex flex-col flex-wrap gap-y-9 gap-x-4 overflow-x-auto scrollbar-none transition ease-out duration-300"
-        >
-          {jobs
-            ?.filter((job) => fav[job.id])
+        <div className="mt-5 h-[78vh] items-center flex flex-col flex-wrap gap-y-9 gap-x-4 overflow-x-auto scrollbar-none">
+          {state.jobs
+            ?.filter((job) => state.fav[job.id])
             .map((jobCard, idx) => (
               <SavedJobCard key={idx} job={jobCard} />
             ))}
