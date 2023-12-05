@@ -9,7 +9,7 @@ const JobFeed = ({ status }) => {
     } else if (status === "Accepted") {
       return "bg-green-200 text-green-600";
     } else {
-      return "bg-yellow-100 text-yellow-500"; 
+      return "bg-yellow-100 text-yellow-500";
     }
   };
 
@@ -17,7 +17,14 @@ const JobFeed = ({ status }) => {
     <div className="max-h-full" id="jobFeed">
       <ProfileNavbar />
       <div className={classes.container}>
-        <h2>My Applications</h2>
+        <div className="mt-5 w-[90%] flex justify-between items-center shadow p-4 rounded">
+          <h1 className="text-3xl font-[600] ">My Applications</h1>
+          <div className="flex">
+            <p>
+              Profile &gt; <span className="text-cyan-500">My Applications</span>
+            </p>
+          </div>
+        </div>
         <div className="rounded-md border-[1px] border-gray-300">
           <table className={classes.table}>
             <thead className="bg-blue-200">

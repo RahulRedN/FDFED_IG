@@ -10,6 +10,10 @@ import { useAuth } from "../../Firebase/AuthContexts";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 
+import toast from "react-hot-toast";
+import { IoIosWarning } from "react-icons/io";
+
+// eslint-disable-next-line react/prop-types
 const Reg_Form = ({ className }) => {
   const { signUp } = useAuth();
 
@@ -134,13 +138,53 @@ const Reg_Form = ({ className }) => {
       alert("Success");
     } catch (error) {
       if (error.code == "auth/email-already-in-use") {
-        alert("The email address is already in use");
+        toast("Email is already in use", {
+          icon: <IoIosWarning />,
+          style: {
+            padding: "16px",
+            color: "rgb(245 ,158 ,11)",
+          },
+          iconTheme: {
+            primary: "rgb(245 ,158 ,11)",
+            secondary: "#FFFAEE",
+          },
+        });
       } else if (error.code == "auth/invalid-email") {
-        alert("The email address is not valid.");
+        toast("Entered email is not valid ", {
+          icon: <IoIosWarning />,
+          style: {
+            padding: "16px",
+            color: "rgb(245 ,158 ,11)",
+          },
+          iconTheme: {
+            primary: "rgb(245 ,158 ,11)",
+            secondary: "#FFFAEE",
+          },
+        });
       } else if (error.code == "auth/operation-not-allowed") {
-        alert("Operation not allowed.");
+        toast("Operation not allowed", {
+          icon: <IoIosWarning />,
+          style: {
+            padding: "16px",
+            color: "rgb(245 ,158 ,11)",
+          },
+          iconTheme: {
+            primary: "rgb(245 ,158 ,11)",
+            secondary: "#FFFAEE",
+          },
+        });
       } else if (error.code == "auth/weak-password") {
-        alert("The password is too weak.");
+        toast("Password is too weak", {
+          icon: <IoIosWarning />,
+          style: {
+            padding: "16px",
+            color: "rgb(245 ,158 ,11)",
+          },
+          iconTheme: {
+            primary: "rgb(245 ,158 ,11)",
+            secondary: "#FFFAEE",
+          },
+        });
       }
       console.error(error);
     }

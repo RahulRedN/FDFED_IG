@@ -15,6 +15,7 @@ const Login_SignUp = () => {
     if (user) {
       nav("/jobseeker");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
