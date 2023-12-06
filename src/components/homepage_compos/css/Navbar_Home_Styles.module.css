@@ -65,7 +65,8 @@
 .navbar .left {
   display: flex;
   align-items: center;
-  gap: 6rem;
+  justify-content: space-around;
+  gap: 9rem;
 }
 
 .items {

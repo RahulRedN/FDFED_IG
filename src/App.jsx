@@ -8,6 +8,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+
+import {Toaster} from 'react-hot-toast'
+
+
 import { AuthContexts } from "./Firebase/AuthContexts";
 
 // import Login from "./pages/Login";
@@ -79,6 +83,7 @@ function App() {
   return (
     <AuthContexts>
       <ChakraProvider>
+        <Toaster />
         <RouterProvider router={Router} />
       </ChakraProvider>
     </AuthContexts>

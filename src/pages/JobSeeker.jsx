@@ -20,6 +20,7 @@ const JobSeeker = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    window.title = "InspiringGo | Jobseeker"
   }, [pathname]);
 
   useEffect(() => {

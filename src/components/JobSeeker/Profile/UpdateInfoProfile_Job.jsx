@@ -2,14 +2,15 @@ import { motion } from "framer-motion";
 import styles from "./UpdateInfoProfile_Job.module.css";
 import man from "/assets/Profile_man.jpg";
 import upload from "/assets/Upload.gif";
-import { useState } from "react";
-const roles = ["MongoDB", "React", "TailWind", "Javascript"];
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const UpdateInfoProfile_Job = () => {
+  const data = useSelector((state) => state.jobseeker.data);
+
   const [file, setFile] = useState(man);
   const [edit, setEdit] = useState(false);
   const [picEdit, setPicEdit] = useState(false);
-  let Pavan = "Pavan";
 
   const SubmitHandler = (e) => {
     e.preventDefault();
@@ -111,7 +112,7 @@ const UpdateInfoProfile_Job = () => {
                       type="text"
                       name="name"
                       disabled={!edit}
-                      value={Pavan}
+                      value={data?.fname}
                       placeholder="Enter new Name"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -121,26 +122,28 @@ const UpdateInfoProfile_Job = () => {
                     />
                   </div>
 
-                  <div className="min-w-[47%]">
-                    <label
-                      htmlFor="title"
-                      className="block text-gray-700 text-sm font-bold mb-1 tracking-wider"
-                    >
-                      Email{edit ? "*" : ""}
-                    </label>
-                    <input
-                      type="email"
-                      name="Email"
-                      disabled={!edit}
-                      value="something@gmail.com"
-                      placeholder="Enter new Email"
-                      className={`w-full px-3 py-2 ${
-                        edit
-                          ? "border bg-gray-50 rounded-md"
-                          : "bg-gray-100 rounded-lg"
-                      } placeholder:text-gray-500 border-gray-600 outline-none text-gray-900  focus:outline-none focus:border-blue-400`}
-                    />
-                  </div>
+                  {!edit && (
+                    <div className="min-w-[47%]">
+                      <label
+                        htmlFor="title"
+                        className="block text-gray-700 text-sm font-bold mb-1 tracking-wider"
+                      >
+                        Email{edit ? "*" : ""}
+                      </label>
+                      <input
+                        type="email"
+                        name="Email"
+                        disabled={!edit}
+                        value={data?.email}
+                        placeholder="Enter new Email"
+                        className={`w-full px-3 py-2 ${
+                          edit
+                            ? "border bg-gray-50 rounded-md"
+                            : "bg-gray-100 rounded-lg"
+                        } placeholder:text-gray-500 border-gray-600 outline-none text-gray-900  focus:outline-none focus:border-blue-400`}
+                      />
+                    </div>
+                  )}
 
                   <div className="min-w-[47%]">
                     <label
@@ -153,7 +156,7 @@ const UpdateInfoProfile_Job = () => {
                       type="number"
                       name="PhoneNumber"
                       disabled={!edit}
-                      value="7337326976"
+                      value={data?.mobile}
                       placeholder="Enter new Phone Number"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -163,7 +166,7 @@ const UpdateInfoProfile_Job = () => {
                     />
                   </div>
 
-                  <div className="min-w-[47%]">
+                  <div className={"min-w-[47%] " + (edit && "w-full")}>
                     <label
                       htmlFor="title"
                       className="block text-gray-700 text-sm font-bold mb-1 tracking-wider"
@@ -174,7 +177,7 @@ const UpdateInfoProfile_Job = () => {
                       type="text"
                       name="Address"
                       disabled={!edit}
-                      value={Pavan}
+                      value={data?.address}
                       placeholder="Enter new Address"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -193,16 +196,22 @@ const UpdateInfoProfile_Job = () => {
                           Skills{edit ? "*" : ""}
                         </label>
                         <div className="mt-2 flex gap-5">
-                          {roles.map((role, index) => {
-                            return (
-                              <p
-                                key={index}
-                                className="text-sm px-2 py-2 bg-gray-100 text-gray-800 rounded"
-                              >
-                                {role}
-                              </p>
-                            );
-                          })}
+                          {data?.skills
+                            ?.split(",")
+                            .slice(
+                              0,
+                              Math.min(4, data?.skills?.split(",").length)
+                            )
+                            .map((role, index) => {
+                              return (
+                                <p
+                                  key={index}
+                                  className="text-sm px-2 py-2 bg-gray-100 text-gray-800 rounded"
+                                >
+                                  {role}
+                                </p>
+                              );
+                            })}
                         </div>
 
                         <label
@@ -215,7 +224,7 @@ const UpdateInfoProfile_Job = () => {
                           type="text"
                           name="Education"
                           disabled={!edit}
-                          value={"SriChaitanya"}
+                          value={data?.qualification}
                           className={`w-full mt-2 px-3 py-2 ${
                             edit
                               ? "border bg-gray-50 rounded-md"
@@ -235,7 +244,7 @@ const UpdateInfoProfile_Job = () => {
                               type="text"
                               name="DateOfBirth"
                               disabled={!edit}
-                              value={"21/12/2003"}
+                              value={data?.dob}
                               className={`w-fit mt-2 px-3 py-2 bg-gray-100 rounded-lg
                                placeholder:text-gray-500  outline-none text-gray-900  focus:outline-none focus:border-blue-400`}
                             />
@@ -252,7 +261,7 @@ const UpdateInfoProfile_Job = () => {
                               type="text"
                               name="Gender"
                               disabled={!edit}
-                              value={"Male"}
+                              value={data?.gender}
                               className={`w-fit mt-2 px-3 py-2 ${
                                 edit
                                   ? "border bg-gray-50 rounded-md"
@@ -269,7 +278,7 @@ const UpdateInfoProfile_Job = () => {
                         </label>
                         <textarea
                           name="skills"
-                          value={"Skills, Skills, Skills"}
+                          value={data?.skills}
                           disabled={!edit}
                           className={`w-full px-3 py-2 ${
                             edit

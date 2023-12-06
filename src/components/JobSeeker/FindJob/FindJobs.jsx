@@ -1,19 +1,45 @@
-import { useRef } from "react";
+import { useEffect, useState } from "react";
 import FindJobCard from "./FindJobCard";
 import ImageHeader from "../ImageHeader";
 import Filters from "./Filters";
+
+import { setFav } from "../../../redux/jobseekerReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/config";
+
 const FindJobs = () => {
-  const jobs = useRef(null);
+  const user = useSelector((state) => state.jobseeker);
+
+  const [state, setState] = useState({ data: user?.data, jobs: user?.jobs });
+
+  const dispatch = useDispatch();
+
+  const setFavHandler = async (favJobs) => {
+    try {
+      const tempData = { ...state.data, fav: favJobs };
+      const docRef = doc(collection(db, "users"), state.data.id);
+      await updateDoc(docRef, tempData);
+    } catch (error) {
+      console.log(error);
+    }
+    dispatch(setFav(favJobs));
+  };
 
   return (
     <div className="bg-gray-50 pb-5">
       <ImageHeader src={"FindJobs"} />
       <div className="ml-[15rem] mt-5 flex gap-10 relative">
-        <Filters />
-        <div ref={jobs} className="m-1 flex-[11] flex flex-wrap gap-2">
-          <FindJobCard />
-          <FindJobCard />
-          <FindJobCard />
+        <Filters jobs={user?.jobs} setState={setState} />
+        <div className="m-1 flex-[11] flex flex-wrap gap-2">
+          {state.jobs?.map((job, idx) => (
+            <FindJobCard
+              key={idx}
+              job={job}
+              fav={state.data?.fav}
+              setFavHandler={setFavHandler}
+            />
+          ))}
         </div>
       </div>
     </div>

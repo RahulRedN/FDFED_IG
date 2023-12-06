@@ -3,25 +3,25 @@ import classes from "./css/homepageStyles.module.css";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
-function RoleCard({ card, delay }) {
+function RoleCard({ card, delay, link }) {
   const [ref, inView] = useInView({ triggerOnce: true });
   return (
     <motion.div
-      initial={{ scale: 0.5, opacity: 0, y: 0 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={
         inView
           ? {
-              scale: 1,
               opacity: 1,
-              y: 0,
-              transition: { duration: 0.5, ease: "easeIn", delay: delay },
+              scale: 1,
+              transition: { ease: "easeIn", duration: 0.3, delay: delay },
             }
           : "hidden"
       }
       whileHover={{
         scale: 1.04,
-        transition: { ease: "easeIn", duration: 0.1, damping: 0, stiffness: 0},
+        transition: { ease: "easeIn", duration: 0.1, damping: 0, stiffness: 0 },
       }}
       ref={ref}
       className={classes.oppcard + " pb-6"}
@@ -39,9 +39,9 @@ function RoleCard({ card, delay }) {
       <h2 className={classes.cardcatg + " pl-6 pr-6"}>{card.title}</h2>
       <hr />
       <div className="flex flex-col justify-between h-full pl-3 pr-3 text-justify">
-        <a className={classes.oppcardbtn} href="/jobseekerRegister">
+        <Link className={classes.oppcardbtn} to={link}>
           {card.buttonname}
-        </a>
+        </Link>
       </div>
     </motion.div>
   );
