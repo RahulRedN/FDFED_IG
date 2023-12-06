@@ -25,6 +25,15 @@ import Company from "./pages/Company";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
 import Profile_Job from "./components/JobSeeker/Profile/Profile_Job";
+import Dashboard from "./components/Company/Dashboard/Dashboard";
+// import Navbar from "./components/company_components/Navbar";
+// import { Dashboard } from "@mui/icons-material";
+// import Sidebar from "./components/company_components/Sidebar";
+import Employees from "./components/Company/Employees/Employees";
+import PendingList from "./components/Company/PendingList/PendingList";
+import PostJob from "./components/Company/PostJob/PostJob";
+import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
+import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
 
 const Root = () => {
   return <Outlet />;
@@ -32,7 +41,6 @@ const Root = () => {
 
 const Router = createBrowserRouter(
   createRoutesFromElements(
-    
     <Route path="/" element={<Root />}>
       <Route path="/" element={<Home />}>
         <Route index element={<HomePage />} />
@@ -40,7 +48,12 @@ const Router = createBrowserRouter(
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
       </Route>
+
       <Route path="/login" element={<Login_SignUp />} />
+      <Route path="/logincompany" element={<LoginCompany />} />
+      <Route path="/companyregister" element={<CompanyRegister />} />
+
+
 
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
@@ -48,8 +61,16 @@ const Router = createBrowserRouter(
         <Route path="contactus" element={<ContactUs />} />
         <Route path="profile" element={<Profile_Job />} />
       </Route>
+      {/* 
+      <Route path="/company" element={<Sidebar />} />
+        <Route path="navbar" element={<Navbar />} /> */}
+      <Route path="/company" element={<Company />}>
+       <Route index element={<Dashboard />} />
+       <Route path="employeelist" element={<Employees />} />
+       <Route path="pendinglist" element={<PendingList />} />
+       <Route path="postjob" element={<PostJob />} />
 
-      <Route path="/company" element={<Company />} />
+      </Route>
     </Route>
   )
 );

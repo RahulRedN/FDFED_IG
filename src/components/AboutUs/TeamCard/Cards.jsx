@@ -55,7 +55,7 @@ const Card = ({ imageUrl, question, answer }) => {
       <img src={imageUrl} alt="" />
       <h1 className="que">{question}</h1>
       <p className="ans">{answer}</p>
-      <button className="btn"> Learn more</button>
+      <button className="btn-learn"> Learn more</button>
     </motion.div>
   );
 };

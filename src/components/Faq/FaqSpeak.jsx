@@ -21,8 +21,6 @@ const FaqSpeak = () => {
         className="speak-container"
       >
         
-        
-        
           <h1>Haven’t found what youre looking for?</h1>
           <Stack direction="row" spacing={4}>
             <Button
