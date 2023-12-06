@@ -8,10 +8,10 @@ export const jobseekerReducer = createSlice({
   },
   reducers: {
     setData: (state, action) => {
-      return { ...action.payload };
+      return { ...state, ...action.payload };
     },
     setFav: (state, action) => {
-      return { ...state,  data: { ...state.data, fav: action.payload } };
+      return { ...state, data: { ...state.data, fav: action.payload } };
     },
     reset: (state, action) => {
       return { data: {}, jobs: [] };

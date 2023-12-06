@@ -4,9 +4,13 @@ import Slider from "react-slick";
 import classes from "./TopJobs.module.css";
 import TopJobCard from "../cards/TopJobCard";
 
+import Counter from "../../UI/Counter";
+import { useSelector } from "react-redux";
+
 const TopJobs = () => {
+  const jobs = useSelector((state) => state.jobseeker.jobs);
+
   const settings = {
-    focusOnSelect: true,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 2500,
@@ -18,7 +22,9 @@ const TopJobs = () => {
   return (
     <div className={classes.container}>
       <div className={classes.info}>
-        <span>100+</span>
+        <span>
+          <Counter from={0} to={100} duration={1} /> +
+        </span>
         <h1>Browse From Our Top Jobs</h1>
       </div>
       <div className={classes.topJobs}>
@@ -32,12 +38,14 @@ const TopJobs = () => {
           flexDirection={"row"}
         >
           <Slider {...settings}>
-            <TopJobCard />
-            <TopJobCard sticker={true} />
-            <TopJobCard />
-            <TopJobCard />
-            <TopJobCard sticker={true} />
-            <TopJobCard />
+            {jobs?.slice(0, Math.min(7, jobs.length)).map((job, idx) => (
+              <TopJobCard
+                position={job.position}
+                jobDesc={job.jobDesc}
+                jobId={job.id}
+                sticker={!job.location}
+              />
+            ))}
           </Slider>
         </Box>
       </div>

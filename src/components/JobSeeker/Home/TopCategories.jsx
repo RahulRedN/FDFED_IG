@@ -13,6 +13,7 @@ const TopCategories = () => {
       SVG: <Boxes strokeWidth={0.5} size={40} />,
       title: "UI/UX Designer",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      link: "findJobs?filter=Designer",
     },
     {
       SVG: (
@@ -43,6 +44,7 @@ const TopCategories = () => {
       ),
       title: "Development",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      link: "findJobs?filter=Dev",
     },
     {
       SVG: (
@@ -66,21 +68,25 @@ const TopCategories = () => {
       ),
       title: "Marketing",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      link: "findJobs?filter=Marketing",
     },
     {
       SVG: <LineChart size={40} strokeWidth={1.25} />,
       title: "Analyst",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      link: "findJobs?filter=Analyst",
     },
     {
       SVG: <Database size={40} strokeWidth={1.25} />,
       title: "Accounting",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      link: "findJobs?filter=Accounting",
     },
     {
       SVG: <RiTeamLine size={40} />,
       title: "Management",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      link: "findJobs?filter=Management",
     },
   ];
   return (
@@ -102,6 +108,7 @@ const TopCategories = () => {
             desc={cat.desc}
             SVG={cat.SVG}
             key={idx}
+            link={cat.link}
           />
         ))}
       </div>
