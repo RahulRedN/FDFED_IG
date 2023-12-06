@@ -6,7 +6,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "./theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import { Checklist, PendingActions, PostAdd } from "@mui/icons-material";
+import { Checklist, PendingActions, PostAdd , LogoutSharp} from "@mui/icons-material";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -16,11 +16,14 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       active={selected === title}
       style={{
         color: colors.grey[100],
+        margin: "20px 0 20px 0",
       }}
       onClick={() => setSelected(title)}
       icon={icon}
+
+
     >
-      <Typography>{title}</Typography>
+      <Typography variant="h4" >{title}</Typography>
       <Link to={to} />
     </MenuItem>
   );
@@ -59,7 +62,7 @@ const Sidebar = () => {
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "20px 0 20px 0",
               color: colors.grey[100],
             }}
           >
@@ -69,6 +72,7 @@ const Sidebar = () => {
                 justifyContent="space-between"
                 alignItems="center"
                 ml="15px"
+                mb = "22px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
                   ADMIN
@@ -108,13 +112,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <Typography
-              variant="h6"
+            {/* <Typography
+              variant="h5"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Stats
-            </Typography>
+            </Typography> */}
             <Item
               title="Pending List"
               to="pendinglist"
@@ -133,6 +137,13 @@ const Sidebar = () => {
               title="Post a Job"
               to="postjob"
               icon={<PostAdd />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+              <Item
+              title="Log Out"
+              to="" //private route chks session is actv or not
+              icon={<LogoutSharp />}
               selected={selected}
               setSelected={setSelected}
             />

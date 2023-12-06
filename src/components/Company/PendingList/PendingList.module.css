@@ -13,13 +13,21 @@
   }
   
   .table {
-    width: 70vw;
+    width: 100%;
     border-collapse: collapse;
+    font-size: 0.9rem;
+
+  }
+  thead td{
+    font-size: 1.1rem;
+  }
+  tr td{
+    font-size: 1rem;
   }
   
   .table tbody {
     color: rgb(79, 79, 79);
-    font-size: 15px;
+    font-size: 20px;
   }
   
   .table tbody tr:last-child {
@@ -27,6 +35,6 @@
   }
   
   .table td {
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.6rem;
   }
   
