@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+    import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../theme";
 import { mockDataContacts } from "../Data/mockData";
@@ -24,6 +24,7 @@ const Contacts = () => {
       type: "number",
       headerAlign: "left",
       align: "left",
+      fontSize : "20px  "
     },
     {
       field: "phone",
@@ -55,21 +56,22 @@ const Contacts = () => {
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="Employees"
+        subtitle="List of Employees who got selected"
       />
       <Box
         m="40px 0 0 0"
-        height="75vh"
+        height="84vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
+            fontSize:"14px"//font sz for entire table
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[100],
+            color: colors.greenAccent[200],
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[900],

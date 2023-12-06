@@ -31,9 +31,9 @@ const Home = () => {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <div className="flex min-h-screen">
-            <Sidebar isSidebar={isSidebar} />
-            <main className="w-full ">
-              <Outlet />
+            <Sidebar isSidebar={isSidebar}/>
+            <main className="w-full"> 
+            <Outlet />
             </main>
           </div>
         </ThemeProvider>
