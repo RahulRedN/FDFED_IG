@@ -38,7 +38,7 @@ import PendingList from "./components/Company/PendingList/PendingList";
 import PostJob from "./components/Company/PostJob/PostJob";
 import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
 import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
-import QuesCards from "./components/AboutUs/TeamCard/QuesCards";
+import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 const Root = () => {
   return <Outlet />;

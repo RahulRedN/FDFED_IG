@@ -15,7 +15,7 @@ const Cards = () => {
           `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=business`
         );
         const data = await response.json();
-        setNewsData(data.articles.slice(0, 9)); 
+        setNewsData(data.articles.slice(0, 18)); 
       } catch (error) {
         toast.error("Error fetching news data")
         console.error("Error fetching news data:", error);
