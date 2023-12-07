@@ -9,14 +9,13 @@ function RoleCard({ card, delay, link }) {
   const [ref, inView] = useInView({ triggerOnce: true });
   return (
     <motion.div
-      initial={{ scale: 0.5, opacity: 0, y: 0 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={
         inView
           ? {
-              scale: 1,
               opacity: 1,
-              y: 0,
-              transition: { duration: 0.5, ease: "easeIn", delay: delay },
+              scale: 1,
+              transition: { ease: "easeIn", duration: 0.3, delay: delay },
             }
           : "hidden"
       }

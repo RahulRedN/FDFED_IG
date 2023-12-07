@@ -19,18 +19,16 @@ import { CgCross, CgProfile } from "react-icons/cg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RoleCard from "./RoleCard";
-import { FaCross } from "react-icons/fa";
-import { IoClose, IoCloseCircle } from "react-icons/io5";
-
-const roles = ["Role", "React", "CSS", "Java"];
-const benifits = ["Health", "Stocks", "Wifi", "Free snacks & beverages"];
+import { IoCloseCircle } from "react-icons/io5";
+import toast from 'react-hot-toast'
 
 const FindJobCard = ({ job, fav, setFavHandler }) => {
   const [ref, inView] = useInView({ triggerOnce: true });
 
-  const isLocation = true;
-  const Posted = false;
-  const isJustNow = true;
+  const currDate = new Date();
+  const postedDate = new Date(job?.postedDate);
+
+  const isJustNow = Math.abs(currDate - postedDate) <= 24 * 60 * 60 * 1000;
   const [isfav, setIsfav] = useState(fav && fav[job.id]);
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -56,6 +54,15 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
         const newFav = {};
         newFav[job.id] = !state;
         setFavHandler(newFav);
+      }
+
+      if (!state) {
+        toast("Added to Favourites!", {
+          className: "p-3 text-red-500"
+        })
+      } else {
+        toast("Removed from Favourites!");
+        
       }
 
       return !state;
@@ -102,8 +109,15 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
       <motion.div
         ref={ref}
         initial={{ opacity: 0, scale: 0.95 }}
-        animate={inView ? { opacity: 1, scale: 1 } : "hidden"}
-        transition={{ ease: "easeIn", duration: 0.3 }}
+        animate={
+          inView
+            ? {
+                opacity: 1,
+                scale: 1,
+                transition: { ease: "easeIn", duration: 0.3 },
+              }
+            : "hidden"
+        }
         className="shadow-xl w-[45vw] h-fit p-4 border border-gray-100 bg-white"
       >
         <div className="flex items-center justify-between">
@@ -135,10 +149,10 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
         </div>
 
         <div className="mt-5">
-          {isLocation ? (
+          {job?.location ? (
             <div className="flex items-start gap-2">
               <MapPin size={18} />
-              <p className="text-sm">Location</p>
+              <p className="text-sm">{job?.location}</p>
             </div>
           ) : (
             <div className="flex gap-1">
@@ -155,7 +169,9 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
                   Joining Date
                 </span>
               </div>
-              <h1 className="text-sm font-thin">15/11/2024</h1>
+              <h1 className="text-sm font-thin">
+                {new Date(job.joiningDate).toLocaleDateString("en-GB")}
+              </h1>
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex gap-1">
@@ -164,7 +180,9 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
                   Salary
                 </span>
               </div>
-              <h1 className="text-sm font-thin tracking-wide"> ₹ 5000000</h1>
+              <h1 className="text-sm font-thin tracking-wide">
+                ₹ {job?.salary}
+              </h1>
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex gap-1">
@@ -173,24 +191,36 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
                   Experience
                 </span>
               </div>
-              <h1 className="text-sm font-thin">5 years</h1>
+              <h1 className="text-sm font-thin">{job?.experience}</h1>
             </div>
           </div>
 
           <div className="flex mt-5 gap-3 items-stretch flex-wrap">
-            {!Posted ? (
+            {isJustNow ? (
               <div className="max-w-fit rounded flex items-center gap-1 p-1 bg-green-100">
                 <History strokeWidth={2} size={16} color="#4ade80" />
-                <p className="text-sm text-green-400">2 days ago</p>
+                <p className="text-sm text-green-400">
+                  {Math.floor(
+                    (currDate.getTime() - postedDate.getTime()) /
+                      (1000 * 3600 * 24)
+                  )}{" "}
+                  days ago
+                </p>
               </div>
             ) : (
               <div className="max-w-fit rounded flex items-center gap-1 p-1 bg-sky-100">
                 <History strokeWidth={2} size={16} color="#60a5fa" />
-                <p className="text-sm text-blue-400">2 days ago</p>
+                <p className="text-sm text-blue-400">
+                  {Math.floor(
+                    (currDate.getTime() - postedDate.getTime()) /
+                      (1000 * 3600 * 24)
+                  )}{" "}
+                  days ago
+                </p>
               </div>
             )}
 
-            {roles.map((role, index) => (
+            {job?.skills?.split(",").map((role, index) => (
               // eslint-disable-next-line react/jsx-key
               <RoleCard key={index} role={role} />
             ))}
@@ -213,6 +243,7 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
         modalIsOpen={modalIsOpen}
         closeModal={closeModal}
         customStyles={customStyles}
+        job={job}
       />
     </>
   );
@@ -220,7 +251,7 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
 
 export default FindJobCard;
 
-const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
+const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
   return ReactDOM.createPortal(
     <Modal
       isOpen={modalIsOpen}
@@ -232,65 +263,54 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
         <button onClick={closeModal}>
           <IoCloseCircle className="text-3xl" />
         </button>
-          <h1 className="font-bold text-4xl text-center">Company Name</h1>
+        <h1 className="font-bold text-4xl text-center">{job.companyName}</h1>
       </div>
 
       <h1 className="mt-6 text-lg font-[600]">Job Description</h1>
-      <p className="mt-2 text-[500] text-gray-500">
-        Vestibulum dignissim sapien mi. Sed ultrices bibendum augue. Nunc luctus
-        sit amet felis a egestas. Nunc imperdiet elit ex, ut rhoncus metus
-        elementum vitae. Phasellus aliquam fringilla orci non tristique.
-      </p>
+      <p className="mt-2 text-[500] text-gray-500">{job.jobDesc}</p>
 
       <div className="w-fit mt-6 p-4 border flex flex-col gap-3 rounded shadow">
         <h1 className="font-[600]">Activity on InspiringGo</h1>
         <div className="flex gap-5">
           <div className="flex gap-1 items-center">
             <CalendarSearch size={19} />
-            <h2>Hiring since September 2016</h2>
+            <h2>
+              Hiring since{" "}
+              {new Date(job?.postedDate).toLocaleDateString("en-US", {
+                month: "long",
+                year: "numeric",
+              })}
+            </h2>
           </div>
           <div className="flex gap-1 items-center">
             <MailSearch size={19} />
-            <h2>10 oppurtunities posted</h2>
+            <h2>{job.totalPositions} oppurtunities posted</h2>
           </div>
           <div className="flex gap-1 items-center">
             <CgProfile size={21} />
-            <h2>25 candidates hired</h2>
+            <h2>{job.totalPositions - job.vacancies} candidates hired</h2>
           </div>
         </div>
       </div>
 
       <h3 className="mt-4 font-[600]">Responsibility</h3>
       <ul className="ml-5 text-gray-500" style={{ listStyleType: "disc" }}>
-        <br></br>
-        <li>
-          Vestibulum dignissim sapien mi. Sed ultrices bibendum augue.
-          Nuncluctus sit amet felis a egestas. rhoncusmetus vitae Phasellus
-          aliquam fringilla orci nontristique.
-        </li>
-        <li>
-          Vestibulum dignissim sapien mi. Sed ultrices bibendum augue.
-          Nuncluctus sit amet felis a egestas. rhoncusmetus vitae Phasellus
-          aliquam fringilla orci nontristique.
-        </li>
-        <li>
-          Vestibulum dignissim sapien mi. Sed ultrices bibendum augue.
-          Nuncluctus sit amet felis a egestas. rhoncusmetus vitae Phasellus
-          aliquam fringilla orci nontristique.
-        </li>
+        <br />
+        {job?.responsibilities.map((res, idx) => (
+          <li key={idx}>{res}</li>
+        ))}
       </ul>
 
       <h1 className="mt-8 text-lg font-[600]">Qualifications</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
-        {roles.map((role, index) => (
-          // eslint-disable-next-line react/jsx-key
+        {job?.skills.split(",").map((role, index) => (
           <RoleCard key={index} role={role} />
         ))}
       </div>
 
       <h1 className="mt-8 text-lg font-[600]">Benefits</h1>
       <div className="flex mt-3 gap-3 items-stretch flex-wrap">
-        {benifits.map((benifit, index) => (
+        {job?.benefits.split(",").map((benifit, index) => (
           <p
             key={index}
             className="text-sm p-1 bg-gray-200 text-gray-500 rounded"
@@ -303,11 +323,13 @@ const Modals = ({ modalIsOpen, closeModal, customStyles }) => {
       <h1 className="mt-8 text-lg font-[600]">Job Summary</h1>
       <ul className="ml-5 text-gray-500" style={{ listStyleType: "disc" }}>
         <br></br>
-        <li>Posted on:</li>
-        <li>Vacancy :</li>
-        <li>Salary :</li>
-        <li>Location :</li>
-        <li>Job Nature :</li>
+        <li>
+          Posted on: {new Date(job?.postedDate).toLocaleDateString("en-US")}
+        </li>
+        <li>Vacancy : {job?.vacancies}</li>
+        <li>Salary : {job?.salary}</li>
+        {job?.location && <li>Location : {job?.location}</li>}
+        <li>Job Nature : {job?.location ? "on Site": "Work From Home"}</li>
       </ul>
       <button
         onClick={() => {}}

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import classes from "./css/Navbar_Home_Styles.module.css";
 
 
@@ -11,22 +11,26 @@ const Navbar = ({ navClass }) => {
       <div className={classes.left}>
         <div className="flex flex-row items-center">
           <img className={classes.logo} src="/images/IG_logo_Dark.png" alt="Logo" />
-          <NavLink to="/" className={"text-xl"}> Inspiring Go</NavLink>
+          <NavLink to="/" className={"text-3xl"}> Inspiring Go</NavLink>
         </div>
         <ul className={classes.items}>
           <li>
-            <NavLink to="aboutus">About us</NavLink>
-          </li>
-          <li>
-            <NavLink to="faqs">FAQS</NavLink>
+            <NavLink to="aboutus">ABOUT US</NavLink>
           </li>
           <li>
             <NavLink to="contactus">CONTACT</NavLink>
           </li>
           <li>
+<<<<<<< HEAD
             <NavLink to="news">News</NavLink>
+=======
+            <NavLink to="faqs">FAQS</NavLink>
+>>>>>>> 75cbc58819439eec4c25937463f9ba49c0862ee5
           </li>
         </ul>
+        <Link to="login" className="hover:text-[#000dff] rounded text-lg transition ease-in-out duration-150">
+        Login
+        </Link>
       </div>
     </nav>
   );

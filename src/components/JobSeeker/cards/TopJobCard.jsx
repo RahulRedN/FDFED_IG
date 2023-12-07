@@ -2,10 +2,23 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import classes from "./TopJobCard.module.css";
 
-const TopJobCard = ({ sticker }) => {
+import { Building2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const TopJobCard = ({ sticker, position, jobDesc, jobId }) => {
+  const nav = useNavigate();
+
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
+
+  const truncateString = (str, maxLength) => {
+    if (str.length <= maxLength) {
+      return str;
+    } else {
+      return str.substring(0, maxLength) + "...";
+    }
+  };
 
   return (
     <motion.div
@@ -15,20 +28,26 @@ const TopJobCard = ({ sticker }) => {
       ref={ref}
       transition={{
         ease: "easeIn",
-        duration:0.3,
+        duration: 0.3,
       }}
-      whileHover={{ scale: 1.05, transition: { duration: 0, ease: "easeInOut" } }}
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0, ease: "easeInOut" },
+      }}
     >
       <div className={classes.logo}>
-        <img src="/assets/job.svg" alt="Logo" />
+        <Building2 size={40} />
       </div>
       <div className={classes.serviceInfo}>
-        <h1>Design & Creativity</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum
-          mollitia obcaecati ratione veritatis.
-        </p>
-        <a>Apply Now</a>
+        <h1>{position}</h1>
+        <p>{truncateString(jobDesc, 90)}</p>
+        <a
+          onClick={() => {
+            nav("findJobs?jobId=" + jobId);
+          }}
+        >
+          Apply Now
+        </a>
       </div>
       {sticker ? <div className={classes.sticker}>Remote</div> : ""}
     </motion.div>

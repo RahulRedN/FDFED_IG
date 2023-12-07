@@ -30,9 +30,9 @@ const Home = () => {
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className="flex">
-            <Sidebar isSidebar={isSidebar} />
-            <main className="w-full "> 
+          <div className="flex min-h-screen">
+            <Sidebar isSidebar={isSidebar}/>
+            <main className="w-full"> 
             <Outlet />
             </main>
           </div>

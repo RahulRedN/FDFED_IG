@@ -17,7 +17,7 @@ const Home = () => {
             <h1>
               <span>Find Your Next</span> <span>Dream Job</span>
             </h1>
-            <button onClick={()=>{nav('findjobs')}} className={classes.find}>LOOKING FOR A JOB?</button>
+            <button onClick={()=>{nav('findJobs')}} className={classes.find}>LOOKING FOR A JOB?</button>
           </div>
         </div>
         <div className={classes.sliderBG1}>
