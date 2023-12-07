@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import Modal from "react-modal";
 
 import { CalendarSearch, MailSearch } from "lucide-react";
@@ -7,6 +10,11 @@ import { CgProfile } from "react-icons/cg";
 import { IoCloseCircle } from "react-icons/io5";
 
 import RoleCard from "../FindJob/RoleCard";
+import { setApplied } from "../../../redux/jobseekerReducer";
+
+import toast from "react-hot-toast";
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/config";
 
 const SavedJobCard = ({ job }) => {
   const truncateString = (str, maxLength) => {
@@ -120,6 +128,56 @@ const SavedJobCard = ({ job }) => {
 export default SavedJobCard;
 
 const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
+  const nav = useNavigate();
+  const user = useSelector((state) => state.jobseeker.data);
+  const dispatch = useDispatch();
+
+  const applyHandler = async () => {
+    const data = { ...job.status };
+
+    if (data[user.id] == undefined) {
+      try {
+        data[user.id] = {
+          appiled: null,
+          date: Date().toLocaleString(),
+          fname: user.fname,
+        };
+        const docRef = doc(collection(db, "jobs"), job.id);
+        await updateDoc(docRef, { status: data });
+        dispatch(setApplied({ data: data, id: job.id }));
+        toast("Job Applied!");
+
+        nav("/jobseeker");
+      } catch (error) {
+        console.error(error);
+        toast("An error Occured!", { className: "text-red-500" });
+      }
+    } else {
+      toast("Already applied to the Job!");
+    }
+  };
+
+  const isDisabled = job.status[user.id];
+
+  const color = (status) => {
+    if (status === "Rejected") {
+      return "bg-red-200 text-red-600 ";
+    } else if (status === "Accepted") {
+      return "bg-green-200 text-green-600";
+    } else {
+      return "bg-yellow-100 text-yellow-500";
+    }
+  };
+
+  const getStatus = (status) => {
+    if (status == null) {
+      return "Pending";
+    } else if (status) {
+      return "Accepted";
+    } else {
+      return "Rejected";
+    }
+  };
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -200,11 +258,16 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
         <li>Job Nature : {job?.location ? "on Site" : "Work From Home"}</li>
       </ul>
       <button
-        onClick={() => {}}
-        className="mt-8 text-center m-auto bg-blue-600 hover:bg-blue-700 text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline
-      "
+        onClick={applyHandler}
+        className={
+          "mt-8 text-center m-auto text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline " +
+          (isDisabled
+            ? color(getStatus(isDisabled.applied))
+            : "bg-blue-600 hover:bg-blue-700")
+        }
+        disabled={isDisabled}
       >
-        Apply now
+        {isDisabled ? getStatus(isDisabled.applied) : "Apply"}
       </button>
     </Modal>
   );

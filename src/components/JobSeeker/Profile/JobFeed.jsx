@@ -6,10 +6,15 @@ import { useAuth } from "../../../Firebase/AuthContexts";
 import JobFeedCard from "./JobFeedCard";
 
 const JobFeed = ({ status }) => {
-  const { user } = useAuth();
-  const jobs = useSelector((state) => state.jobseeker.jobs)?.filter(
-    (job) => job.status[user.uid]
-  );
+  const user = useSelector((state) => state.jobseeker.data);
+  const jobs = useSelector((state) => state.jobseeker.jobs)
+    ?.filter((job) => job.status[user.id])
+    .sort((a, b) => {
+      const dateA = new Date(a.status[user.id].date);
+      const dateB = new Date(b.status[user.id].date);
+
+      return dateB - dateA;
+    });
 
   const [applied, setApplied] = useState(jobs);
 
@@ -53,14 +58,14 @@ const JobFeed = ({ status }) => {
             </thead>
             <tbody>
               {applied.map((job, idx) => {
-                const date = new Date(job.status[user?.uid].date);
+                const date = new Date(job.status[user?.id].date);
                 return (
                   <JobFeedCard
                     job={job}
                     idx={idx}
                     date={date}
                     key={idx}
-                    status={job.status[user?.uid].applied}
+                    status={job.status[user?.id].applied}
                   />
                 );
               })}

@@ -134,6 +134,9 @@ const LoginCompany = () => {
                   id="email"
                   name="email"
                   placeholder="Enter Your Email"
+                  onChange={(e) => {
+                    setLogin((state) => ({ ...state, email: e.target.value }));
+                  }}
                   required
                 />
 
@@ -144,6 +147,12 @@ const LoginCompany = () => {
                   id="password"
                   name="password"
                   placeholder=" Enter Your password"
+                  onChange={(e) => {
+                    setLogin((state) => ({
+                      ...state,
+                      password: e.target.value,
+                    }));
+                  }}
                   required
                 />
 
@@ -186,9 +195,7 @@ const LoginCompany = () => {
                 <label htmlFor="name">Name</label>
                 <input
                   className="inputs"
-                  type="email"
-                  id="email"
-                  name="email"
+                  type="text"
                   onChange={(e) =>
                     setRegister((state) => ({ ...state, name: e.target.value }))
                   }
@@ -223,7 +230,7 @@ const LoginCompany = () => {
                       password: e.target.value,
                     }))
                   }
-                  placeholder=" Enter Your password"
+                  placeholder="Enter Your password"
                   required
                 />
 

@@ -11,6 +11,8 @@ const PendingList = ({ status }) => {
       return "bg-yellow-100 text-yellow-500";
     }
   };
+
+  
   const skills = ["hello", "this", "are", "my", "skills"];
   return (
     <div className="max-h-full w-[78.5vw] absolute right-0" id="PendingList">

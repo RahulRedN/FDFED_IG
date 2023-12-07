@@ -11,10 +11,10 @@ import {
   MailSearch,
   Heart,
 } from "lucide-react";
-import ReactDOM from "react-dom";
+
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { CgCross, CgProfile } from "react-icons/cg";
+import { CgProfile } from "react-icons/cg";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -22,10 +22,9 @@ import RoleCard from "./RoleCard";
 import { IoCloseCircle } from "react-icons/io5";
 import toast from "react-hot-toast";
 
-import { useAuth } from "../../../Firebase/AuthContexts";
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/config";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setApplied } from "../../../redux/jobseekerReducer";
 import { useNavigate } from "react-router-dom";
 
@@ -263,15 +262,19 @@ export default FindJobCard;
 
 const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
   const nav = useNavigate();
-  const { user } = useAuth();
+  const user = useSelector((state) => state.jobseeker.data);
   const dispatch = useDispatch();
 
   const applyHandler = async () => {
     const data = { ...job.status };
 
-    if (data[user.uid] == undefined) {
+    if (data[user.id] == undefined) {
       try {
-        data[user.uid] = { appiled: null, date: Date().toLocaleString() };
+        data[user.id] = {
+          appiled: null,
+          date: Date().toLocaleString(),
+          fname: user.fname,
+        };
         const docRef = doc(collection(db, "jobs"), job.id);
         await updateDoc(docRef, { status: data });
         dispatch(setApplied({ data: data, id: job.id }));
@@ -287,7 +290,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
     }
   };
 
-  const isDisabled = job.status[user.uid];
+  const isDisabled = job.status[user.id];
 
   const color = (status) => {
     if (status === "Rejected") {
