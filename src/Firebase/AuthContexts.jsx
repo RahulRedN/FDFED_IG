@@ -12,6 +12,7 @@ import {
 import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 
 import { setData } from "../redux/jobseekerReducer";
+import { setCompanyData } from "../redux/companyReducer";
 import { useDispatch } from "react-redux";
 
 const AuthContext = React.createContext();
@@ -56,27 +57,51 @@ export const AuthContexts = ({ children }) => {
               id: doc.id,
             }));
 
-            if (data[0].role === "jobseeker") {
-              try {
-                const collectionRef = collection(db, "jobs");
-                const res1 = await getDocs(collectionRef);
+            const collectionRef = collection(db, "jobs");
+            const res1 = await getDocs(collectionRef);
 
-                if (res1.docs.length !== 0) {
-                  const temp = res1.docs.map((doc) => ({
+            if (res1.docs.length != 0 && data[0].id) {
+              const temp = res1.docs.map((doc) => ({
+                ...doc.data(),
+                id: doc.id,
+              }));
+
+              temp.sort((a, b) => {
+                const dateA = new Date(a.postedDate);
+                const dateB = new Date(b.postedDate);
+
+                // Compare the dates
+                return dateB - dateA;
+              });
+            }
+
+            if (data[0].role === "jobseeker") {
+              dispatch(setData({ data: data[0], jobs: temp }));
+            } else if (data[0].role == "company") {
+              try {
+                const collectionRef = collection(db, "relations");
+                const q = query(
+                  collectionRef,
+                  where("companyId", "==", data[0].id)
+                );
+                const res2 = await getDocs(q);
+
+                let relation = [];
+
+                if (res2.docs.length != 0) {
+                  relation = res1.docs.map((doc) => ({
                     ...doc.data(),
                     id: doc.id,
                   }));
-
-                  temp.sort((a, b) => {
-                    const dateA = new Date(a.postedDate);
-                    const dateB = new Date(b.postedDate);
-
-                    // Compare the dates
-                    return dateB-dateA;
-                  });
-
-                  dispatch(setData({ data: data[0], jobs: temp }));
                 }
+
+                dispatch(
+                  setCompanyData({
+                    data: data[0],
+                    jobs: temp,
+                    relation: relation,
+                  })
+                );
               } catch (error) {
                 console.error(error);
               }

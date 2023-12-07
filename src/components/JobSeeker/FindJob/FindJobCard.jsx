@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RoleCard from "./RoleCard";
 import { IoCloseCircle } from "react-icons/io5";
-import toast from 'react-hot-toast'
+import toast from "react-hot-toast";
 
 const FindJobCard = ({ job, fav, setFavHandler }) => {
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -58,11 +58,10 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
 
       if (!state) {
         toast("Added to Favourites!", {
-          className: "p-3 text-red-500"
-        })
+          className: "p-3 text-red-500",
+        });
       } else {
         toast("Removed from Favourites!");
-        
       }
 
       return !state;
@@ -252,7 +251,10 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
 export default FindJobCard;
 
 const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
-  return ReactDOM.createPortal(
+  const applyHandler = async () => {
+    const data = {jobId: job.id, companyId: job.companyId}
+  };
+  return (
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
@@ -329,7 +331,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
         <li>Vacancy : {job?.vacancies}</li>
         <li>Salary : {job?.salary}</li>
         {job?.location && <li>Location : {job?.location}</li>}
-        <li>Job Nature : {job?.location ? "on Site": "Work From Home"}</li>
+        <li>Job Nature : {job?.location ? "on Site" : "Work From Home"}</li>
       </ul>
       <button
         onClick={() => {}}
@@ -338,7 +340,6 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
       >
         Apply now
       </button>
-    </Modal>,
-    document.getElementById("modals")
+    </Modal>
   );
 };
