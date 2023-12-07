@@ -32,7 +32,8 @@ const LoginCompany = () => {
     password: "",
   });
 
-  const loginHandler = async () => {
+  const loginHandler = async (e) => {
+    e.preventDefault();
     //validation
 
     try {
