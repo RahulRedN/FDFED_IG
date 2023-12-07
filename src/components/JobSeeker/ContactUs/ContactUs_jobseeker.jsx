@@ -4,16 +4,33 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdDriveFileRenameOutline, MdSubject } from "react-icons/md";
 import ContactCard from "./ContactCard";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const details = ["Phone", "Email", "Address", "Physical address"];
 
 const ContactUs_jobseeker = () => {
-
+  
+  const [jobcontact, setJobContact] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    phone: "",
+    message: "",
+  });
 
   const SubmitHandler = (e) => {
     e.preventDefault();
-    console.log("Submitted");
-  }
+    console.log("Submitted", jobcontact);
+ 
+  };
+
+  const handleJobContactChange = (e) => {
+    const { name, value } = e.target;
+    setJobContact((prevJobContact) => ({
+      ...prevJobContact,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
@@ -48,6 +65,9 @@ const ContactUs_jobseeker = () => {
                       />
                       <input
                         type="text"
+                        name="name"
+                        value={jobcontact.name}
+                        onChange={handleJobContactChange}
                         placeholder="Enter Name"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -63,6 +83,9 @@ const ContactUs_jobseeker = () => {
                       />
                       <input
                         type="text"
+                        name="email"
+                        value={jobcontact.email}
+                        onChange={handleJobContactChange}
                         placeholder="Enter Email"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -78,6 +101,9 @@ const ContactUs_jobseeker = () => {
                       />
                       <input
                         type="text"
+                        name="subject"
+                        value={jobcontact.subject}
+                        onChange={handleJobContactChange}
                         placeholder="Enter Subject"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -93,6 +119,9 @@ const ContactUs_jobseeker = () => {
                       />
                       <input
                         type="text"
+                        name="phone"
+                        value={jobcontact.phone}
+                        onChange={handleJobContactChange}
                         placeholder="Enter Number"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -103,7 +132,9 @@ const ContactUs_jobseeker = () => {
                 <div className="">
                   <label className="font-normal text-gray-500">MESSAGE</label>
                   <textarea
-                    type=""
+                    name="message"
+                    value={jobcontact.message}
+                    onChange={handleJobContactChange}
                     placeholder="Enter Message...."
                     className="mt-2 w-full border border-zinc-400 p-4 h-[13rem] rounded-md outline-none placeholder:text-zinc-500
                     placeholder:tracking-widest"

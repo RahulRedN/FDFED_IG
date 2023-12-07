@@ -15,8 +15,8 @@ const FaqSpeak = () => {
         
         <motion.div
         ref={ref}
-        initial={{ x: 100, opacity: 0 }} // Change y to 100 to start from the bottom
-        animate={inView ? { x: 0, opacity: 1 } : "hidden"} // Change y to 0 to move up
+        initial={{ x: 100, opacity: 0 }} 
+        animate={inView ? { x: 0, opacity: 1 } : "hidden"} 
         transition={{ ease: "easeInOut", duration: 0.9, delay: 0.3 }} 
         className="speak-container"
       >

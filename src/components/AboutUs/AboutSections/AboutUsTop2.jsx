@@ -13,9 +13,7 @@ const AboutUsTop2 = () => {
           The Right Choice
         </h2>
         <p>
-          Quisque eu diam a mi vulputate lacinia. Aliquam eros neque, luctus ut
-          ligula in, faucibus fermentum sem.Nulla varius auctor varius. Mauris
-          erat nisl, aliquet sed libero et, ultrices venenatis nunc..
+        Dedicated to finding your ideal match. We specialize in personalized services, ensuring your journey is marked by strategic choices and unparalleled success. Unleash 
         </p>
       </div>
 

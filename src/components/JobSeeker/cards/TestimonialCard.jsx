@@ -10,10 +10,7 @@ const TestimonialCard = () => {
       <div className={classes.info}>
         <img src="/assets/quotes-sign.webp" />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-          consequuntur laudantium perferendis? Velit libero nobis beatae ea,
-          dolor odio delectus atque vel illo voluptatum quas, ipsa
-          reprehenderit. Quos, labore nobis!
+        In the realm of UI/UX design, our team is dedicated to crafting seamless and visually appealing user experiences. We believe that design is not just about aesthetics but also about creating interfaces that users love to engage with. Our designers pay meticulous attention to detail, ensuring that every pixel aligns with the overall user journey.
         </p>
       </div>
       <div className={classes.reviewer}>
