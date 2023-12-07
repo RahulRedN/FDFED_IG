@@ -2,7 +2,6 @@
 import { Link, NavLink } from "react-router-dom";
 import classes from "./css/Navbar_Home_Styles.module.css";
 
-import toast from 'react-hot-toast'
 
 import Avatar from "../JobSeeker/Avatar";
 
@@ -22,7 +21,7 @@ const Navbar = ({ navClass }) => {
             <NavLink to="contactus">CONTACT</NavLink>
           </li>
           <li>
-            <NavLink to="faqs">FAQS</NavLink>
+            <NavLink to="news">News</NavLink>
           </li>
         </ul>
         <Link to="login" className="hover:text-[#000dff] rounded text-lg transition ease-in-out duration-150">

@@ -8,20 +8,20 @@ const AboutUsTop2Cards = () => {
   const dummyData = [
     {
       title: "Develop & Training",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      content: "Experience transformative learning and skill enhancement.",
     },
     {
       title: "Job Placement",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      content: "Discover your perfect career fit with our personalized placement services.",
     },
 
     {
       title: "Job Counselling",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      content: "Providing expert advice and support tailored to your unique journey.",
     },
     {
       title: "Test & Interview",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      content: "Prepare with precision for assessments and interviews.",
     },
   ];
 
@@ -31,12 +31,9 @@ const AboutUsTop2Cards = () => {
 
         <motion.div
         ref={ref}
-        // initial={{ x: 100, y: 0, scale: 0.8, opacity: 0 }}
-        // animate={inView ? { x: 0, y: 0, scale: 1, opacity: 1 } : "hidden"}
         initial={{ x: 100, y: 0,  opacity: 0 }}
         animate={inView ? { x: 0, y: 0,  opacity: 1 } : "hidden"}
         transition={{ ease: "easeInOut", delay: index * 0.3, duration: 0.5}}
-        // transition={{ ease: "easeInOut", duration: 0.3}}
         className="AboutUsTop2Card"
         key={index}
       >

@@ -8,11 +8,21 @@ import Header from "./Header";
 import LineChart from "./LineChart";
 import BarChart from "./BarChart";
 import StatBox from "./StatBox";
-import ProgressCircle from './ProgressCircle'
-import PieChart from './PieChart'
-import { Money, MoneyOff, MoneyOffCsredSharp, MoneySharp, NotInterested, NotInterestedTwoTone } from "@mui/icons-material";
+import ProgressCircle from "./ProgressCircle";
+import PieChart from "./PieChart";
+import {
+  Money,
+  MoneyOff,
+  MoneyOffCsredSharp,
+  MoneySharp,
+  NotInterested,
+  NotInterestedTwoTone,
+} from "@mui/icons-material";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
+  const data = useSelector((state) => state.company);
+  console.log(data);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -21,7 +31,6 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
       </Box>
 
       {/* GRID & CHARTS */}
@@ -123,7 +132,7 @@ const Dashboard = () => {
             Monthly Trend of Applications
           </Typography>
           <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true}  />
+            <BarChart isDashboard={true} />
           </Box>
         </Box>
         {/* <Box
@@ -170,22 +179,17 @@ const Dashboard = () => {
           </Box>
         </Box>
 
-
         <Box //pie chart
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
         >
-           <Typography
-            variant="h5"
-            fontWeight="600"
-          >
+          <Typography variant="h5" fontWeight="600">
             Current State of Monthly Applications
           </Typography>
-         <PieChart/>
+          <PieChart />
         </Box>
-
       </Box>
     </Box>
   );

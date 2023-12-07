@@ -23,7 +23,7 @@ const Navbar = ({ navClass }) => {
             <NavLink to="">HOME</NavLink>
           </li>
           <li>
-            <NavLink to="findjobs">BROWSE JOB</NavLink>
+            <NavLink to="findJobs">BROWSE JOB</NavLink>
           </li>
           <li>
             <NavLink to="contactus">CONTACT</NavLink>

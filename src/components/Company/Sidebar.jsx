@@ -6,9 +6,15 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "./theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import { Checklist, PendingActions, PostAdd , LogoutSharp} from "@mui/icons-material";
+import {
+  Checklist,
+  PendingActions,
+  PostAdd,
+  LogoutSharp,
+} from "@mui/icons-material";
+import { useAuth } from "../../Firebase/AuthContexts";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -20,21 +26,27 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       }}
       onClick={() => setSelected(title)}
       icon={icon}
-
-
     >
-      <Typography variant="h4" >{title}</Typography>
-      <Link to={to} />
+      <Typography variant="h4">{title}</Typography>
+      <Link to={to} onClick={onClickHandler} />
     </MenuItem>
   );
 };
 
 const Sidebar = () => {
+  const { logout } = useAuth();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
+  const logoutHandler = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <Box
       sx={{
@@ -72,7 +84,7 @@ const Sidebar = () => {
                 justifyContent="space-between"
                 alignItems="center"
                 ml="15px"
-                mb = "22px"
+                mb="22px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
                   ADMIN
@@ -140,12 +152,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-              <Item
+            <Item
               title="Log Out"
               to="" //private route chks session is actv or not
               icon={<LogoutSharp />}
               selected={selected}
               setSelected={setSelected}
+              onClickHandler={logoutHandler}
             />
           </Box>
         </Menu>

@@ -1,6 +1,6 @@
 import "../../Styles/AboutUs.css";
-import { Link } from "react-router-dom";
-import QuesCards from "../AboutUs/TeamCard/QuesCards";
+// import { Link } from "react-router-dom";
+// import QuesCards from "../AboutUs/TeamCard/QuesCards";
 import AboutUsTop from "../AboutUs/AboutSections/AboutUsTop";
 import AboutUsTop2 from "../AboutUs/AboutSections/AboutUsTop2";
 import AboutUsTop3 from "../AboutUs/AboutSections/AboutUsTop3";
@@ -23,7 +23,7 @@ const AboutUs = () => {
       <Services />
       {/* <Testimonial /> */}
 
-      <QuesCards />
+      {/* <QuesCards /> */}
     </div>
   );
 };

@@ -39,15 +39,14 @@ const BarChart = ({ isDashboard = false }) => {
           },
         },
       }}
-      keys={["Accepted","Rejected"]}
+      keys={["Accepted", "Rejected"]}
       indexBy="country"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.1}
       groupMode="grouped"
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}
-      colors={["#6ee7b7","#818cf8"]}
-  
+      colors={["#25cc8b", "#020dff"]}
       defs={[
         {
           id: "dots",
