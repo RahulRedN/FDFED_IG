@@ -1,6 +1,12 @@
 import classes from "./PendingList.module.css";
 import Skillbox from "./Skillbox";
 
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { db } from "../../../Firebase/config";
+import { doc, collection, getDoc } from "firebase/firestore";
+
 const PendingList = ({ status }) => {
   const color = (status) => {
     if (status === "Rejected") {
@@ -12,7 +18,29 @@ const PendingList = ({ status }) => {
     }
   };
 
-  
+  const jobs = useSelector((state) => state.company.jobs);
+
+  useEffect(() => {
+    const fetch = () => {
+      let pending = [];
+      try {
+        jobs.forEach((job) => {
+          Object.keys(job.status).forEach(async (user) => {
+            const docRef = doc(collection(db, "users"), user);
+            const res = await getDoc(docRef);
+
+            if (res) {
+              pending = [...pending, { ...res, id: res.id }];
+            }
+          });
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    // fetch()
+  }, []);
+
   const skills = ["hello", "this", "are", "my", "skills"];
   return (
     <div className="max-h-full w-[83vw] absolute right-0" id="PendingList">
@@ -21,11 +49,13 @@ const PendingList = ({ status }) => {
         <div className="rounded-md border-[1px] border-gray-300 w-[75vw]">
           <table className={classes.table}>
             <thead className="bg-gray-400 h-16 text-center">
-              <td className="rounded-tl-md w-[15%]">Username</td>
-              <td className="w-[15%]">POSITION</td>
-              <td className="w-[15%]">APPLIED ON</td>
-              <td className="w-[30%]">SKILLS</td>
-              <td className="rounded-tr-md w-[25%]">APPLICATION STATUS</td>
+              <tr>
+                <td className="rounded-tl-md w-[15%]">Username</td>
+                <td className="w-[15%]">POSITION</td>
+                <td className="w-[15%]">APPLIED ON</td>
+                <td className="w-[30%]">SKILLS</td>
+                <td className="rounded-tr-md w-[25%]">APPLICATION STATUS</td>
+              </tr>
             </thead>
             <tbody>
               <tr className="border-gray-200 hover:bg-gray-100 text-center text-[2rem]">
@@ -37,7 +67,7 @@ const PendingList = ({ status }) => {
                 <td>
                   <div className="flex justify-center align-baseline">
                     {skills.map((skill, idx) => (
-                      <Skillbox index={idx} skill={skill} />
+                      <Skillbox index={idx} skill={skill} key={idx} />
                     ))}
                   </div>
                 </td>
@@ -46,19 +76,21 @@ const PendingList = ({ status }) => {
                   <div className="flex gap-3 justify-center">
                     <button
                       className={
-                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-emerald-300  border-emerald-300 hover:bg-white hover:cursor-pointer hover:text-emerald-800 hover:border-emerald-800 hover:border-[1px]"}>
+                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-emerald-300  border-emerald-300 hover:bg-white hover:cursor-pointer hover:text-emerald-800 hover:border-emerald-800 hover:border-[1px]"
+                      }
+                    >
                       Accept
                     </button>
                     <button
                       className={
-                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-red-400 hover:bg-white hover:cursor-pointer hover:text-red-800 hover: bg-white-800 hover:border-red-800 hover:border-[1px]"}>
+                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-red-400 hover:bg-white hover:cursor-pointer hover:text-red-800 hover: bg-white-800 hover:border-red-800 hover:border-[1px]"
+                      }
+                    >
                       Reject
                     </button>
                   </div>
                 </td>
               </tr>
-
-
             </tbody>
           </table>
         </div>
