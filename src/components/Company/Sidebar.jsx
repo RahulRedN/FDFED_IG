@@ -55,19 +55,19 @@ const Sidebar = () => {
       sx={{
         "& .pro-sidebar-inner": {
           // background: `${colors.primary[400]} !important`,
+          background : "white",
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
           padding: " 5px 20px !important",
-          color:"white"
         },
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#4147ab !important",
         },
       }}
     >
