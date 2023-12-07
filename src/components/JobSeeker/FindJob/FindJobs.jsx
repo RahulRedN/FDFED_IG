@@ -7,11 +7,25 @@ import { setFav } from "../../../redux/jobseekerReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/config";
+import { useSearchParams } from "react-router-dom";
 
 const FindJobs = () => {
+  const [parmas, setParam] = useSearchParams();
+  const jobId = parmas.get("jobId");
+  const filter = parmas.get("filter");
+
   const user = useSelector((state) => state.jobseeker);
 
-  const [state, setState] = useState({ data: user?.data, jobs: user?.jobs });
+  const [state, setState] = useState({
+    data: user?.data,
+    jobs: jobId
+      ? user?.jobs.filter((job) => job.id == jobId)
+      : filter
+      ? user?.jobs.filter((job) =>
+          job.position.toLowerCase().includes(filter.toLowerCase())
+        )
+      : user?.jobs,
+  });
 
   const dispatch = useDispatch();
 
@@ -40,6 +54,7 @@ const FindJobs = () => {
               setFavHandler={setFavHandler}
             />
           ))}
+          {state.jobs.length == 0 && "No jobs found!"}
         </div>
       </div>
     </div>

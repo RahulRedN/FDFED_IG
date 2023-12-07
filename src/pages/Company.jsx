@@ -32,9 +32,9 @@ const Home = () => {
           <CssBaseline />
           <div className="flex min-h-screen">
             <Sidebar isSidebar={isSidebar}/>
-            <main className=" flex flex-col w-full justify-between"> 
-            <Outlet />
-            <div className="text-center text-gray-800 font-[600]">© 2023 Inspiring Go</div>
+            <main className="w-full"> 
+            <Outlet  bgc={"black"}/>
+            {/* <div className="text-center text-gray-800 font-[600]">© 2023 Inspiring Go</div> */}
             </main>
           </div>
         </ThemeProvider>

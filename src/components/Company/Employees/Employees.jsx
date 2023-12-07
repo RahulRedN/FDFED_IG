@@ -48,7 +48,7 @@ const Contacts = () => {
   ];
 
   return (
-    <Box m="20px">
+    <Box m="20px" className="w-[78.5vw] absolute right-0">
       <Header
         title="Employees"
         subtitle="List of Employees who got selected"

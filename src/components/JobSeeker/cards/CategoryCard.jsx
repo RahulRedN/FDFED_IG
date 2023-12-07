@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import classes from "./CategoryCard.module.css";
+import { Link } from "react-router-dom";
 
-const CategoryCard = ({ sticker, delay, title, desc, SVG }) => {
+const CategoryCard = ({ sticker, delay, title, desc, SVG, link }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -20,13 +21,11 @@ const CategoryCard = ({ sticker, delay, title, desc, SVG }) => {
         delay: delay,
       }}
     >
-      <div className={classes.logo}>
-        {SVG}
-      </div>
+      <div className={classes.logo}>{SVG}</div>
       <div className={classes.serviceInfo}>
         <h1>{title}</h1>
         <p>{desc}</p>
-        <a>Browse Job</a>
+        <Link to={link}>Browse Job</Link>
       </div>
       {sticker ? <div className={classes.sticker}>{sticker}</div> : ""}
     </motion.div>

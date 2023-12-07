@@ -12,7 +12,8 @@ const TopCategories = () => {
     {
       SVG: <Boxes strokeWidth={0.5} size={40} />,
       title: "UI/UX Designer",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      desc: "Crafting visually appealing, intuitive interfaces, focusing on seamless user experiences .",
+      link: "findJobs?filter=Designer",
     },
     {
       SVG: (
@@ -42,7 +43,8 @@ const TopCategories = () => {
         </svg>
       ),
       title: "Development",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      desc: "Pioneering solutions with passionate coders, pushing technological boundaries for innovative and future-proof applications.",
+      link: "findJobs?filter=Dev",
     },
     {
       SVG: (
@@ -65,22 +67,26 @@ const TopCategories = () => {
         </svg>
       ),
       title: "Marketing",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      desc: "Driving brand awareness with strategic, data-driven campaigns, capturing audience interest through compelling content.",
+      link: "findJobs?filter=Marketing",
     },
     {
       SVG: <LineChart size={40} strokeWidth={1.25} />,
       title: "Analyst",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      desc: "Delving into data for valuable insights, guiding informed decisions, and optimizing processes by interpreting trends.",
+      link: "findJobs?filter=Analyst",
     },
     {
       SVG: <Database size={40} strokeWidth={1.25} />,
       title: "Accounting",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      desc: "Meticulously managing financial records, ensuring compliance, and maintaining fiscal health through precise .",
+      link: "findJobs?filter=Accounting",
     },
     {
       SVG: <RiTeamLine size={40} />,
       title: "Management",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum mollitia obcaecati ratione veritatis.",
+      desc: "Providing leadership, fostering a positive work culture, and guiding the organization toward strategic.",
+      link: "findJobs?filter=Management",
     },
   ];
   return (
@@ -88,10 +94,7 @@ const TopCategories = () => {
       <div className={classes.infoCat}>
         <h1>Browse From Our Top Categories</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-          asperiores, totam eum architecto fugiat eveniet ipsa odit cumque
-          nesciunt culpa dolorem, ipsam possimus accusantium vitae dicta
-          laborum, neque fuga in.
+        Our management team provides leadership and direction. Focused on fostering a positive work culture, we believe in empowering our teams to excel. Strategic planning, resource allocation, and effective communication are the pillars of our management philosophy. Through collaboration and forward-thinking, we guide the organization toward its goals.
         </p>
       </div>
       <div className={classes.topCategories}>
@@ -102,6 +105,7 @@ const TopCategories = () => {
             desc={cat.desc}
             SVG={cat.SVG}
             key={idx}
+            link={cat.link}
           />
         ))}
       </div>

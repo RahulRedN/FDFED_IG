@@ -10,28 +10,25 @@ import BarChart from "./BarChart";
 import StatBox from "./StatBox";
 import ProgressCircle from './ProgressCircle'
 import PieChart from './PieChart'
-import { Money, MoneyOff, MoneyOffCsredSharp, MoneySharp, NotInterested, NotInterestedTwoTone, Verified } from "@mui/icons-material";
+import { Money, MoneyOff, MoneyOffCsredSharp, MoneySharp, NotInterested, NotInterestedTwoTone } from "@mui/icons-material";
 
-const Dashboard = () => {
+const Dashboard = ({bgc}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box m="20px">
-      {/* HEADER */}
+    <Box padding="20px" backgroundColor={bgc}>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
 
       </Box>
 
-      {/* GRID & CHARTS */}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* ROW 1 */}
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -46,7 +43,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{ color: "#25cc8b", fontSize: "50px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
               />
             }
           />
@@ -60,12 +57,12 @@ const Dashboard = () => {
         >
           <StatBox
             title="431,225"
-            subtitle="Applications Recieved"
+            subtitle="Applications Accepted"
             progress="0.50"
             increase="+21%"
             icon={
               <PersonAddIcon
-                sx={{ color: "#25cc8b", fontSize: "50px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
               />
             }
           />
@@ -79,12 +76,12 @@ const Dashboard = () => {
         >
           <StatBox
             title="32,441"
-            subtitle="Applications Accepted"
+            subtitle="Applications Rejected"
             progress="0.30"
             increase="+5%"
             icon={
-              <Verified
-                sx={{ color: "#25cc8b", fontSize: "50px" }}
+              <NotInterestedTwoTone
+                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
               />
             }
           />
@@ -103,13 +100,12 @@ const Dashboard = () => {
             increase="+43%"
             icon={
               <MoneySharp
-                sx={{ color: "#25cc8b", fontSize: "50px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
               />
             }
           />
         </Box>
 
-        {/* ROW 2*/}
         <Box
           gridColumn="span 12"
           gridRow="span 2"

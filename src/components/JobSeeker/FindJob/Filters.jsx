@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 
 const Filters = ({ jobs, setState }) => {
+  const [data, setData] = useState({ position: "", location: "" });
   const [isClicked, setIsClicked] = useState(false);
   const [isClickedLoc, setIsClickedLoc] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
@@ -21,22 +22,31 @@ const Filters = ({ jobs, setState }) => {
     salary,
     location,
     workFromHome,
-    sliderValue
+    slideValue
   ) => {
-    let newState = jobs;
-
-    // if (salary) {
-    // }
-
-    if (workFromHome) {
-      newState = jobs.filter((job) => !job.location);
-    } else if (location.trim() != "") {
-      newState = jobs.filter((job) => job.loaction.includes(location.trim()));
-    }
+    let newState = [...jobs];
 
     if (position.trim() != "") {
-      newState = jobs.filter((job) => job.position.includes(position.trim()));
+      newState = jobs.filter((job) =>
+        job.position.toLowerCase().includes(position.trim().toLowerCase())
+      );
     }
+
+    if (workFromHome) {
+      newState = newState?.filter((job) => !job.location);
+    } else if (location.trim() != "") {
+      newState = newState?.filter(
+        (job) =>
+          job.location &&
+          job.location.toLowerCase().includes(location.trim().toLowerCase())
+      );
+    }
+
+    if (salary && jobs.length > 1) {
+      newState = newState?.sort((a, b) => a.salary - b.salary);
+    }
+
+    newState = newState?.filter((job) => job.salary >= slideValue * 100000);
 
     setState((state) => ({ ...state, jobs: newState }));
   };
@@ -58,6 +68,18 @@ const Filters = ({ jobs, setState }) => {
           <input
             type="text"
             placeholder="Search Job..."
+            onChange={(e) => {
+              setData((state) => {
+                handleFliter(
+                  e.target.value,
+                  isClicked,
+                  state.location,
+                  isClickedLoc,
+                  sliderValue
+                );
+                return { ...state, position: e.target.value };
+              });
+            }}
             className="mt-1 border border-zinc-400 p-2 pl-8 w-[95%] rounded-md hover:border-blue-500 focus:border-blue-500 outline-none placeholder:text-zinc-600"
           />
         </div>
@@ -72,6 +94,18 @@ const Filters = ({ jobs, setState }) => {
           />
           <input
             type="text"
+            onChange={(e) => {
+              setData((state) => {
+                handleFliter(
+                  data.position,
+                  isClicked,
+                  e.target.value,
+                  isClickedLoc,
+                  sliderValue
+                );
+                return { ...state, location: e.target.value };
+              });
+            }}
             placeholder="Search Location..."
             className="mt-1 border border-zinc-400 p-2 pl-8 w-[95%] rounded-md hover:border-blue-500 focus:border-blue-500 outline-none placeholder:text-zinc-600"
           />
@@ -80,10 +114,19 @@ const Filters = ({ jobs, setState }) => {
 
       <div
         onClick={() => {
-          setIsClicked(!isClicked);
+          setIsClickedLoc((state) => {
+            handleFliter(
+              data.position,
+              isClicked,
+              data.location,
+              !state,
+              sliderValue
+            );
+            return !state;
+          });
         }}
         className={`max-w-[12vw] mt-5 p-2 flex items-center border-2 font-[600] gap-2 cursor-pointer border-sky-500 rounded-md ${
-          isClicked ? "bg-sky-500 text-white" : "text-sky-500 bg-white"
+          isClickedLoc ? "bg-sky-500 text-white" : "text-sky-500 bg-white"
         } transition-colors duration-500 ease-in-out`}
       >
         <FaHouse size={18} />
@@ -92,10 +135,19 @@ const Filters = ({ jobs, setState }) => {
 
       <div
         onClick={() => {
-          setIsClickedLoc(!isClickedLoc);
+          setIsClicked((state) => {
+            handleFliter(
+              data.position,
+              !state,
+              data.location,
+              isClickedLoc,
+              sliderValue
+            );
+            return !state;
+          });
         }}
         className={`mt-5 p-2 max-w-[12vw] flex items-center border-2 font-[600] cursor-pointer gap-2 border-green-500 rounded-md ${
-          isClickedLoc ? "bg-green-500 text-white" : "text-green-500 bg-white"
+          isClicked ? "bg-green-500 text-white" : "text-green-500 bg-white"
         } transition-colors duration-500 ease-in-out`}
       >
         <ArrowDown10 size={25} />
@@ -108,11 +160,22 @@ const Filters = ({ jobs, setState }) => {
           <Slider
             id="slider"
             defaultValue={0}
-            step={20}
+            step={5}
             min={0}
-            max={100}
+            max={25}
             colorScheme="blue"
-            onChange={(v) => setSliderValue(v)}
+            onChange={(v) =>
+              setSliderValue(() => {
+                handleFliter(
+                  data.position,
+                  isClicked,
+                  data.location,
+                  isClickedLoc,
+                  v
+                );
+                return v;
+              })
+            }
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
             direction="rtl"
@@ -121,17 +184,20 @@ const Filters = ({ jobs, setState }) => {
             <SliderMark value={0} mt="1" fontSize="sm">
               0
             </SliderMark>
+            <SliderMark value={5} mt="1" ml="-1" fontSize="sm">
+              5
+            </SliderMark>
+            <SliderMark value={10} mt="1" ml="-1" fontSize="sm">
+              10
+            </SliderMark>
+            <SliderMark value={15} mt="1" ml="-1" fontSize="sm">
+              15
+            </SliderMark>
             <SliderMark value={20} mt="1" ml="-1" fontSize="sm">
               20
             </SliderMark>
-            <SliderMark value={40} mt="1" ml="-1" fontSize="sm">
-              40
-            </SliderMark>
-            <SliderMark value={60} mt="1" ml="-1" fontSize="sm">
-              60
-            </SliderMark>
-            <SliderMark value={80} mt="1" ml="-1" fontSize="sm">
-              80
+            <SliderMark value={25} mt="1" ml="-1" fontSize="sm">
+              25
             </SliderMark>
             <SliderTrack>
               <SliderFilledTrack />

@@ -1,26 +1,65 @@
 import { motion } from "framer-motion";
 import styles from "./UpdateInfoProfile_Job.module.css";
-import man from "/assets/Profile_man.jpg";
+
 import upload from "/assets/Upload.gif";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../../../redux/jobseekerReducer";
+
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { db, storage } from "../../../Firebase/config";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+
+import toast from "react-hot-toast";
 
 const UpdateInfoProfile_Job = () => {
-  const data = useSelector((state) => state.jobseeker.data);
+  const userData = useSelector((state) => state.jobseeker.data);
+  const dispatch = useDispatch();
 
-  const [file, setFile] = useState(man);
+  const [data, setDataUser] = useState(userData);
+
   const [edit, setEdit] = useState(false);
   const [picEdit, setPicEdit] = useState(false);
 
-  const SubmitHandler = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
+  const SubmitHandler = async () => {
+    //Validation
+
+    try {
+      const docRef = doc(collection(db, "users"), data.id);
+
+      await updateDoc(docRef, {
+        fname: data.fname,
+        mobile: data.mobile,
+        address: data.address,
+        skills: data.skills,
+      });
+
+      dispatch(setData({ data: data }));
+      toast("Profile Updated!", { className: "text-green-400" });
+      setEdit((state) => !state);
+    } catch (error) {
+      console.error(error);
+      toast("Something Happened!", { className: "text-red-400" });
+    }
   };
 
-  function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
+  const handleChange = async (e) => {
+    try {
+      const imageRef = ref(storage, `users/${data.uid}`);
+      const imgRes = await uploadBytes(imageRef, e.target.files[0]);
+      const imageUrl = await getDownloadURL(imgRes.ref);
+      const docRef = doc(collection(db, "users"), data.id);
+
+      await updateDoc(docRef, { img: imageUrl });
+
+      dispatch(setData({ data: { ...data, img: imageUrl } }));
+      toast("Photo Updated!", { className: "text-green-400" });
+    } catch (error) {
+      console.error(error);
+      toast("An error Occured!", { className: "text-red-400" });
+    }
+  };
 
   return (
     <>
@@ -47,9 +86,9 @@ const UpdateInfoProfile_Job = () => {
             </h2>
             <div className="">
               <img
-                src={file}
+                src={userData?.img ? userData?.img : "/assets/Profile_man.jpg"}
                 className={
-                  "w-[15rem] mx-auto h-[15rem] rounded-[50%] object-cover"
+                  "w-[15rem] mx-auto h-[15rem] rounded-[50%] object-cover object-top"
                 }
               />
             </div>
@@ -113,6 +152,12 @@ const UpdateInfoProfile_Job = () => {
                       name="name"
                       disabled={!edit}
                       value={data?.fname}
+                      onChange={(e) =>
+                        setDataUser((state) => ({
+                          ...state,
+                          fname: e.target.value,
+                        }))
+                      }
                       placeholder="Enter new Name"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -135,6 +180,12 @@ const UpdateInfoProfile_Job = () => {
                         name="Email"
                         disabled={!edit}
                         value={data?.email}
+                        onChange={(e) =>
+                          setDataUser((state) => ({
+                            ...state,
+                            email: e.target.value,
+                          }))
+                        }
                         placeholder="Enter new Email"
                         className={`w-full px-3 py-2 ${
                           edit
@@ -157,6 +208,12 @@ const UpdateInfoProfile_Job = () => {
                       name="PhoneNumber"
                       disabled={!edit}
                       value={data?.mobile}
+                      onChange={(e) =>
+                        setDataUser((state) => ({
+                          ...state,
+                          mobile: e.target.value,
+                        }))
+                      }
                       placeholder="Enter new Phone Number"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -178,6 +235,12 @@ const UpdateInfoProfile_Job = () => {
                       name="Address"
                       disabled={!edit}
                       value={data?.address}
+                      onChange={(e) =>
+                        setDataUser((state) => ({
+                          ...state,
+                          address: e.target.value,
+                        }))
+                      }
                       placeholder="Enter new Address"
                       className={`w-full px-3 py-2 ${
                         edit
@@ -280,6 +343,12 @@ const UpdateInfoProfile_Job = () => {
                           name="skills"
                           value={data?.skills}
                           disabled={!edit}
+                          onChange={(e) =>
+                            setDataUser((state) => ({
+                              ...state,
+                              skills: e.target.value,
+                            }))
+                          }
                           className={`w-full px-3 py-2 ${
                             edit
                               ? "border bg-gray-50 rounded-md"
@@ -299,6 +368,7 @@ const UpdateInfoProfile_Job = () => {
                       animate={{ opacity: 1 }}
                       transition={{ ease: "easeIn", duration: 0.3 }}
                       className=" p-3 w-36 text-white rounded-md bg-blue-500 hover:bg-blue-600"
+                      onClick={SubmitHandler}
                     >
                       Confirm
                     </motion.button>
@@ -308,7 +378,10 @@ const UpdateInfoProfile_Job = () => {
                       animate={{ opacity: 1 }}
                       transition={{ ease: "easeIn", duration: 0.3 }}
                       className=" p-3 w-36 text-white rounded-md bg-red-500 hover:bg-red-600"
-                      onClick={() => setEdit((prev) => !prev)}
+                      onClick={() => {
+                        setEdit((prev) => !prev);
+                        setDataUser(userData);
+                      }}
                     >
                       Cancel
                     </motion.button>

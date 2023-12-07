@@ -12,8 +12,7 @@ const QuesCards = () => {
         <h1>Our Latest News  <br /> That Can Help You</h1>
 
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Ut elit
-          tellus, luctus nec ullamcorper <br /> mattis, pulvinar dapibus leo.
+        Explore insightful articles that can enrich your knowledge and <br />keep you informed about the latest happenings.
         </p>
    </div>
        <div className="bottom-cont">

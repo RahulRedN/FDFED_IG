@@ -13,7 +13,7 @@ const PendingList = ({ status }) => {
   };
   const skills = ["hello", "this", "are", "my", "skills"];
   return (
-    <div className="max-h-full" id="PendingList">
+    <div className="max-h-full w-[78.5vw] absolute right-0" id="PendingList">
       <div className={classes.container}>
         <h2>My Applications</h2>
         <div className="rounded-md border-[1px] border-gray-300 w-[75vw]">
