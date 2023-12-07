@@ -38,7 +38,8 @@ import PendingList from "./components/Company/PendingList/PendingList";
 import PostJob from "./components/Company/PostJob/PostJob";
 import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
 import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
-import QuesCards from "./components/AboutUs/TeamCard/QuesCards";
+import PostedJobs from "./components/Company/Postedjobs/PostedJobs";
+import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 const Root = () => {
   return <Outlet />;
@@ -75,6 +76,8 @@ const Router = createBrowserRouter(
        <Route path="employeelist" element={<Employees />} />
        <Route path="pendinglist" element={<PendingList />} />
        <Route path="postjob" element={<PostJob />} />
+       <Route path='postedjobs' element={<PostedJobs/>}/>
+       
 
       </Route>
     </Route>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Filter, SearchCode, Navigation, ArrowDown10 } from "lucide-react";
 import { useState } from "react";
 import { FaHouse } from "react-icons/fa6";

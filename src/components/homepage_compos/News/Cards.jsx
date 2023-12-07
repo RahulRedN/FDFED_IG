@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import toast  from "react-hot-toast";
 
 const Cards = () => {
   const [newsData, setNewsData] = useState([]);
@@ -11,11 +12,12 @@ const Cards = () => {
       try {
         const apiKey = "8fbff4d924f245c38e8cd16eaf6a2264";
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`
+          `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=business`
         );
         const data = await response.json();
-        setNewsData(data.articles.slice(0, 9)); 
+        setNewsData(data.articles.slice(0, 18)); 
       } catch (error) {
+        toast.error("Error fetching news data")
         console.error("Error fetching news data:", error);
       }
     };

@@ -11,6 +11,9 @@ import {
   PendingActions,
   PostAdd,
   LogoutSharp,
+  SettingsApplications,
+  DocumentScanner,
+  DocumentScannerSharp,
 } from "@mui/icons-material";
 import { useAuth } from "../../Firebase/AuthContexts";
 
@@ -48,16 +51,17 @@ const Sidebar = () => {
     }
   };
   return (
-    <Box
+    <Box 
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          // background: `${colors.primary[400]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
           padding: " 5px 20px !important",
+          color:"white"
         },
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
@@ -69,7 +73,6 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -86,7 +89,7 @@ const Sidebar = () => {
                 ml="15px"
                 mb="22px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
+                <Typography variant="h3">
                   ADMIN
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -101,7 +104,7 @@ const Sidebar = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h3"
-                  color={colors.grey[100]}
+                  color="#020dff"
                   sx={{ m: "8px 0 0 0" }}
                 >
                   Company Name
@@ -151,6 +154,14 @@ const Sidebar = () => {
               icon={<PostAdd />}
               selected={selected}
               setSelected={setSelected}
+            />
+            <Item
+              title="Posted Jobs"
+              to="postedjobs" //private route chks session is actv or not
+              icon={<DocumentScannerSharp />}
+              selected={selected}
+              setSelected={setSelected}
+              onClickHandler={logoutHandler}
             />
             <Item
               title="Log Out"

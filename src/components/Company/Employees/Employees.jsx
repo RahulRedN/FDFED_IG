@@ -11,7 +11,6 @@ const Contacts = () => {
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
       headerName: "Name",
@@ -27,6 +26,11 @@ const Contacts = () => {
       fontSize : "20px  "
     },
     {
+      field: "position",
+      headerName: "Position",
+      flex: 1,
+    },
+    {
       field: "phone",
       headerName: "Phone Number",
       flex: 1,
@@ -37,35 +41,25 @@ const Contacts = () => {
       flex: 1,
     },
     {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
+      field: "joindate",
+      headerName: "Joined On",
       flex: 1,
     },
   ];
 
   return (
-    <Box m="20px">
+    <Box m="20px" className="w-[78.5vw] absolute right-0">
       <Header
         title="Employees"
         subtitle="List of Employees who got selected"
       />
       <Box
-        m="40px 0 0 0"
-        height="84vh"
+        m="0 0 0 0"
+        height="80vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
-            fontSize:"14px"//font sz for entire table
+            fontSize:"0.89rem"//font sz for entire table
           },
           "& .MuiDataGrid-cell": {
             borderBottom: "none",
@@ -91,7 +85,11 @@ const Contacts = () => {
         <DataGrid
           rows={mockDataContacts}
           columns={columns} 
-          
+          initialState={{
+            pagination: {
+              paginationModel: { pageSize: 10, page: 0 },
+            },
+          }}
         />
       </Box>
     </Box>

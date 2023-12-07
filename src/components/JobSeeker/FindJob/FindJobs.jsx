@@ -37,6 +37,7 @@ const FindJobs = () => {
     } catch (error) {
       console.log(error);
     }
+    
     dispatch(setFav(favJobs));
   };
 

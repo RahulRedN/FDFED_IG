@@ -13,7 +13,7 @@ const PendingList = ({ status }) => {
   };
   const skills = ["hello", "this", "are", "my", "skills"];
   return (
-    <div className="max-h-full" id="PendingList">
+    <div className="max-h-full w-[78.5vw] absolute right-0" id="PendingList">
       <div className={classes.container}>
         <h2>My Applications</h2>
         <div className="rounded-md border-[1px] border-gray-300 w-[75vw]">
@@ -44,48 +44,19 @@ const PendingList = ({ status }) => {
                   <div className="flex gap-3 justify-center">
                     <button
                       className={
-                        "p-2 rounded-2xl bg-emerald-300 hover:bg-emerald-400 hover:cursor-pointer hover:font-[600]"}>
+                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-emerald-300  border-emerald-300 hover:bg-white hover:cursor-pointer hover:text-emerald-800 hover:border-emerald-800 hover:border-[1px]"}>
                       Accept
                     </button>
                     <button
                       className={
-                        "p-2 rounded-2xl bg-indigo-300 hover:bg-indigo-400 hover:cursor-pointer hover:font-[600]"}>
+                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-red-400 hover:bg-white hover:cursor-pointer hover:text-red-800 hover: bg-white-800 hover:border-red-800 hover:border-[1px]"}>
                       Reject
                     </button>
                   </div>
                 </td>
               </tr>
 
-              {/* duplicate */}
-              <tr className="hover:bg-gray-100 text-center text-[2rem]">
-                <td>Google</td>
-                <td className="  hover:bg-gray-100">
-                  <h1>Position</h1>
-                </td>
-                <td>Date</td>
-                <td>
-                  <div className="flex justify-center align-baseline">
-                    {skills.map((skill, idx) => (
-                      <Skillbox index={idx} skill={skill} />
-                    ))}
-                  </div>
-                </td>
 
-                <td>
-                  <div className="flex gap-3 justify-center">
-                    <button
-                      className={
-                        "p-2 rounded-2xl bg-emerald-300 hover:bg-emerald-400 hover:cursor-pointer hover:font-[600]"}>
-                      Accept
-                    </button>
-                    <button
-                      className={
-                        "p-2 rounded-2xl bg-indigo-300 hover:bg-indigo-400 hover:cursor-pointer hover:font-[600]"}>
-                      Reject
-                    </button>
-                  </div>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
