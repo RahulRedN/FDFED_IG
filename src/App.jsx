@@ -34,6 +34,7 @@ import PendingList from "./components/Company/PendingList/PendingList";
 import PostJob from "./components/Company/PostJob/PostJob";
 import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
 import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
+import QuesCards from "./components/AboutUs/TeamCard/QuesCards";
 
 const Root = () => {
   return <Outlet />;
@@ -47,6 +48,7 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
+        <Route path="news" element={<QuesCards/>} />
       </Route>
 
       <Route path="/login" element={<Login_SignUp />} />

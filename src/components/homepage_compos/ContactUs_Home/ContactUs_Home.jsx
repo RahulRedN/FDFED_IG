@@ -5,9 +5,17 @@ import ContactCard from "./ContactCard";
 import { motion } from "framer-motion";
 
 import ImageHeader from "../../JobSeeker/ImageHeader" 
+import { useState } from "react";
 const details = ["Phone", "Email", "Address", "Physical address"];
 
 const ContactUs_Home = () => {
+
+  // const [contact ,setContact] =useState({
+
+  //   'name',
+
+
+  // })
 
 
   const SubmitHandler = (e) => {
@@ -50,6 +58,7 @@ const ContactUs_Home = () => {
                         type="text"
                         placeholder="Enter Name"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
+                        
                       />
                     </div>
                   </div>

@@ -38,15 +38,21 @@
 }
 
 .AboutUsTop2Cards {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 50px;
+  flex: 1; */
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px;
-  flex: 1;
+  margin-left: 50px;
 }
 
 .AboutUsTop2Card {
-  padding: 30px;
+  padding: 25px;
+  padding-top: 35px;
   height: 180px;
+  width: 270px;
   transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
 }
 

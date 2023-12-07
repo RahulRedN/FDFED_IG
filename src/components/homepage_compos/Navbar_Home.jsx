@@ -2,6 +2,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./css/Navbar_Home_Styles.module.css";
 
+
 import Avatar from "../JobSeeker/Avatar";
 
 const Navbar = ({ navClass }) => {
@@ -21,6 +22,9 @@ const Navbar = ({ navClass }) => {
           </li>
           <li>
             <NavLink to="contactus">CONTACT</NavLink>
+          </li>
+          <li>
+            <NavLink to="news">News</NavLink>
           </li>
         </ul>
       </div>
