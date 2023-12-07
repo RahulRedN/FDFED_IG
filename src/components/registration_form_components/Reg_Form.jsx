@@ -135,7 +135,7 @@ const Reg_Form = ({ className }) => {
       };
 
       await addDoc(userCollection, data);
-      alert("Success");
+      toast.success("Success");
     } catch (error) {
       if (error.code == "auth/email-already-in-use") {
         toast("Email is already in use", {

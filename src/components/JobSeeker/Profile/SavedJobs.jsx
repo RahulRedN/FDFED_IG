@@ -27,14 +27,16 @@ const SavedJobs = () => {
             </p>
           </div>
         </div>
-        <div className="mt-5 h-[78vh] items-center flex flex-col flex-wrap gap-y-9 gap-x-4 overflow-x-auto scrollbar-none">
+        <div
+        id="scrollContainer"
+         className="mt-5 h-[78vh] p-2 flex flex-col flex-wrap gap-y-10 gap-x-6 overflow-x-auto scrollbar-none">
           {state.jobs
             ?.filter((job) => state.fav[job.id])
             .map((jobCard, idx) => (
               <SavedJobCard key={idx} job={jobCard} />
             ))}
             {(state.jobs
-            ?.filter((job) => state.fav[job.id])) ? "No jobs found!" : ""}
+            ?.filter((job) => state.fav[job.id])) === "" ? "No jobs found!" : ""}
         </div>
         <div className="flex justify-between px-52">
           <div className="bg-gray-300 rounded hover:bg-gray-400">

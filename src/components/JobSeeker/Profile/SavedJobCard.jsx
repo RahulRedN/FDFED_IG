@@ -67,7 +67,7 @@ const SavedJobCard = ({ job }) => {
   }
 
   return (
-    <div className="shadow-xl bg-white rounded-lg p-3 pt-4 w-[32%] min-h-[25.7vh]">
+    <div className="shadow-md bg-white rounded-lg p-3 pt-4 w-[32%] min-h-[25.7vh]">
       <div className="flex items-end justify-between">
         <h5
           className={`${

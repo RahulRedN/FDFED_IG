@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../LoginCompany/Styles/LoginCompany.css";
 import { Checkbox } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { IoMdArrowBack } from "react-icons/io";
+import { IoIosWarning, IoMdArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../Firebase/AuthContexts";
 import { addDoc, collection } from "firebase/firestore";
@@ -20,6 +20,12 @@ const LoginCompany = () => {
   }
 
   const [isClicked, setIsClicked] = useState(true);
+  const [errN, setErrN] = useState(false);
+  const [errP, setErrP] = useState(false);
+  const [errE, setErrE] = useState(false);
+
+  const [errPL, setErrPL] = useState(false);
+  const [errEL, setErrEL] = useState(false);
 
   const [register, setRegister] = useState({
     name: "",
@@ -32,19 +38,99 @@ const LoginCompany = () => {
     password: "",
   });
 
+
+  const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+
+  const emailHandler = (e) => {
+      if(e.target.value === "" || !emailRegex.test(e.target.value)){
+        setErrE(true)
+      }else{
+        setErrE(false)
+      }
+      setRegister((state) => ({ ...state, email: e.target.value }))
+  }
+
+
+  const passwordHandler = (e) => {
+      if(e.target.value === ""){
+        setErrP(true)
+      }else{
+        setErrP(false)
+      }
+      setRegister((state) => ({ ...state, password: e.target.value }))
+  }
+
+
+  const nameHandler = (e) => {
+      if(e.target.value === ""){
+        setErrN(true)
+      }else{
+        setErrN(false)
+      }
+      setRegister((state) => ({ ...state, name: e.target.value }))
+  }
+
+
+
+
+ const emailHandlerLogin = (e) => {
+      if(e.target.value === "" || !emailRegex.test(e.target.value)){
+        setErrEL(true)
+      }else{
+        setErrEL(false)
+      }
+      setLogin((state) => ({ ...state, email: e.target.value }))
+  }
+
+  
+  const passwordHandlerLogin = (e) => {
+      if(e.target.value === ""){
+        setErrPL(true)
+      }else{
+        setErrPL(false)
+      }
+      setLogin((state) => ({ ...state, password: e.target.value }))
+  }
+
+
+
+
   const loginHandler = async (e) => {
     e.preventDefault();
-    //validation
+    console.log(login);
 
-    try {
-      await signIn(login.email, login.password);
-    } catch (error) {
-      console.error(error);
+    if(login.email === "" || login.password === ""){
+      toast.error("Fill all the fields");
+      return;
     }
+
+    if(errEL || errPL){
+      toast.error("Fill all the fields correctly");
+      return;
+    }
+    
+      try {
+        await signIn(login.email, login.password);
+      } catch (error) {
+        console.error(error);
+      }
+    
+    
   };
 
   const registerHandler = async () => {
-    //validation
+
+    console.log(register);
+
+    if(register.name === "" || register.email === "" || register.password === ""){
+      toast.error("Fill all the fields");
+      return;
+    }
+
+    if(errN || errE || errP){
+      toast.error("Fill all the fields correctly");
+      return;
+    }
 
     const data = {
       email: register.email,
@@ -129,22 +215,26 @@ const LoginCompany = () => {
               <form className="login-form w-full">
                 <label htmlFor="email">Email address</label>
                 <input
-                  className="inputs"
+                  className={`inputs ${
+                    errEL ? "focus:bg-red-200 bg-red-200" : ""
+                  }`}
                   type="email"
+                  onChange={emailHandlerLogin}
                   id="email"
                   name="email"
                   placeholder="Enter Your Email"
-                  required
                 />
 
                 <label htmlFor="password"> Password</label>
                 <input
-                  className="inputs"
+                  className={`inputs ${
+                    errPL ? "focus:bg-red-200 bg-red-200" : ""
+                  }`}
                   type="password"
+                  onChange={passwordHandlerLogin}
                   id="password"
                   name="password"
                   placeholder=" Enter Your password"
-                  required
                 />
 
                 <div className="checkbox-div">
@@ -185,46 +275,37 @@ const LoginCompany = () => {
               <form className="login-form w-full">
                 <label htmlFor="name">Name</label>
                 <input
-                  className="inputs"
-                  type="email"
+                  className={`inputs ${
+                    errN ? "focus:bg-red-200 bg-red-200" : ""
+                  }`}
+                  type="text"
                   id="email"
                   name="email"
-                  onChange={(e) =>
-                    setRegister((state) => ({ ...state, name: e.target.value }))
-                  }
+                  onChange={nameHandler}
                   placeholder="Enter Name"
-                  required
                 />
                 <label htmlFor="email">Email address</label>
                 <input
-                  className="inputs"
+                  className={`inputs ${
+                    errE ? "focus:bg-red-200 bg-red-200" : ""
+                  }`}
                   type="email"
                   id="email"
                   name="email"
-                  onChange={(e) =>
-                    setRegister((state) => ({
-                      ...state,
-                      email: e.target.value,
-                    }))
-                  }
+                  onChange={emailHandler}
                   placeholder="Enter Email"
-                  required
                 />
 
                 <label htmlFor="password"> Password</label>
                 <input
-                  className="inputs"
+                  className={`inputs ${
+                    errP ? "focus:bg-red-200 bg-red-200" : ""
+                  }`}
                   type="password"
                   id="password"
                   name="password"
-                  onChange={(e) =>
-                    setRegister((state) => ({
-                      ...state,
-                      password: e.target.value,
-                    }))
-                  }
+                  onChange={passwordHandler}
                   placeholder=" Enter Your password"
-                  required
                 />
 
                 <div className="checkbox-div">
