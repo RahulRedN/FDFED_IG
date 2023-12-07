@@ -6,17 +6,21 @@ import SignInForm from "../components/Login/SignInForm";
 import SignUpForm from "../components/Login/SignUpForm";
 import { useAuth } from "../Firebase/AuthContexts";
 
+import { useSelector } from "react-redux";
+
 const Login_SignUp = () => {
+  const user = useSelector((state) => state.jobseeker.data);
+  const company = useSelector((state) => state.company.data);
+
   const nav = useNavigate();
-  const { user, signIn } = useAuth();
+  const { signIn } = useAuth();
   const [isSignUp, setSignUp] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      nav("/jobseeker");
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  if (user?.uid) {
+    nav("/jobseeker");
+  } else if (company?.uid) {
+    nav("/company");
+  }
 
   return (
     <div

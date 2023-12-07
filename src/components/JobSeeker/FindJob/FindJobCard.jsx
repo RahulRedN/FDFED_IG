@@ -271,7 +271,7 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
     if (data[user.id] == undefined) {
       try {
         data[user.id] = {
-          appiled: null,
+          applied: null,
           date: Date().toLocaleString(),
           fname: user.fname,
         };

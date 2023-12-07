@@ -161,7 +161,6 @@ const Sidebar = () => {
               icon={<DocumentScannerSharp />}
               selected={selected}
               setSelected={setSelected}
-              onClickHandler={logoutHandler}
             />
             <Item
               title="Log Out"

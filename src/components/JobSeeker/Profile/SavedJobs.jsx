@@ -27,7 +27,9 @@ const SavedJobs = () => {
             </p>
           </div>
         </div>
-        <div className="mt-5 h-[78vh] items-center flex flex-col flex-wrap gap-y-9 gap-x-4 overflow-x-auto scrollbar-none">
+        <div
+        id="scrollContainer"
+         className="mt-5 h-[78vh] p-2 flex flex-col flex-wrap gap-y-10 gap-x-6 overflow-x-auto scrollbar-none">
           {state.jobs
             ?.filter((job) => state.fav[job.id])
             .map((jobCard, idx) => (
