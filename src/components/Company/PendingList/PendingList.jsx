@@ -1,19 +1,10 @@
 import classes from "./PendingList.module.css";
 import Skillbox from "./Skillbox";
 
-const PendingList = ({ status }) => {
-  const color = (status) => {
-    if (status === "Rejected") {
-      return "bg-red-200 text-red-600 ";
-    } else if (status === "Accepted") {
-      return "bg-green-200 text-green-600";
-    } else {
-      return "bg-yellow-100 text-yellow-500";
-    }
-  };
+const PendingList = () => {
   const skills = ["hello", "this", "are", "my", "skills"];
   return (
-    <div className="max-h-full w-[78.5vw] absolute right-0" id="PendingList">
+    <div className="max-h-full w-[83vw] absolute right-0" id="PendingList">
       <div className={classes.container}>
         <h2>My Applications</h2>
         <div className="rounded-md border-[1px] border-gray-300 w-[75vw]">

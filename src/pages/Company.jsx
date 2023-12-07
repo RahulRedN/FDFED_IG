@@ -33,7 +33,7 @@ const Home = () => {
           <div className="flex min-h-screen">
             <Sidebar isSidebar={isSidebar}/>
             <main className="w-full"> 
-            <Outlet  bgc={"black"}/>
+            <Outlet/>
             {/* <div className="text-center text-gray-800 font-[600]">© 2023 Inspiring Go</div> */}
             </main>
           </div>
