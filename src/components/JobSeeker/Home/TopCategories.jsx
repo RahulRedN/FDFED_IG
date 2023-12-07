@@ -93,9 +93,6 @@ const TopCategories = () => {
     <div className={classes.container}>
       <div className={classes.infoCat}>
         <h1>Browse From Our Top Categories</h1>
-        <p>
-        Our management team provides leadership and direction. Focused on fostering a positive work culture, we believe in empowering our teams to excel. Strategic planning, resource allocation, and effective communication are the pillars of our management philosophy. Through collaboration and forward-thinking, we guide the organization toward its goals.
-        </p>
       </div>
       <div className={classes.topCategories}>
         {categories.map((cat, idx) => (

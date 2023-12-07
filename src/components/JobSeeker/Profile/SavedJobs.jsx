@@ -34,15 +34,23 @@ const SavedJobs = () => {
             .map((jobCard, idx) => (
               <SavedJobCard key={idx} job={jobCard} />
             ))}
+          {state.jobs?.filter((job) => state.fav[job.id]).length == 0 &&
+            "No Saved Jobs!"}
         </div>
         <div className="flex justify-between px-52">
           <div className="bg-gray-300 rounded hover:bg-gray-400">
-            <button className="text-black p-2 rounded-md hover:text-white" onClick={scrollLeft}>
+            <button
+              className="text-black p-2 rounded-md hover:text-white"
+              onClick={scrollLeft}
+            >
               &lt; Previous
             </button>
           </div>
           <div className="bg-gray-300 rounded hover:bg-gray-400">
-            <button className="text-black p-2 rounded-md hover:text-white" onClick={scrollRight}>
+            <button
+              className="text-black p-2 rounded-md hover:text-white"
+              onClick={scrollRight}
+            >
               Next &gt;
             </button>
           </div>

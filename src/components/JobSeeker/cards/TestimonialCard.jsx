@@ -4,7 +4,7 @@ import { IoPersonCircle } from "react-icons/io5";
 
 import classes from "../Home/Testimonials.module.css";
 
-const TestimonialCard = () => {
+const TestimonialCard = ({desc, name, position}) => {
   return (
     <div className={classes.card}>
       <div className={classes.info}>
