@@ -40,6 +40,7 @@ const TopJobs = () => {
           <Slider {...settings}>
             {jobs?.slice(0, Math.min(7, jobs.length)).map((job, idx) => (
               <TopJobCard
+                key={idx}
                 position={job.position}
                 jobDesc={job.jobDesc}
                 jobId={job.id}

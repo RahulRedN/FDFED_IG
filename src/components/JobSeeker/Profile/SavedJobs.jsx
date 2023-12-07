@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SavedJobCard from "./SavedJobCard";
 import { useSelector } from "react-redux";
-
 const SavedJobs = () => {
   const user = useSelector((state) => state.jobseeker);
 
@@ -34,6 +33,8 @@ const SavedJobs = () => {
             .map((jobCard, idx) => (
               <SavedJobCard key={idx} job={jobCard} />
             ))}
+            {(state.jobs
+            ?.filter((job) => state.fav[job.id])) ? "No jobs found!" : ""}
         </div>
         <div className="flex justify-between px-52">
           <div className="bg-gray-300 rounded hover:bg-gray-400">

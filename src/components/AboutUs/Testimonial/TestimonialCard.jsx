@@ -20,7 +20,7 @@ const TestimonialCard = ({ testimonials }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      handleNext(); // Auto transition to the next testimonial
+      handleNext(); 
     }, 5000); // Adjust the interval as needed (e.g., 5000 milliseconds = 5 seconds)
 
     return () => clearInterval(intervalId);

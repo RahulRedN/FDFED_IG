@@ -32,9 +32,8 @@ const TestimonialCard = ({ testimonials }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      handleNext(); // Auto transition to the next testimonial
-    },5000); // Adjust the interval as needed (e.g., 5000 milliseconds = 5 seconds)
-
+      handleNext(); 
+    },5000); 
     return () => clearInterval(intervalId);
   }, [testimonials, currentIndex]);
 
@@ -68,27 +67,3 @@ const TestimonialCard = ({ testimonials }) => {
 
 export default TestimonialCard;
 
-// import React from "react";
-// import classes from "./homepageStyles.module.css";
-// function Testimonial(props) {
-//   return (
-//     <>
-//       <div
-//         key={props.testimonial.username}
-//         style={{backgroundColor:props.color}}
-//         className={
-//           props.Idx === props.tIdx ? classes.activ : classes.testimonial_card
-//         }>
-//         <div className={classes.review}>
-//           <p>{props.testimonial.review}</p>
-//         </div>
-//         <div className={classes.person}>
-//           <h3>- {props.testimonial.username}</h3>
-//           <h5>- - {props.testimonial.currProfession}</h5>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Testimonial;

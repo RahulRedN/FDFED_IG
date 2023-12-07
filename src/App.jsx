@@ -8,9 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-
-import {Toaster} from 'react-hot-toast'
-
+import { Toaster } from "react-hot-toast";
 
 import { AuthContexts } from "./Firebase/AuthContexts";
 
@@ -53,14 +51,12 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
-        <Route path="news" element={<QuesCards/>} />
+        <Route path="news" element={<QuesCards />} />
       </Route>
 
       <Route path="/login" element={<Login_SignUp />} />
       <Route path="/logincompany" element={<LoginCompany />} />
       <Route path="/companyregister" element={<CompanyRegister />} />
-
-
 
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
@@ -72,13 +68,11 @@ const Router = createBrowserRouter(
       <Route path="/company" element={<Sidebar />} />
         <Route path="navbar" element={<Navbar />} /> */}
       <Route path="/company" element={<Company />}>
-       <Route index element={<Dashboard />} />
-       <Route path="employeelist" element={<Employees />} />
-       <Route path="pendinglist" element={<PendingList />} />
-       <Route path="postjob" element={<PostJob />} />
-       <Route path='postedjobs' element={<PostedJobs/>}/>
-       
-
+        <Route index element={<Dashboard />} />
+        <Route path="employeelist" element={<Employees />} />
+        <Route path="pendinglist" element={<PendingList />} />
+        <Route path="postjob" element={<PostJob />} />
+        <Route path="postedjobs" element={<PostedJobs />} />
       </Route>
     </Route>
   )

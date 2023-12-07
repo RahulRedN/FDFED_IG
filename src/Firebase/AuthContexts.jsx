@@ -60,58 +60,63 @@ export const AuthContexts = ({ children }) => {
             const collectionRef = collection(db, "jobs");
             const res1 = await getDocs(collectionRef);
 
-            if (res1.docs.length != 0 && data[0].id) {
-              const temp = res1.docs.map((doc) => ({
-                ...doc.data(),
-                id: doc.id,
-              }));
-
-              temp.sort((a, b) => {
-                const dateA = new Date(a.postedDate);
-                const dateB = new Date(b.postedDate);
-
-                // Compare the dates
-                return dateB - dateA;
-              });
-            }
-
             if (data[0].role === "jobseeker") {
-              dispatch(setData({ data: data[0], jobs: temp }));
+              if (res1.docs.length != 0 && data[0].id) {
+                const temp = res1.docs.map((doc) => ({
+                  ...doc.data(),
+                  id: doc.id,
+                }));
+
+                temp.sort((a, b) => {
+                  const dateA = new Date(a.postedDate);
+                  const dateB = new Date(b.postedDate);
+
+                  // Compare the dates
+                  return dateB - dateA;
+                });
+
+                dispatch(setData({ data: data[0], jobs: temp }));
+              }
             } else if (data[0].role == "company") {
               try {
-                const collectionRef = collection(db, "relations");
+                const collectionRef = collection(db, "jobs");
                 const q = query(
                   collectionRef,
                   where("companyId", "==", data[0].id)
                 );
                 const res2 = await getDocs(q);
 
-                let relation = [];
-
                 if (res2.docs.length != 0) {
-                  relation = res1.docs.map((doc) => ({
+                  const relation = res2.docs.map((doc) => ({
                     ...doc.data(),
                     id: doc.id,
                   }));
-                }
 
-                dispatch(
-                  setCompanyData({
-                    data: data[0],
-                    jobs: temp,
-                    relation: relation,
-                  })
-                );
+                  relation.sort((a, b) => {
+                    const dateA = new Date(a.postedDate);
+                    const dateB = new Date(b.postedDate);
+
+                    // Compare the dates
+                    return dateB - dateA;
+                  });
+
+                  dispatch(
+                    setCompanyData({
+                      data: data[0],
+                      jobs: relation,
+                    })
+                  );
+                }
               } catch (error) {
                 console.error(error);
               }
             }
+            setCurrentUser(user);
           }
         } catch (err) {
           console.log(err);
         }
       }
-      setCurrentUser(user);
     });
     setLoading(false);
 
