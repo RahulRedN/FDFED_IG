@@ -8,7 +8,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Toaster } from "react-hot-toast";
+
+import {Toaster} from 'react-hot-toast'
+
 
 import { AuthContexts } from "./Firebase/AuthContexts";
 
@@ -36,8 +38,8 @@ import PendingList from "./components/Company/PendingList/PendingList";
 import PostJob from "./components/Company/PostJob/PostJob";
 import LoginCompany from "./components/Login/LoginCompany/LoginCompany";
 import CompanyRegister from "./components/Login/LoginCompany/CompanyRegister";
-import QuesCards from "./components/AboutUs/TeamCard/QuesCards";
 import PostedJobs from "./components/Company/Postedjobs/PostedJobs";
+import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 const Root = () => {
   return <Outlet />;
@@ -51,12 +53,14 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
-        <Route path="news" element={<QuesCards />} />
+        <Route path="news" element={<QuesCards/>} />
       </Route>
 
       <Route path="/login" element={<Login_SignUp />} />
       <Route path="/logincompany" element={<LoginCompany />} />
       <Route path="/companyregister" element={<CompanyRegister />} />
+
+
 
       <Route path="/jobseeker" element={<JobSeeker />}>
         <Route index element={<JLanding />} />
@@ -68,11 +72,13 @@ const Router = createBrowserRouter(
       <Route path="/company" element={<Sidebar />} />
         <Route path="navbar" element={<Navbar />} /> */}
       <Route path="/company" element={<Company />}>
-        <Route index element={<Dashboard />} />
-        <Route path="employeelist" element={<Employees />} />
-        <Route path="pendinglist" element={<PendingList />} />
-        <Route path="postjob" element={<PostJob />} />
-        <Route path="postedjobs" element={<PostedJobs />} />
+       <Route index element={<Dashboard />} />
+       <Route path="employeelist" element={<Employees />} />
+       <Route path="pendinglist" element={<PendingList />} />
+       <Route path="postjob" element={<PostJob />} />
+       <Route path='postedjobs' element={<PostedJobs/>}/>
+       
+
       </Route>
     </Route>
   )
