@@ -4,24 +4,33 @@ import { MdDriveFileRenameOutline, MdSubject } from "react-icons/md";
 import ContactCard from "./ContactCard";
 import { motion } from "framer-motion";
 
-import ImageHeader from "../../JobSeeker/ImageHeader" 
+import ImageHeader from "../../JobSeeker/ImageHeader";
 import { useState } from "react";
+
 const details = ["Phone", "Email", "Address", "Physical address"];
 
 const ContactUs_Home = () => {
-
-  // const [contact ,setContact] =useState({
-
-  //   'name',
-
-
-  // })
-
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    phone: "",
+    message: "",
+  });
 
   const SubmitHandler = (e) => {
     e.preventDefault();
-    console.log("Submitted");
-  }
+    console.log("Submitted", contact);
+    
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContact((prevContact) => ({
+      ...prevContact,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
@@ -56,9 +65,11 @@ const ContactUs_Home = () => {
                       />
                       <input
                         type="text"
+                        name="name"
+                        value={contact.name}
+                        onChange={handleChange}
                         placeholder="Enter Name"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
-                        
                       />
                     </div>
                   </div>
@@ -72,6 +83,9 @@ const ContactUs_Home = () => {
                       />
                       <input
                         type="text"
+                        name="email"
+                        value={contact.email}
+                        onChange={handleChange}
                         placeholder="Enter Email"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -87,6 +101,9 @@ const ContactUs_Home = () => {
                       />
                       <input
                         type="text"
+                        name="subject"
+                        value={contact.subject}
+                        onChange={handleChange}
                         placeholder="Enter Subject"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -102,6 +119,9 @@ const ContactUs_Home = () => {
                       />
                       <input
                         type="text"
+                        name="phone"
+                        value={contact.phone}
+                        onChange={handleChange}
                         placeholder="Enter Number"
                         className="mt-2 border border-zinc-400 p-3 pl-[2.5rem] w-[100%] rounded-md outline-none placeholder:text-zinc-500"
                       />
@@ -112,10 +132,11 @@ const ContactUs_Home = () => {
                 <div className="">
                   <label className="font-normal text-gray-500">MESSAGE</label>
                   <textarea
-                    type=""
+                    name="message"
+                    value={contact.message}
+                    onChange={handleChange}
                     placeholder="Enter Message...."
-                    className="mt-2 w-full border border-zinc-400 p-4 h-[13rem] rounded-md outline-none placeholder:text-zinc-500
-                    placeholder:tracking-widest"
+                    className="mt-2 w-full border border-zinc-400 p-4 h-[13rem] rounded-md outline-none placeholder:text-zinc-500 placeholder:tracking-widest"
                   ></textarea>
                 </div>
 
