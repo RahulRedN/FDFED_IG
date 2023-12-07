@@ -33,12 +33,7 @@ const AboutUsTop = () => {
         <h3>Welcome To InspiringGo</h3>
         <h1>We Help Your Company To Grow</h1>
         <p>
-          Curabitur pharetra luctus vulputate. Proin finibus odio vel ipsum
-          scelerisque, luctus bibendum purus pellentesque. Integer porta dolor
-          at consequat maximus. Cras orci nisi, malesuada sed nisl quis, tempus
-          tempus eros. Quisque eu diam a mi vulputate lacinia. Aliquam eros
-          neque, luctus ut ligula in, faucibus fermentum sem. Vestibulum tempor
-          sollicitudin fringilla. .
+        Welcome to InspiringGo, your growth partner in business success. We specialize in nurturing companies through strategic solutions, expert guidance, and a commitment to your organizational prosperity.
         </p>
         <button>Learn More</button>
       </div>

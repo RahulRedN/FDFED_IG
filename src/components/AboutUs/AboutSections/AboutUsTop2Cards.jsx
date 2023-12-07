@@ -8,20 +8,20 @@ const AboutUsTop2Cards = () => {
   const dummyData = [
     {
       title: "Develop & Training",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      content: "Experience transformative learning and skill enhancement.",
     },
     {
       title: "Job Placement",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      content: "Discover your perfect career fit with our personalized placement services.",
     },
 
     {
       title: "Job Counselling",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      content: "Providing expert advice and support tailored to your unique journey.",
     },
     {
       title: "Test & Interview",
-      content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+      content: "Prepare with precision for assessments and interviews.",
     },
   ];
 

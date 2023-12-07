@@ -6,34 +6,29 @@ import exective from "../AboutSections/Resources/exective.png";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-
 const Services = () => {
-
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
   return (
     <div className="services-container">
-
-
-<motion.div
+      <motion.div
         ref={ref}
         initial={{ x: -50, opacity: 0 }}
         animate={inView ? { x: 0, opacity: 1 } : "hidden"}
-        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.0}} // Add delay of 0.3 seconds
-    
+        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.0 }} // Add delay of 0.3 seconds
         // key={index}
-      
 
-       className="service-top">
-
+        className="service-top"
+      >
         <div className="service-item">
           <img src={note} alt="" className="service-icon" />
           <div className="service-details">
             <h5 className="service-title">Recruitment</h5>
             <p className="service-description">
-              Donec id eleifend lectus. <br /> Aliquam gravida.
+              Elevate your team with <br />
+              strategic talent  <br />acquisition.
             </p>
           </div>
         </div>
@@ -43,7 +38,9 @@ const Services = () => {
           <div className="service-details">
             <h5 className="service-title">HR Outsourcing</h5>
             <p className="service-description">
-              Maecenas bibendum <br /> augue non purus
+              Unlock efficiency with our
+              <br />
+              comprehensive.
             </p>
           </div>
         </div>
@@ -53,8 +50,7 @@ const Services = () => {
           <div className="service-details">
             <h5 className="service-title">Expatriate Services</h5>
             <p className="service-description">
-              Suspendisse potenti. <br />
-              Nunc congue est dolor
+              Empower your global <br /> endeavors.
             </p>
           </div>
         </div>
@@ -65,26 +61,22 @@ const Services = () => {
             <h5 className="service-title">Executive Search</h5>
 
             <p className="service-description">
-              Vestibulum tortor lorem,
-              <br /> gravida in iaculis ac
+              Executive Search Navigate  <br />the path  to leadership<br />  excellence.
             </p>
           </div>
         </div>
-        </motion.div>
+      </motion.div>
 
       <div className="services-overview">
         <h3 className="overview-heading">Our Services</h3>
-        <h1 className="overview-title">
-          Our Rigorous 
-          Process Is Proven
-        </h1>
+        <h1 className="overview-title">Our Rigorous Process Is Proven</h1>
         <p className="overview-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-          tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Morbi
-          ullamcorper viverra consectetur. Ut pretium metus ut dolor tincidunt
-          tincidunt. Aliquam justo mi, dictum eu tincidunt lacinia, pretium
-          gravida purus. Nullam dignissim urna at sem congue, sed pharetra ipsum
-          posuere.
+          Embrace a transformative journey with our comprehensive offerings.
+          From personalized career guidance to skill development, we prioritize
+          your success. Collaborate with us for a fulfilling and rewarding
+          professional experience. Unlock the door to possibilities as we
+          navigate the path to your aspirations together. Your success story
+          begins here.
         </p>
         <button className="view-more-btn"> View More</button>
       </div>
