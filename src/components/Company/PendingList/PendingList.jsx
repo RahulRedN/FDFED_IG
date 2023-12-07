@@ -41,15 +41,15 @@ const PendingList = ({ status }) => {
                 </td>
 
                 <td>
-                  <div className="flex gap-3 justify-center ">
+                  <div className="flex gap-3 justify-center">
                     <button
                       className={
-                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md bg-emerald-300 border-emerald-300 hover:bg-white hover:cursor-pointer hover:text-emerald-800 hover: bg-white-800 hover:border-emerald-800 hover:border-[1px]"}>
+                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-emerald-300  border-emerald-300 hover:bg-white hover:cursor-pointer hover:text-emerald-800 hover:border-emerald-800 hover:border-[1px]"}>
                       Accept
                     </button>
                     <button
                       className={
-                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md bg-red-400 hover:bg-white hover:cursor-pointer hover:text-red-800 hover: bg-white-800 hover:border-red-800 hover:border-[1px]"}>
+                        "pr-2 pl-2 pt-1.5 pb-1.5 rounded-md text-white bg-red-400 hover:bg-white hover:cursor-pointer hover:text-red-800 hover: bg-white-800 hover:border-red-800 hover:border-[1px]"}>
                       Reject
                     </button>
                   </div>

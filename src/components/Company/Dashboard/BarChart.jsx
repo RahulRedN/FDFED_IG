@@ -46,7 +46,7 @@ const BarChart = ({ isDashboard = false }) => {
       groupMode="grouped"
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}
-      colors={["#6ee7b7","#818cf8"]}
+      colors={["#25cc8b", "#020dff"]}
   
       defs={[
         {

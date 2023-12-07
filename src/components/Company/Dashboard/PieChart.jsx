@@ -39,7 +39,7 @@ return (
             modifiers: [
                 [
                     'darker',
-                    2
+                    3
                 ]
             ]
         }}
@@ -68,7 +68,7 @@ return (
                 match: {
                     id: "Accepted"
                 },
-                id: 'dots'
+                id: 'lines'
             },
             {
                 match: {

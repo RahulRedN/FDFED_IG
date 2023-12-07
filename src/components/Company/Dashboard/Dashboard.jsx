@@ -10,7 +10,7 @@ import BarChart from "./BarChart";
 import StatBox from "./StatBox";
 import ProgressCircle from './ProgressCircle'
 import PieChart from './PieChart'
-import { Money, MoneyOff, MoneyOffCsredSharp, MoneySharp, NotInterested, NotInterestedTwoTone } from "@mui/icons-material";
+import { Money, MoneyOff, MoneyOffCsredSharp, MoneySharp, NotInterested, NotInterestedTwoTone, Verified } from "@mui/icons-material";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -46,7 +46,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
+                sx={{ color: "#25cc8b", fontSize: "50px" }}
               />
             }
           />
@@ -60,12 +60,12 @@ const Dashboard = () => {
         >
           <StatBox
             title="431,225"
-            subtitle="Applications Accepted"
+            subtitle="Applications Recieved"
             progress="0.50"
             increase="+21%"
             icon={
               <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
+                sx={{ color: "#25cc8b", fontSize: "50px" }}
               />
             }
           />
@@ -79,12 +79,12 @@ const Dashboard = () => {
         >
           <StatBox
             title="32,441"
-            subtitle="Applications Rejected"
+            subtitle="Applications Accepted"
             progress="0.30"
             increase="+5%"
             icon={
-              <NotInterestedTwoTone
-                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
+              <Verified
+                sx={{ color: "#25cc8b", fontSize: "50px" }}
               />
             }
           />
@@ -103,7 +103,7 @@ const Dashboard = () => {
             increase="+43%"
             icon={
               <MoneySharp
-                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
+                sx={{ color: "#25cc8b", fontSize: "50px" }}
               />
             }
           />
