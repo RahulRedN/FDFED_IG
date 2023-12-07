@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Filter, SearchCode, Navigation, ArrowDown10 } from "lucide-react";
 import { useState } from "react";
 import { FaHouse } from "react-icons/fa6";
@@ -29,8 +30,10 @@ const Filters = ({ jobs, setState }) => {
     // }
 
     if (workFromHome) {
+      // eslint-disable-next-line react/prop-types
       newState = jobs.filter((job) => !job.location);
     } else if (location.trim() != "") {
+      // eslint-disable-next-line react/prop-types
       newState = jobs.filter((job) => job.loaction.includes(location.trim()));
     }
 
