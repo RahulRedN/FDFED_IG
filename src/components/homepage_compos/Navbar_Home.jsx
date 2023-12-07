@@ -21,7 +21,7 @@ const Navbar = ({ navClass }) => {
             <NavLink to="contactus">CONTACT</NavLink>
           </li>
           <li>
-            <NavLink to="news">News</NavLink>
+            <NavLink to="news">NEWS</NavLink>
           </li>
         </ul>
         <Link to="login" className="hover:text-[#000dff] rounded text-lg transition ease-in-out duration-150">

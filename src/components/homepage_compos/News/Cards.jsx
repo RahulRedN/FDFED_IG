@@ -11,10 +11,10 @@ const Cards = () => {
       try {
         const apiKey = "8fbff4d924f245c38e8cd16eaf6a2264";
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`
+          `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=business`
         );
         const data = await response.json();
-        setNewsData(data.articles.slice(0, 9)); 
+        setNewsData(data.articles.slice(0, 18)); 
       } catch (error) {
         console.error("Error fetching news data:", error);
       }
