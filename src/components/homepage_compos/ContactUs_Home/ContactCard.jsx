@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa6";
 import { FaMapMarkedAlt } from "react-icons/fa";
@@ -32,7 +33,7 @@ const ContactCard = ({ src, delay }) => {
       initial={{ x: 100, opacity: 0 }}
       ref={ref}
       animate={inView ? { x: 0, opacity: 1 } : "hidden"}
-      transition={{ ease: "easeInOut", duration: 0.5, delay: delay * 0.8 }}
+      transition={{ ease: "easeInOut", duration: 1, delay: delay * 0.8 }}
       className="flex bg-emerald-500 h-[15vh] rounded-lg items-center shadow-lg"
     >
       <div className="h-full flex items-center justify-center p-5">
