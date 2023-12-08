@@ -21,6 +21,9 @@ const Navbar = ({ navClass }) => {
             <NavLink to="contactus">CONTACT</NavLink>
           </li>
           <li>
+            <NavLink to="faqs">FAQS</NavLink>
+          </li>
+          <li>
             <NavLink to="news">NEWS</NavLink>
           </li>
         </ul>

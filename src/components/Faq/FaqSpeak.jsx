@@ -4,6 +4,7 @@ import { Button } from "@chakra-ui/react";
 import { Stack } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { FaTeamspeak } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 
 const FaqSpeak = () => {
@@ -31,6 +32,7 @@ const FaqSpeak = () => {
             >
               Speak With Us
             </Button>
+            <Link to="/contactus">
             <Button
               leftIcon={<ArrowForwardIcon />}
               colorScheme="blue"
@@ -39,6 +41,7 @@ const FaqSpeak = () => {
             >
               Contact Us
             </Button>
+          </Link>
           </Stack>
         </motion.div> );
 }

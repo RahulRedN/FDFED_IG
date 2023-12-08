@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+
 import { useState, useEffect } from "react";
 
 import classes from "../components/homepage_compos/css/Navbar_Home_Styles.module.css";

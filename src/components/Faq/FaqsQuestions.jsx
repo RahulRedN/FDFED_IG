@@ -1,5 +1,7 @@
-import React from 'react';
-import faqsData from "../faqsData";
+
+import {faqsData, faqsDataOne, faqsDataTwo} from "../faqsData";
+
+
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -63,7 +65,7 @@ const FaqQuestions = () => {
         </motion.div>
 
         <Accordion allowToggle>
-          {faqsData.map((faq) => (
+          {faqsDataOne.map((faq) => (
             <AccordionItem key={faq.id} className="faq-item">
               <h2>
                 <AccordionButton className="accordion-button">
@@ -94,7 +96,7 @@ const FaqQuestions = () => {
         </motion.div>
 
         <Accordion allowToggle>
-          {faqsData.map((faq) => (
+          {faqsDataTwo.map((faq) => (
             <AccordionItem key={faq.id} className="faq-item">
               <h2>
                 <AccordionButton className="accordion-button">

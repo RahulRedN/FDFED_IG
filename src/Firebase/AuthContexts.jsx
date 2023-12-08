@@ -1,4 +1,7 @@
+
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+
 import React, { useContext, useEffect, useState } from "react";
 import { auth, db } from "./config";
 import {
@@ -15,6 +18,9 @@ import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 import { setData } from "../redux/jobseekerReducer";
 import { setCompanyData } from "../redux/companyReducer";
 import { useDispatch } from "react-redux";
+
+import { reset } from "../redux/jobseekerReducer";
+import { resetCompany } from "../redux/companyReducer";
 
 const AuthContext = React.createContext();
 
@@ -117,6 +123,9 @@ export const AuthContexts = ({ children }) => {
         } catch (err) {
           console.log(err);
         }
+      } else {
+        dispatch(reset());
+        dispatch(resetCompany());
       }
     });
     setLoading(false);

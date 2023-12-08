@@ -10,13 +10,20 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../Firebase/config";
 import toast from "react-hot-toast";
 
+import { useSelector } from "react-redux";
+
 const LoginCompany = () => {
-  const { signUp, signIn, user } = useAuth();
+  const { signUp, signIn } = useAuth();
+
+  const user = useSelector((state) => state.jobseeker.data);
+  const company = useSelector((state) => state.company.data);
 
   const nav = useNavigate();
 
-  if (user) {
+  if (company?.uid) {
     nav("/company");
+  } else if (user?.uid) {
+    nav("/jobseeker");
   }
 
   const [isClicked, setIsClicked] = useState(true);
@@ -38,96 +45,88 @@ const LoginCompany = () => {
     password: "",
   });
 
-
   const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
 
   const emailHandler = (e) => {
-      if(e.target.value === "" || !emailRegex.test(e.target.value)){
-        setErrE(true)
-      }else{
-        setErrE(false)
-      }
-      setRegister((state) => ({ ...state, email: e.target.value }))
-  }
-
+    if (e.target.value === "" || !emailRegex.test(e.target.value)) {
+      setErrE(true);
+    } else {
+      setErrE(false);
+    }
+    setRegister((state) => ({ ...state, email: e.target.value }));
+  };
 
   const passwordHandler = (e) => {
-      if(e.target.value === ""){
-        setErrP(true)
-      }else{
-        setErrP(false)
-      }
-      setRegister((state) => ({ ...state, password: e.target.value }))
-  }
-
+    if (e.target.value === "") {
+      setErrP(true);
+    } else {
+      setErrP(false);
+    }
+    setRegister((state) => ({ ...state, password: e.target.value }));
+  };
 
   const nameHandler = (e) => {
-      if(e.target.value === ""){
-        setErrN(true)
-      }else{
-        setErrN(false)
-      }
-      setRegister((state) => ({ ...state, name: e.target.value }))
-  }
+    if (e.target.value === "") {
+      setErrN(true);
+    } else {
+      setErrN(false);
+    }
+    setRegister((state) => ({ ...state, name: e.target.value }));
+  };
 
+  const emailHandlerLogin = (e) => {
+    if (e.target.value === "" || !emailRegex.test(e.target.value)) {
+      setErrEL(true);
+    } else {
+      setErrEL(false);
+    }
+    setLogin((state) => ({ ...state, email: e.target.value }));
+  };
 
-
- const emailHandlerLogin = (e) => {
-      if(e.target.value === "" || !emailRegex.test(e.target.value)){
-        setErrEL(true)
-      }else{
-        setErrEL(false)
-      }
-      setLogin((state) => ({ ...state, email: e.target.value }))
-  }
-
-  
   const passwordHandlerLogin = (e) => {
-      if(e.target.value === ""){
-        setErrPL(true)
-      }else{
-        setErrPL(false)
-      }
-      setLogin((state) => ({ ...state, password: e.target.value }))
-  }
-
-
-
+    if (e.target.value === "") {
+      setErrPL(true);
+    } else {
+      setErrPL(false);
+    }
+    setLogin((state) => ({ ...state, password: e.target.value }));
+  };
 
   const loginHandler = async (e) => {
     e.preventDefault();
     console.log(login);
 
-    if(login.email === "" || login.password === ""){
+    if (login.email === "" || login.password === "") {
       toast.error("Fill all the fields");
       return;
     }
 
-    if(errEL || errPL){
+    if (errEL || errPL) {
       toast.error("Fill all the fields correctly");
       return;
     }
-    
-      try {
-        await signIn(login.email, login.password);
-      } catch (error) {
-        console.error(error);
-      }
-    
-    
+
+    try {
+      await signIn(login.email, login.password);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const registerHandler = async (e) => {
-
     e.preventDefault();
     console.log(register);
 
-    if(register.name === "" || register.email === "" || register.password === ""){
+    if (
+      register.name === "" ||
+      register.email === "" ||
+      register.password === ""
+    ) {
       toast.error("Fill all the fields");
       return;
     }
 
-    if(errN || errE || errP){
+    if (errN || errE || errP) {
       toast.error("Fill all the fields correctly");
       return;
     }
@@ -144,7 +143,7 @@ const LoginCompany = () => {
       if (res) {
         const collectionRef = collection(db, "users");
         await addDoc(collectionRef, { ...data, uid: res.user.uid });
-        alert("Success");
+        toast.success("Registered Successfully!");
       }
     } catch (error) {
       if (error.code == "auth/email-already-in-use") {
@@ -223,6 +222,7 @@ const LoginCompany = () => {
                   id="email"
                   name="email"
                   placeholder="Enter Your Email"
+                  required
                 />
 
                 <label htmlFor="password"> Password</label>
@@ -235,6 +235,7 @@ const LoginCompany = () => {
                   id="password"
                   name="password"
                   placeholder=" Enter Your password"
+                  required
                 />
 
                 <div className="checkbox-div">

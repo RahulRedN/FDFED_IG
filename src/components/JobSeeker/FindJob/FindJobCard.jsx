@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Building2,
   TrendingUp,
@@ -11,16 +12,22 @@ import {
   MailSearch,
   Heart,
 } from "lucide-react";
-import ReactDOM from "react-dom";
+
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { CgCross, CgProfile } from "react-icons/cg";
+import { CgProfile } from "react-icons/cg";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RoleCard from "./RoleCard";
 import { IoCloseCircle } from "react-icons/io5";
 import toast from "react-hot-toast";
+
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../Firebase/config";
+import { useDispatch, useSelector } from "react-redux";
+import { setApplied } from "../../../redux/jobseekerReducer";
+import { useNavigate } from "react-router-dom";
 
 const FindJobCard = ({ job, fav, setFavHandler }) => {
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -57,11 +64,13 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
       }
 
       if (!state) {
-        toast("Added to Favourites!", {
-          className: "p-3 text-red-500",
-        });
+        setTimeout(
+          () =>
+            toast("Added to Favourites!", {icon:'❤️'}),
+          750
+        );
       } else {
-        toast("Removed from Favourites!");
+        setTimeout(() => toast.success("Removed from Favourites!"), 750);
       }
 
       return !state;
@@ -180,7 +189,7 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
                 </span>
               </div>
               <h1 className="text-sm font-thin tracking-wide">
-                ₹ {job?.salary}
+                ₹ {Number(job?.salary).toLocaleString("en-IN")}
               </h1>
             </div>
             <div className="flex flex-col gap-2">
@@ -251,11 +260,60 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
 export default FindJobCard;
 
 const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
+  const nav = useNavigate();
+  const user = useSelector((state) => state.jobseeker.data);
+  const dispatch = useDispatch();
+
   const applyHandler = async () => {
-    const data = {jobId: job.id, companyId: job.companyId}
+    const data = { ...job.status };
+
+    if (data[user.id] == undefined) {
+      try {
+        data[user.id] = {
+          applied: null,
+          date: Date().toLocaleString(),
+          fname: user.fname,
+        };
+        const docRef = doc(collection(db, "jobs"), job.id);
+        await updateDoc(docRef, { status: data });
+        dispatch(setApplied({ data: data, id: job.id }));
+        toast("Job Applied!");
+
+        nav("/jobseeker/profile");
+      } catch (error) {
+        console.error(error);
+        toast("An error Occured!", { className: "text-red-500" });
+      }
+    } else {
+      toast("Already applied to the Job!");
+    }
   };
+
+  const isDisabled = job.status[user.id];
+
+  const color = (status) => {
+    if (status === "Rejected") {
+      return "bg-red-200 text-red-600 ";
+    } else if (status === "Accepted") {
+      return "bg-green-200 text-green-600";
+    } else {
+      return "bg-yellow-100 text-yellow-500";
+    }
+  };
+
+  const getStatus = (status) => {
+    if (status == null) {
+      return "Pending";
+    } else if (status) {
+      return "Accepted";
+    } else {
+      return "Rejected";
+    }
+  };
+
   return (
     <Modal
+      key={job.id}
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={customStyles}
@@ -329,16 +387,21 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
           Posted on: {new Date(job?.postedDate).toLocaleDateString("en-US")}
         </li>
         <li>Vacancy : {job?.vacancies}</li>
-        <li>Salary : {job?.salary}</li>
+        <li>Salary : ₹ {Number(job?.salary).toLocaleString("en-IN")}</li>
         {job?.location && <li>Location : {job?.location}</li>}
         <li>Job Nature : {job?.location ? "on Site" : "Work From Home"}</li>
       </ul>
       <button
-        onClick={() => {}}
-        className="mt-8 text-center m-auto bg-blue-600 hover:bg-blue-700 text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline
-      "
+        onClick={applyHandler}
+        className={
+          "mt-8 text-center m-auto text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline " +
+          (isDisabled
+            ? color(getStatus(isDisabled.applied))
+            : "bg-blue-600 hover:bg-blue-700")
+        }
+        disabled={isDisabled}
       >
-        Apply now
+        {isDisabled ? getStatus(isDisabled.applied) : "Apply"}
       </button>
     </Modal>
   );

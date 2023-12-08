@@ -42,7 +42,7 @@ const AboutUsTop3 = () => {
             transition={{
               ease: "easeInOut",
               duration: 0.9,
-              delay: index === 0 ? 0.2 : 0.5, // Change the delay values as needed
+              delay: index === 0 ? 0.2 : 0.5, 
             }}
             className="peoples"
           >

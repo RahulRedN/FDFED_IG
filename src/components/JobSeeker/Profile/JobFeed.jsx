@@ -1,27 +1,47 @@
 import ProfileNavbar from "./ProfileNavbar";
 import classes from "./JobFeed.module.css";
-import { BsBoxArrowUpRight } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useAuth } from "../../../Firebase/AuthContexts";
+import JobFeedCard from "./JobFeedCard";
 
 const JobFeed = ({ status }) => {
-  const color = (status) => {
-    if (status === "Rejected") {
-      return "bg-red-200 text-red-600 ";
-    } else if (status === "Accepted") {
-      return "bg-green-200 text-green-600";
-    } else {
-      return "bg-yellow-100 text-yellow-500";
-    }
+  const user = useSelector((state) => state.jobseeker.data);
+  const jobs = useSelector((state) => state.jobseeker.jobs)
+    ?.filter((job) => job.status[user.id])
+    .sort((a, b) => {
+      const dateA = new Date(a.status[user.id].date);
+      const dateB = new Date(b.status[user.id].date);
+
+      return dateB - dateA;
+    });
+
+  const [applied, setApplied] = useState(jobs);
+
+  const searchHandler = (value) => {
+    setApplied((state) => {
+      if (value.trim() != "") {
+        const newState = jobs.filter((job) =>
+          job.position.toLowerCase().includes(value.trim().toLowerCase())
+        );
+
+        return newState;
+      } else {
+        return jobs;
+      }
+    });
   };
 
   return (
     <div className="max-h-full" id="jobFeed">
-      <ProfileNavbar />
+      <ProfileNavbar searchHandler={searchHandler} />
       <div className={classes.container}>
         <div className="mt-5 w-[90%] flex justify-between items-center shadow p-4 rounded">
           <h1 className="text-3xl font-[600] ">My Applications</h1>
           <div className="flex">
             <p>
-              Profile &gt; <span className="text-cyan-500">My Applications</span>
+              Profile &gt;{" "}
+              <span className="text-cyan-500">My Applications</span>
             </p>
           </div>
         </div>
@@ -37,26 +57,18 @@ const JobFeed = ({ status }) => {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b-2 border-gray-100">
-                <td>Google</td>
-                <td className="flex items-center justify-between gap-2">
-                  <h1>Position</h1>
-                  <span>
-                    <BsBoxArrowUpRight
-                      size={13}
-                      className="text-blue-500"
-                      strokeWidth={0.6}
-                    />
-                  </span>
-                </td>
-                <td>14 Oct'23</td>
-                <td>3124</td>
-                <td>
-                  <span className={`p-2 rounded-2xl ` + color(status)}>
-                    {status}
-                  </span>
-                </td>
-              </tr>
+              {applied.map((job, idx) => {
+                const date = new Date(job.status[user?.id].date);
+                return (
+                  <JobFeedCard
+                    job={job}
+                    idx={idx}
+                    date={date}
+                    key={idx}
+                    status={job.status[user?.id].applied}
+                  />
+                );
+              })}
             </tbody>
           </table>
         </div>

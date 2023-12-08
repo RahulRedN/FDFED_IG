@@ -1,30 +1,15 @@
-import { useEffect, useState } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Modal from "react-modal";
 
+import { BsBoxArrowUpRight } from "react-icons/bs";
 import { CalendarSearch, MailSearch } from "lucide-react";
 import { CgProfile } from "react-icons/cg";
 import { IoCloseCircle } from "react-icons/io5";
 
 import RoleCard from "../FindJob/RoleCard";
-import { setApplied } from "../../../redux/jobseekerReducer";
 
-import toast from "react-hot-toast";
-import { collection, doc, updateDoc } from "firebase/firestore";
-import { db } from "../../../Firebase/config";
-
-const SavedJobCard = ({ job }) => {
-  const truncateString = (str, maxLength) => {
-    if (str.length <= maxLength) {
-      return str;
-    } else {
-      return str.substring(0, maxLength) + "...";
-    }
-  };
-
+const JobFeedCard = ({ job, date, idx, status }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -74,91 +59,6 @@ const SavedJobCard = ({ job }) => {
     setIsOpen(false);
   }
 
-  return (
-    <div className="shadow-md bg-white rounded-lg p-3 pt-4 w-[32%] min-h-[25.7vh]">
-      <div className="flex items-end justify-between">
-        <h5
-          className={`${
-            job?.location ? "bg-emerald-500" : "bg-amber-400"
-          } rounded-full text-white p-1 text-xs`}
-        >
-          {job?.location ? job?.location : "Work From Home"}
-        </h5>
-        <h5 className="font-[600] text-sm">
-          ₹ {Number(job?.salary).toLocaleString("en-IN")} / yr
-        </h5>
-      </div>
-
-      <h1 className="mt-2 text-xl text-center font-bold tracking-wider">
-        {job.position}
-      </h1>
-      <h1 className="text-center text-sm text-blue-500">{job.companyName}</h1>
-
-      <div className="flex mt-5 w-[90%] mx-auto gap-3 flex-wrap">
-        {job?.skills
-          .split(",")
-          .slice(0, Math.min(4, job?.skills.split(",").length))
-          .map((role, index) => (
-            <p
-              key={index}
-              className="text-xs p-1 bg-gray-200 text-gray-500 rounded"
-            >
-              {role}
-            </p>
-          ))}
-      </div>
-
-      <p className="mt-4 w-[90%] mx-auto text-xs">
-        {truncateString(job?.jobDesc, 90)}
-      </p>
-      <hr className="mt-4 w-[90%] mx-auto"></hr>
-      <h1 className="mt-4 text-center cursor-pointer" onClick={openModal}>
-        View Job
-      </h1>
-      <Modals
-        modalIsOpen={modalIsOpen}
-        closeModal={closeModal}
-        customStyles={customStyles}
-        job={job}
-      />
-    </div>
-  );
-};
-
-export default SavedJobCard;
-
-const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
-  const nav = useNavigate();
-  const user = useSelector((state) => state.jobseeker.data);
-  const dispatch = useDispatch();
-
-  const applyHandler = async () => {
-    const data = { ...job.status };
-
-    if (data[user.id] == undefined) {
-      try {
-        data[user.id] = {
-          applied: null,
-          date: Date().toLocaleString(),
-          fname: user.fname,
-        };
-        const docRef = doc(collection(db, "jobs"), job.id);
-        await updateDoc(docRef, { status: data });
-        dispatch(setApplied({ data: data, id: job.id }));
-        toast("Job Applied!");
-
-        nav("/jobseeker");
-      } catch (error) {
-        console.error(error);
-        toast("An error Occured!", { className: "text-red-500" });
-      }
-    } else {
-      toast("Already applied to the Job!");
-    }
-  };
-
-  const isDisabled = job.status[user.id];
-
   const color = (status) => {
     if (status === "Rejected") {
       return "bg-red-200 text-red-600 ";
@@ -178,6 +78,44 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
       return "Rejected";
     }
   };
+
+  const options = { day: "numeric", month: "short", year: "2-digit" };
+
+  return (
+    <tr key={idx} className="border-b-2 border-gray-100">
+      <td>{job.companyName}</td>
+      <td className="flex items-center justify-between gap-2">
+        <h1>{job.position}</h1>
+        <span>
+          <BsBoxArrowUpRight
+            size={13}
+            className="text-blue-500 cursor-pointer"
+            strokeWidth={0.6}
+            onClick={openModal}
+          />
+        </span>
+      </td>
+      <td>{date.toLocaleDateString("en-US", options)}</td>
+      <td>{Object.keys(job.status).length}</td>
+      <td>
+        <span className={`p-2 rounded-2xl ` + color(getStatus(status))}>
+          {getStatus(status)}
+        </span>
+      </td>
+      <Modals
+        key={idx}
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        customStyles={customStyles}
+        job={job}
+      />
+    </tr>
+  );
+};
+
+export default JobFeedCard;
+
+const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -257,18 +195,6 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
         {job?.location && <li>Location : {job?.location}</li>}
         <li>Job Nature : {job?.location ? "on Site" : "Work From Home"}</li>
       </ul>
-      <button
-        onClick={applyHandler}
-        className={
-          "mt-8 text-center m-auto text-white tracking-wider py-2 px-4 rounded focus:outline-none focus:shadow-outline " +
-          (isDisabled
-            ? color(getStatus(isDisabled.applied))
-            : "bg-blue-600 hover:bg-blue-700")
-        }
-        disabled={isDisabled}
-      >
-        {isDisabled ? getStatus(isDisabled.applied) : "Apply"}
-      </button>
     </Modal>
   );
 };

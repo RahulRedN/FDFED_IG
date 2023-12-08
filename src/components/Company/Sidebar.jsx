@@ -16,6 +16,8 @@ import {
   DocumentScannerSharp,
 } from "@mui/icons-material";
 import { useAuth } from "../../Firebase/AuthContexts";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
   const theme = useTheme();
@@ -37,6 +39,7 @@ const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
 };
 
 const Sidebar = () => {
+  const data = useSelector((state) => state.company.data);
   const { logout } = useAuth();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -46,22 +49,23 @@ const Sidebar = () => {
   const logoutHandler = async () => {
     try {
       await logout();
+      toast.success("Logged out successfully!");
     } catch (error) {
       console.error(error);
     }
   };
   return (
-    <Box 
+    <Box
       sx={{
         "& .pro-sidebar-inner": {
-          // background: `${colors.primary[400]} !important`,
-          background : "white",
+          background: `${colors.grey[400]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
           padding: " 5px 20px !important",
+          color: "white"
         },
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
@@ -89,9 +93,7 @@ const Sidebar = () => {
                 ml="15px"
                 mb="22px"
               >
-                <Typography variant="h3">
-                  ADMIN
-                </Typography>
+                <Typography variant="h3">ADMIN</Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -107,11 +109,11 @@ const Sidebar = () => {
                   color="#020dff"
                   sx={{ m: "8px 0 0 0" }}
                 >
-                  Company Name
+                  {data?.name}
                 </Typography>
                 <div className="mt-3">
                   <Typography variant="h5" color={colors.greenAccent[500]}>
-                    {"Gmail"}
+                    {data?.email}
                   </Typography>
                 </div>
               </Box>
@@ -161,7 +163,6 @@ const Sidebar = () => {
               icon={<DocumentScannerSharp />}
               selected={selected}
               setSelected={setSelected}
-              onClickHandler={logoutHandler}
             />
             <Item
               title="Log Out"

@@ -4,9 +4,19 @@ import { NavLink } from "react-router-dom";
 
 import styles from "./Avatar.module.css";
 import { useAuth } from "../../Firebase/AuthContexts";
+import toast from "react-hot-toast";
 
 const Dropdown = () => {
   const { logout } = useAuth();
+
+  const logoutHandler = async () => {
+    try {
+      await logout();
+      toast.success("Logged out successfully!");
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <div className={styles.container}>
       <div
@@ -28,7 +38,7 @@ const Dropdown = () => {
         </div>
         <div className="flex-[1] p-2 text-xl rounded-b-lg flex items-center gap-1 text-gray-800 hover:bg-red-500 hover:text-white w-full transition ease-in-out duration-300">
           <IoMdExit size={23} />
-          <button onClick={logout}>Sign Out</button>
+          <button onClick={logoutHandler}>Sign Out</button>
         </div>
       </div>
     </div>

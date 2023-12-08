@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+
+
+
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from ".././theme";
 import EmailIcon from "@mui/icons-material/Email";
@@ -22,8 +27,6 @@ import {
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const data = useSelector((state) => state.company);
-  console.log(data);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (

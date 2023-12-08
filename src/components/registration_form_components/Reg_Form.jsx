@@ -132,6 +132,7 @@ const Reg_Form = ({ className }) => {
         email,
         role: "jobseeker",
         uid: res.user.uid,
+        fav: {},
       };
 
       await addDoc(userCollection, data);
