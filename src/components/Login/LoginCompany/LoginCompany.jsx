@@ -72,7 +72,6 @@ const LoginCompany = () => {
 
 
 
-
  const emailHandlerLogin = (e) => {
       if(e.target.value === "" || !emailRegex.test(e.target.value)){
         setErrEL(true)
@@ -118,8 +117,9 @@ const LoginCompany = () => {
     
   };
 
-  const registerHandler = async () => {
+  const registerHandler = async (e) => {
 
+    e.preventDefault();
     console.log(register);
 
     if(register.name === "" || register.email === "" || register.password === ""){
