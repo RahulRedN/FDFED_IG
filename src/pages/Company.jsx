@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import classes from "../components/homepage_compos/css/Navbar_Home_Styles.module.css";
 
-import Footer_Job from "../components/homepage_compos/Footer_Job";
+import Footer_Job from "../components/homepage_compos/Footer_Home.jsx";
 
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/Company/Sidebar.jsx";
@@ -33,7 +33,8 @@ const Home = () => {
           <div className="flex min-h-screen">
             <Sidebar isSidebar={isSidebar}/>
             <main className="w-full"> 
-            <Outlet />
+            <Outlet/>
+            {/* <div className="text-center text-gray-800 font-[600]">© 2023 Inspiring Go</div> */}
             </main>
           </div>
         </ThemeProvider>

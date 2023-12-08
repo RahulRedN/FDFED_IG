@@ -2,12 +2,21 @@ import classes from "./ProfileNavbar.module.css";
 
 import { FaBell, FaSearch } from "react-icons/fa";
 import { IoMail, IoPerson } from "react-icons/io5";
+import { useAuth } from "../../../Firebase/AuthContexts";
+import { useSelector } from "react-redux";
 
-const ProfileNavbar = ({ notification, mail }) => {
+const ProfileNavbar = ({ notification, mail, searchHandler }) => {
+  const user = useSelector((state) => state.jobseeker.data);
   return (
     <nav className={classes.container}>
       <div className={classes.search}>
-        <input type="text" placeholder="Search anything.." />
+        <input
+          type="text"
+          placeholder="Search anything.."
+          onChange={(e) => {
+            searchHandler(e.target.value);
+          }}
+        />
         <FaSearch />
       </div>
       <div className={classes.content}>
@@ -23,7 +32,7 @@ const ProfileNavbar = ({ notification, mail }) => {
           <span>
             <IoPerson size={20} />
           </span>
-          <h5>Name</h5>
+          <h5>{user.fname}</h5>
         </div>
       </div>
     </nav>

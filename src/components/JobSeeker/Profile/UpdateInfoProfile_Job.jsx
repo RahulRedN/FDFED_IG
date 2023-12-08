@@ -25,6 +25,38 @@ const UpdateInfoProfile_Job = () => {
   const SubmitHandler = async () => {
     //Validation
 
+    const alphaRegex = /^[a-zA-Z\s]+$/;
+    const mobileRegex = /^\d{10}$/;
+
+    if (data.fname.trim() === "") {
+      toast.error("Name is Required!", { className: "text-red-500" });
+      return;
+    }
+
+    if (!alphaRegex.test(data.fname)) {
+      toast.error("Name can only contain alphabets!", {
+        className: "text-red-100",
+      });
+      return;
+    }
+
+    if (data.mobile.trim() === "") {
+      toast.error("Mobile Number is Required!", { className: "text-red-500" });
+      return;
+    }
+
+    if (!mobileRegex.test(data.mobile)) {
+      toast.error("Mobile Number should be of 10 digits!", {
+        className: "text-red-500",
+      });
+      return;
+    }
+
+    if (data.address.trim() === "") {
+      toast.error("Address is Required!", { className: "text-red-500" });
+      return;
+    }
+
     try {
       const docRef = doc(collection(db, "users"), data.id);
 
@@ -36,29 +68,45 @@ const UpdateInfoProfile_Job = () => {
       });
 
       dispatch(setData({ data: data }));
-      toast("Profile Updated!", { className: "text-green-400" });
+      toast.success("Profile Updated!");
       setEdit((state) => !state);
     } catch (error) {
       console.error(error);
-      toast("Something Happened!", { className: "text-red-400" });
+      toast.error("Something Happened!", { className: "text-red-400" });
     }
   };
 
   const handleChange = async (e) => {
-    try {
-      const imageRef = ref(storage, `users/${data.uid}`);
-      const imgRes = await uploadBytes(imageRef, e.target.files[0]);
-      const imageUrl = await getDownloadURL(imgRes.ref);
-      const docRef = doc(collection(db, "users"), data.id);
 
-      await updateDoc(docRef, { img: imageUrl });
+    const promise = new Promise(async (resolve, reject) => {
+      try {
+        const imageRef = ref(storage, `users/${data.uid}`);
+        const imgRes = await uploadBytes(imageRef, e.target.files[0]);
+        const imageUrl = await getDownloadURL(imgRes.ref);
+        const docRef = doc(collection(db, "users"), data.id);
 
-      dispatch(setData({ data: { ...data, img: imageUrl } }));
-      toast("Photo Updated!", { className: "text-green-400" });
-    } catch (error) {
-      console.error(error);
-      toast("An error Occured!", { className: "text-red-400" });
-    }
+        await updateDoc(docRef, { img: imageUrl });
+        dispatch(setData({ data: { ...data, img: imageUrl } }));
+        resolve("Updated successfully");
+       
+      } catch (error) {
+        reject("An error occured");
+        console.error(error);
+      }
+    });
+
+    toast.promise(promise, {
+      loading: "Updating profile picture...",
+      success: (data) => {
+        return `${data}`;
+      },
+      error: (data) => {
+        return `${data}`;
+      },
+    });
+
+    setPicEdit((prev) => !prev);
+
   };
 
   return (
@@ -76,7 +124,7 @@ const UpdateInfoProfile_Job = () => {
           </div>
         </div>
         <div className="flex gap-10 h-[80vh]">
-          <div className="flex-[1] h-full flex flex-col justify-between max-w-[100%] p-[2rem] bg-white rounded-lg shadow-2xl">
+          <div className="flex-[1] h-full flex flex-col justify-between max-w-[100%] p-[2rem] bg-white rounded-lg shadow-lg">
             <h2 className=" text-xl text-center font-semibold mb-9">
               {picEdit ? (
                 <p>Change Profile Picture here</p>
@@ -88,7 +136,7 @@ const UpdateInfoProfile_Job = () => {
               <img
                 src={userData?.img ? userData?.img : "/assets/Profile_man.jpg"}
                 className={
-                  "w-[15rem] mx-auto h-[15rem] rounded-[50%] object-cover object-top"
+                  "w-[18rem] mx-auto h-[18rem] rounded-[50%] object-cover object-top"
                 }
               />
             </div>
@@ -129,7 +177,7 @@ const UpdateInfoProfile_Job = () => {
             </div>
           </div>
 
-          <div className="flex-[2] max-w-[100%] h-full p-[2rem] pb-0 bg-white rounded-lg shadow-2xl">
+          <div className="flex-[2] max-w-[100%] h-full p-[2rem] pb-0 bg-white rounded-lg shadow-xl">
             <h2 className="text-2xl font-semibold mb-4">
               {edit ? (
                 <p>Change User Information here</p>

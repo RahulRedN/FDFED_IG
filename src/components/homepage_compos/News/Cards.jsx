@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import toast  from "react-hot-toast";
 
 const Cards = () => {
   const [newsData, setNewsData] = useState([]);
@@ -16,6 +17,7 @@ const Cards = () => {
         const data = await response.json();
         setNewsData(data.articles.slice(0, 18)); 
       } catch (error) {
+        toast.error("Error fetching news data")
         console.error("Error fetching news data:", error);
       }
     };

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import classes from "../components/homepage_compos/css/Navbar_Home_Styles.module.css";
 
-import Footer_Job from "../components/homepage_compos/Footer_Job";
+import Footer_Home from "../components/homepage_compos/Footer_Home.jsx";
 
 import { Outlet, useLocation } from "react-router-dom";
 
@@ -34,7 +34,7 @@ const Home = () => {
     <>
       <Navbar navClass={navClass + " " + (isLink("/") ? classes.home : "")} />
       <Outlet />
-      <Footer_Job />
+      <Footer_Home />
     </>
   );
 };

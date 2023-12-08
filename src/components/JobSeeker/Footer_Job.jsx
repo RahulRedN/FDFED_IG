@@ -102,6 +102,7 @@ const Footer_Job = () => {
           </div>
         </div>
       </div>
+      <div className="text-center text-gray-800 font-[600]">© 2023 Inspiring Go</div>
     </div>
   );
 };

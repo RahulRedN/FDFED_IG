@@ -17,30 +17,25 @@ import {
   MoneySharp,
   NotInterested,
   NotInterestedTwoTone,
+  Verified,
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const data = useSelector((state) => state.company);
-  console.log(data);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   return (
-    <Box m="20px">
-      {/* HEADER */}
+    <Box padding="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
       </Box>
 
-      {/* GRID & CHARTS */}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* ROW 1 */}
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -52,9 +47,26 @@ const Dashboard = () => {
             title="900"
             subtitle="Jobs Posted"
             progress="0"
-            increase="+14%"
             icon={
               <EmailIcon
+                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
+              />
+            }
+          />
+        </Box>
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="463,666"
+            subtitle="Total Applications recieved"
+            progress="0.80"
+            icon={
+              <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
               />
             }
@@ -71,9 +83,8 @@ const Dashboard = () => {
             title="431,225"
             subtitle="Applications Accepted"
             progress="0.50"
-            increase="+21%"
             icon={
-              <PersonAddIcon
+              <Verified
                 sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
               />
             }
@@ -90,7 +101,6 @@ const Dashboard = () => {
             title="32,441"
             subtitle="Applications Rejected"
             progress="0.30"
-            increase="+5%"
             icon={
               <NotInterestedTwoTone
                 sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
@@ -98,27 +108,8 @@ const Dashboard = () => {
             }
           />
         </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="Rs.325,134"
-            subtitle="Average Salary Offered"
-            progress="0.80"
-            increase="+43%"
-            icon={
-              <MoneySharp
-                sx={{ color: colors.greenAccent[600], fontSize: "50px" }}
-              />
-            }
-          />
-        </Box>
+       
 
-        {/* ROW 2*/}
         <Box
           gridColumn="span 12"
           gridRow="span 2"

@@ -11,6 +11,9 @@ import {
   PendingActions,
   PostAdd,
   LogoutSharp,
+  SettingsApplications,
+  DocumentScanner,
+  DocumentScannerSharp,
 } from "@mui/icons-material";
 import { useAuth } from "../../Firebase/AuthContexts";
 
@@ -48,10 +51,11 @@ const Sidebar = () => {
     }
   };
   return (
-    <Box
+    <Box 
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          // background: `${colors.primary[400]} !important`,
+          background : "white",
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -63,13 +67,12 @@ const Sidebar = () => {
           color: "#868dfb !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#4147ab !important",
         },
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -86,7 +89,7 @@ const Sidebar = () => {
                 ml="15px"
                 mb="22px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
+                <Typography variant="h3">
                   ADMIN
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -101,7 +104,7 @@ const Sidebar = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h3"
-                  color={colors.grey[100]}
+                  color="#020dff"
                   sx={{ m: "8px 0 0 0" }}
                 >
                   Company Name
@@ -149,6 +152,13 @@ const Sidebar = () => {
               title="Post a Job"
               to="postjob"
               icon={<PostAdd />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Posted Jobs"
+              to="postedjobs" //private route chks session is actv or not
+              icon={<DocumentScannerSharp />}
               selected={selected}
               setSelected={setSelected}
             />
