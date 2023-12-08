@@ -56,7 +56,7 @@ const Sidebar = () => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          // background: `${colors.redAccent[500]} !important`,
+          background: `${colors.grey[400]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -77,9 +77,10 @@ const Sidebar = () => {
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlinedIcon color="white"/> : undefined}
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "20px 0 20px 0",
+              color: colors.grey[100],
             }}
           >
             {!isCollapsed && (
@@ -92,7 +93,7 @@ const Sidebar = () => {
               >
                 <Typography variant="h3">ADMIN</Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon color="white"/>
+                  <MenuOutlinedIcon />
                 </IconButton>
               </Box>
             )}
