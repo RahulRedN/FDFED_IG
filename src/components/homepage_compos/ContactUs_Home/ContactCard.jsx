@@ -14,13 +14,13 @@ const ContactCard = ({ src, delay }) => {
 
   if (src === "Phone") {
     icon = <MdOutlinePhoneInTalk size={50} className="text-emerald-500" />;
-    content = "+91 7569871641";
+    content = "+91 7665214327";
   } else if (src === "Email") {
     icon = <HiOutlineMailOpen size={50} className="text-emerald-500" />;
-    content = "abc@gmail.com";
+    content = "InspiringGo@gmail.com";
   } else if (src === "Address") {
     icon = <FaGlobe size={50} className="text-emerald-500" />;
-    content = "abc.com";
+    content = "www.InspiringGo.com";
   } else {
     icon = <FaMapMarkedAlt size={50} className="text-emerald-500" />;
     content = "India";

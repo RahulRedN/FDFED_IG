@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/config";
 import { useSearchParams } from "react-router-dom";
+import NoJob from "./NoJob";
 
 const FindJobs = () => {
   const [parmas, setParam] = useSearchParams();
@@ -55,7 +56,7 @@ const FindJobs = () => {
               setFavHandler={setFavHandler}
             />
           ))}
-          {state.jobs.length == 0 && "No jobs found!"}
+          {state.jobs.length == 0 && <NoJob />}
         </div>
       </div>
     </div>

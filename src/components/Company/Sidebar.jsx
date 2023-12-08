@@ -17,6 +17,7 @@ import {
 } from "@mui/icons-material";
 import { useAuth } from "../../Firebase/AuthContexts";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
   const theme = useTheme();
@@ -48,6 +49,7 @@ const Sidebar = () => {
   const logoutHandler = async () => {
     try {
       await logout();
+      toast.success("Logged out successfully!");
     } catch (error) {
       console.error(error);
     }
@@ -56,7 +58,7 @@ const Sidebar = () => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          // background: `${colors.redAccent[500]} !important`,
+          background: `${colors.grey[400]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -77,9 +79,10 @@ const Sidebar = () => {
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlinedIcon color="white"/> : undefined}
+            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "20px 0 20px 0",
+              color: colors.grey[100],
             }}
           >
             {!isCollapsed && (
@@ -92,7 +95,7 @@ const Sidebar = () => {
               >
                 <Typography variant="h3">ADMIN</Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon color="white"/>
+                  <MenuOutlinedIcon />
                 </IconButton>
               </Box>
             )}
