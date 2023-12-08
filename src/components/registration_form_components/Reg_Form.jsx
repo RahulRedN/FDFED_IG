@@ -324,7 +324,7 @@ const Reg_Form = ({ className }) => {
       </div>
     </motion.div>,
 
-    //   Step Three
+   //   Step Three
     <motion.div
       initial={{ opacity: 0.3, x: backAnimate ? 200 : -200 }}
       animate={{ opacity: 1, x: 0 }}

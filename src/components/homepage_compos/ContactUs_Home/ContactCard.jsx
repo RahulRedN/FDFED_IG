@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { FaGlobe } from "react-icons/fa6";
 import { FaMapMarkedAlt } from "react-icons/fa";

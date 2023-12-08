@@ -9,24 +9,18 @@ const AboutUsTop = () => {
   });
   return (
     <div className="AboutUsTop">
-      {/* <motion.div
-        ref={ref}
-        initial={{ x: -100, opacity: 0 }}
-        animate={inView ? { x: 0, opacity: 1 } : "hidden"}
-        transition={{ ease: "easeInOut", duration: 0.8 }}
-        className=""
-        // key={index}
-      > */}
+     
+    
         <img src={TopImage} alt="" />
-      {/* </motion.div> */}
+     
 
       <motion.div
         ref={ref}
         initial={{ x: -100, opacity: 0 }}
         animate={inView ? { x: 0, opacity: 1 } : "hidden"}
-        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.0}} // Add delay of 0.3 seconds
+        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.0}} 
         className="extra-bg-div"
-        // key={index}
+
       ></motion.div>
 
       <div className="AboutUsTopContent">
