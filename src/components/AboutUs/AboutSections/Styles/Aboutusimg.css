@@ -3,9 +3,9 @@
 .about-us-img-container {
     position: relative;
     height: 500px;
-    /* Set the height as needed */
+   
     background-image: url('../Resources/aboutusimg.jpg');
-    /* Replace with the actual path to your image */
+  
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

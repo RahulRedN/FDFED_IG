@@ -1,4 +1,5 @@
-
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { IoPersonCircle } from "react-icons/io5";
 import classes from "../Home/Testimonials.module.css";
