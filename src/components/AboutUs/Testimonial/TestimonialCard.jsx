@@ -1,4 +1,5 @@
-// TestimonialCard.js
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 
 import { useState, useEffect } from "react";
 import "../Testimonial/Styles/Testimonialstyles.css";
