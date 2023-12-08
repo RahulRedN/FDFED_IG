@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import styles from "../../pages/css/Login_SignUp.module.css";
