@@ -1,5 +1,3 @@
-import { SearchRounded } from "@mui/icons-material";
-import React from "react";
 import { CgSearch } from "react-icons/cg";
 
 const NoJob = () => {

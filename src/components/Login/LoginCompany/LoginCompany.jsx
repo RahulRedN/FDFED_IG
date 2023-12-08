@@ -108,6 +108,7 @@ const LoginCompany = () => {
 
     try {
       await signIn(login.email, login.password);
+      toast.success("Logged in successfully!")
     } catch (error) {
       console.error(error);
     }

@@ -133,8 +133,8 @@ const PendingList = ({ status }) => {
                     </td>
                     <td>{date.toLocaleDateString("en-IN")}</td>
                     <td>
-                      <div className="flex justify-center align-baseline">
-                        {pend.skills.split(",").slice(0,4).map((skill, idx) => (
+                      <div className="flex justify-start gap-3 align-baseline">
+                        {pend.skills.split(",").slice(0,3).map((skill, idx) => (
                           <Skillbox index={idx} skill={skill} key={idx} />
                         ))}
                       </div>
