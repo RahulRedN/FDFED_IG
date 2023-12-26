@@ -311,7 +311,7 @@ const UpdateInfoProfile_Job = () => {
                             ?.split(",")
                             .slice(
                               0,
-                              Math.min(4, data?.skills?.split(",").length)
+                              Math.min(5, data?.skills?.split(",").length)
                             )
                             .map((role, index) => {
                               return (

@@ -277,12 +277,12 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
         const docRef = doc(collection(db, "jobs"), job.id);
         await updateDoc(docRef, { status: data });
         dispatch(setApplied({ data: data, id: job.id }));
-        toast("Job Applied!");
+        toast.success("Job Applied!");
 
         nav("/jobseeker/profile");
       } catch (error) {
         console.error(error);
-        toast("An error Occured!", { className: "text-red-500" });
+        toast.error("An error Occured!", { className: "text-red-500" });
       }
     } else {
       toast("Already applied to the Job!");
