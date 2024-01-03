@@ -22,7 +22,7 @@ const PostedJobs = () => {
       const docRef = doc(collection(db, "jobs"), jobId);
       const res = await deleteDoc(docRef);
       dispatch(removeJob(jobId));
-      toast("Deleted Job!");
+      toast.success("Deleted Job!");
     } catch (error) {
       console.error(error);
       toast.error("An Error Occured!");

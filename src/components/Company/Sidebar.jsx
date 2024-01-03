@@ -17,6 +17,7 @@ import {
 } from "@mui/icons-material";
 import { useAuth } from "../../Firebase/AuthContexts";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
   const theme = useTheme();
@@ -48,6 +49,7 @@ const Sidebar = () => {
   const logoutHandler = async () => {
     try {
       await logout();
+      toast.success("Logged out successfully!");
     } catch (error) {
       console.error(error);
     }

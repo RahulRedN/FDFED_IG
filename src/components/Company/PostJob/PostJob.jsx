@@ -19,7 +19,7 @@ const PostJob = () => {
     experience: "",
     salary: "",
     skills: "",
-    benifits: "",
+    benefits: "",
     totalPositions: "",
     jobDesc: "",
     responsibilities: "",
@@ -72,7 +72,7 @@ const PostJob = () => {
       return;
     }
 
-    if (Data.benifits.trim() === "") {
+    if (Data.benefits.trim() === "") {
       toast.error("Benifits cannot be empty", { className: "text-red-400" });
       return;
     }
@@ -212,7 +212,7 @@ const PostJob = () => {
                   className="border border-none rounded-md bg-white w-full p-2 outline-none"
                   id="benifits"
                   onChange={(event) =>
-                    SetData({ ...Data, benifits: event.target.value })
+                    SetData({ ...Data, benefits: event.target.value })
                   }
                   placeholder="Ex: Health Insurance, Paid Leaves"
                 />

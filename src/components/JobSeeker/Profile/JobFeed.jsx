@@ -69,6 +69,11 @@ const JobFeed = ({ status }) => {
                   />
                 );
               })}
+              {applied.length == 0 && (
+                <tr>
+                  <td colSpan={5} className="text-center">Empty</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

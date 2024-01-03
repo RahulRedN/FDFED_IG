@@ -133,8 +133,8 @@ const PendingList = ({ status }) => {
                     </td>
                     <td>{date.toLocaleDateString("en-IN")}</td>
                     <td>
-                      <div className="flex justify-center align-baseline">
-                        {pend.skills.split(",").map((skill, idx) => (
+                      <div className="flex justify-start gap-3 align-baseline">
+                        {pend.skills.split(",").slice(0,3).map((skill, idx) => (
                           <Skillbox index={idx} skill={skill} key={idx} />
                         ))}
                       </div>
@@ -169,7 +169,9 @@ const PendingList = ({ status }) => {
               })}
               {pending.length == 0 && (
                 <tr>
-                  <td colSpan={5} className="text-center">No pending applications!</td>
+                  <td colSpan={5} className="text-center">
+                    No pending applications!
+                  </td>
                 </tr>
               )}
             </tbody>
