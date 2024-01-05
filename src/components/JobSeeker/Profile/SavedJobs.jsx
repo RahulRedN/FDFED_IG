@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { useState } from "react";
 import SavedJobCard from "./SavedJobCard";
 import { useSelector } from "react-redux";
@@ -29,7 +30,7 @@ const SavedJobs = () => {
         </div>
         <div
         id="scrollContainer"
-         className="mt-5 h-[78vh] p-2 flex flex-col flex-wrap gap-y-10 gap-x-6 overflow-x-auto scrollbar-none">
+        className="mt-5 h-[79vh] p-2 flex flex-col flex-wrap gap-y-10 gap-x-6 overflow-y-auto scrollbar-none">
           {state.jobs
             ?.filter((job) => state.fav[job.id])
             .map((jobCard, idx) => (

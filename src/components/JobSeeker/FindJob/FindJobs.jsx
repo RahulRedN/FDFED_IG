@@ -42,6 +42,7 @@ const FindJobs = () => {
     dispatch(setFav(favJobs));
   };
 
+
   return (
     <div className="bg-gray-50 pb-5">
       <ImageHeader src={"FindJobs"} />

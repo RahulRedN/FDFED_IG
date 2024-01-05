@@ -11,6 +11,7 @@ import { db } from "../../../Firebase/config";
 import toast from "react-hot-toast";
 
 import { useSelector } from "react-redux";
+import ButtonS from "../../UI/Button";
 
 const LoginCompany = () => {
   const { signUp, signIn } = useAuth();
@@ -33,6 +34,8 @@ const LoginCompany = () => {
 
   const [errPL, setErrPL] = useState(false);
   const [errEL, setErrEL] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingR, setIsLoadingR] = useState(false);
 
   const [register, setRegister] = useState({
     name: "",
@@ -95,27 +98,33 @@ const LoginCompany = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
     console.log(login);
+    setIsLoading(true);
 
     if (login.email === "" || login.password === "") {
+      setIsLoading(false);
       toast.error("Fill all the fields");
       return;
     }
 
     if (errEL || errPL) {
+      setIsLoading(false);
       toast.error("Fill all the fields correctly");
       return;
     }
 
     try {
       await signIn(login.email, login.password);
-      toast.success("Logged in successfully!")
+      toast.success("Logged in successfully!");
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
     }
   };
 
   const registerHandler = async (e) => {
     e.preventDefault();
+    setIsLoadingR(true);
     console.log(register);
 
     if (
@@ -123,11 +132,13 @@ const LoginCompany = () => {
       register.email === "" ||
       register.password === ""
     ) {
+      setIsLoadingR(false)
       toast.error("Fill all the fields");
       return;
     }
 
     if (errN || errE || errP) {
+      setIsLoadingR(false)
       toast.error("Fill all the fields correctly");
       return;
     }
@@ -145,8 +156,10 @@ const LoginCompany = () => {
         const collectionRef = collection(db, "users");
         await addDoc(collectionRef, { ...data, uid: res.user.uid });
         toast.success("Registered Successfully!");
+        setIsLoadingR(false)
       }
     } catch (error) {
+      setIsLoadingR(false)
       if (error.code == "auth/email-already-in-use") {
         toast("Email is already in use", {
           icon: <IoIosWarning />,
@@ -198,6 +211,7 @@ const LoginCompany = () => {
       }
       console.error(error);
     }
+    setIsLoadingR(false)
   };
 
   return (
@@ -251,9 +265,9 @@ const LoginCompany = () => {
                   <a href="#">Forgot password?</a>
                 </div>
 
-                <button className="btn-login uppercase" onClick={loginHandler}>
-                  Login
-                </button>
+                <ButtonS isLoading={isLoading} onClickHandler={loginHandler}>
+                  LOGIN
+                </ButtonS>
 
                 <hr />
 
@@ -322,12 +336,9 @@ const LoginCompany = () => {
                   <a href="#">Forgot password?</a>
                 </div>
 
-                <button
-                  className="btn-login uppercase"
-                  onClick={registerHandler}
-                >
-                  Register
-                </button>
+                <ButtonS isLoading={isLoadingR} onClickHandler={registerHandler}>
+                  REGISTER
+                </ButtonS>
 
                 <hr />
 
