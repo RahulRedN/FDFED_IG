@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Icon, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "./theme";
@@ -23,11 +23,16 @@ const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
+    // title="Post a Job"
+    //           to="postjob"
+    //           icon={<PostAdd />}
+    //           selected={selected}
+    //           setSelected={setSelected}
     <MenuItem
-      active={selected === title}
+      active={selected == title}
       style={{
-        color: colors.grey[100],
-        margin: "20px 0 20px 0",
+        margin: "7px 0 7px 0",
+        padding : "5px"
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -58,47 +63,42 @@ const Sidebar = () => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          // background: `${colors.redAccent[500]} !important`,
+          background: `#fffcfc !important`,
+          boxShadow: "2.5px 2.5px 2px #f7f5ed",
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
           padding: " 5px 20px !important",
-          color: "white"
+          color: "black"
         },
         "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
+          color: "white !important",
+          background : "#868dfb"
         },
         "& .pro-menu-item.active": {
-          color: "#4147ab !important",
+          background: "#868dfb",
         },
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          <MenuItem
+          <IconButton
             onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+            // icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "20px 0 20px 0",
+              margin: "20px 0 20px 20px",
             }}
           >
-            {!isCollapsed && (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-                mb="22px"
-              >
-                <Typography variant="h3">ADMIN</Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon />
-                </IconButton>
-              </Box>
-            )}
-          </MenuItem>
+            {/* {!isCollapsed && (
+              <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+              <MenuOutlinedIcon />
+            </IconButton>
+            )} */}
+            
+            <MenuOutlinedIcon />
+          </IconButton>
 
           {!isCollapsed && (
             <Box mb="25px">
@@ -119,7 +119,7 @@ const Sidebar = () => {
             </Box>
           )}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+          <Box paddingLeft={isCollapsed ? undefined : "0%"}>
             <Item
               title="Dashboard"
               to=""
@@ -159,7 +159,7 @@ const Sidebar = () => {
             <Item
               title="Posted Jobs"
               to="postedjobs" //private route chks session is actv or not
-              icon={<DocumentScannerSharp />}
+              icon={<DocumentScannerSharp/>}
               selected={selected}
               setSelected={setSelected}
             />

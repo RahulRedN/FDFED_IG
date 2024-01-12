@@ -27,7 +27,7 @@ const PendingList = ({ status }) => {
               <tr>
                 <td className="rounded-tl-md w-[15%]">Username</td>
                 <td className="w-[15%]">POSITION</td>
-                <td className="w-[15%]">APPLIED ON</td>x  
+                <td className="w-[15%]">APPLIED ON</td>
                 <td className="w-[30%]">SKILLS</td>
                 <td className="rounded-tr-md w-[25%]">APPLICATION STATUS</td>
               </tr>
