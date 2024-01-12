@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Building2,
   TrendingUp,
@@ -65,13 +66,11 @@ const FindJobCard = ({ job, fav, setFavHandler }) => {
       if (!state) {
         setTimeout(
           () =>
-            toast("Added to Favourites!", {
-              className: "p-3 text-red-500",
-            }),
-          1500
+            toast("Added to Favourites!", {icon:'❤️'}),
+          750
         );
       } else {
-        setTimeout(() => toast("Removed from Favourites!"), 1500);
+        setTimeout(() => toast.success("Removed from Favourites!"), 750);
       }
 
       return !state;
@@ -278,12 +277,12 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
         const docRef = doc(collection(db, "jobs"), job.id);
         await updateDoc(docRef, { status: data });
         dispatch(setApplied({ data: data, id: job.id }));
-        toast("Job Applied!");
+        toast.success("Job Applied!");
 
         nav("/jobseeker/profile");
       } catch (error) {
         console.error(error);
-        toast("An error Occured!", { className: "text-red-500" });
+        toast.error("An error Occured!", { className: "text-red-500" });
       }
     } else {
       toast("Already applied to the Job!");

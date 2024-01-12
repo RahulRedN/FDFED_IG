@@ -1,5 +1,5 @@
 
-import {faqsData, faqsDataOne, faqsDataTwo} from "../faqsData";
+import {faqsData, faqsDataOne, faqsDataTwo} from "../faqsData.js";
 
 
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box } from "@chakra-ui/react";

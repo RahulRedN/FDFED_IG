@@ -43,8 +43,8 @@ const Login_SignUp = () => {
           <div className={styles.content}>
             <h3>New here ?</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-              beatae quas magnam!
+              Don't worry, we got you covered. Just sign up and start your
+              journey with us.
             </p>
             <button
               className={`${styles.iBtn} ${styles.transparent}}`}
@@ -61,8 +61,8 @@ const Login_SignUp = () => {
           <div className={styles.content}>
             <h3>One of us ?</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-              beatae quas magnam!
+              Already have an account? Just sign in and start your journey with
+              us.
             </p>
             <button
               className={`${styles.iBtn} ${styles.transparent}}`}
