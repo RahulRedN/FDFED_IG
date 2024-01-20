@@ -40,6 +40,7 @@ import PostedJobs from "./components/Company/PostedJobs/PostedJobs";
 import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import TestimonialForm from "./components/TestimonialForm/TestimonialForm";
 
 const Root = () => {
   return <Outlet />;
@@ -53,6 +54,8 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
+        <Route path="testimonialform" element={<TestimonialForm/>} />
+
         <Route path="news" element={<QuesCards />} />
       </Route>
 
@@ -69,8 +72,10 @@ const Router = createBrowserRouter(
       >
         <Route index element={<JLanding />} />
         <Route path="findjobs" element={<FindJobs />} />
-        <Route path="contactus" element={<ContactUs />} />
+
         <Route path="profile" element={<Profile_Job />} />
+
+        <Route path="contactus" element={<ContactUs />} />
       </Route>
       {/* 
       <Route path="/company" element={<Sidebar />} />

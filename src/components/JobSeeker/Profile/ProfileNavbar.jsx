@@ -4,6 +4,7 @@ import { FaBell, FaSearch } from "react-icons/fa";
 import { IoMail, IoPerson } from "react-icons/io5";
 import { useAuth } from "../../../Firebase/AuthContexts";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ProfileNavbar = ({ notification, mail, searchHandler }) => {
   const user = useSelector((state) => state.jobseeker.data);
@@ -33,6 +34,7 @@ const ProfileNavbar = ({ notification, mail, searchHandler }) => {
             <IoPerson size={20} />
           </span>
           <h5>{user.fname}</h5>
+        
         </div>
       </div>
     </nav>
