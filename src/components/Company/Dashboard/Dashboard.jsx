@@ -1,8 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-
-
-
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from ".././theme";
 import EmailIcon from "@mui/icons-material/Email";
@@ -131,23 +126,6 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-        {/* <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          padding="30px"
-        >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
-          Geography Based Traffic
-          </Typography>
-          <Box height="200px">
-          <GeographyChart isDashboard={true} />
-          </Box>
-        </Box> */}
         <Box //pie chart
           gridColumn="span 6"
           gridRow="span 2"
