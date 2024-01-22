@@ -10,9 +10,10 @@ const Footer_Job = () => {
   }
 
   return (
-    <div className={`bg-gray-100 w-full`}>
-      <div className="flex w-[80vw] mx-auto p-5">
-        <div className="flex-[4] flex flex-col justify-between">
+    <div className={`bg-gray-100 w-full h-full`}>
+      <div className="flex w-[80vw] mb-0 mx-auto px-5 pt-5">
+        <div className="flex-[4] flex flex-col justify-between h-full">
+
           <div className="flex flex-col gap-6">
             <h1 className="text-3xl text-gray-900 font-[600]">Inspiring Go</h1>
             <p className="max-w-[25vw] leading-8 text-gray-500">
@@ -21,7 +22,7 @@ const Footer_Job = () => {
               expert consultancy.
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="pt-3 flex gap-3">
             <div
               className={
                 "bg-gray-200 p-2 rounded-[50%] hover:bg-blue-500 " +
@@ -80,6 +81,7 @@ const Footer_Job = () => {
             <NavLink to="contactus">Contact us</NavLink>
             <NavLink to="faqs">FAQ s</NavLink>
             <NavLink to="aboutus">About Us</NavLink>
+            <NavLink to="testimonialform">TestimonialForm</NavLink>
           </div>
         </div>
 

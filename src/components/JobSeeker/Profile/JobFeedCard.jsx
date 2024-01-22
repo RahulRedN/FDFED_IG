@@ -1,28 +1,28 @@
 import { useState, useEffect } from "react";
-
 import Modal from "react-modal";
-
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { CalendarSearch, MailSearch } from "lucide-react";
 import { CgProfile } from "react-icons/cg";
 import { IoCloseCircle } from "react-icons/io5";
-
+import { LuPencil } from "react-icons/lu";
 import RoleCard from "../FindJob/RoleCard";
+import FeedbackForm from "../../FeedBack/FeedBackForm";
 
-const JobFeedCard = ({ job, date, idx, status }) => {
+const JobFeedCard = ({ job, date, idx, status, feed }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [feedbackModalIsOpen, setFeedbackModalIsOpen] = useState(false);
 
   useEffect(() => {
-    if (modalIsOpen) {
+    if (modalIsOpen || feedbackModalIsOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = "auto"; // Reset overflow on component unmount
+      document.body.style.overflow = "auto";
     };
-  }, [modalIsOpen]);
+  }, [modalIsOpen, feedbackModalIsOpen]);
 
   const customStyles = {
     overlay: {
@@ -30,11 +30,10 @@ const JobFeedCard = ({ job, date, idx, status }) => {
       zIndex: 1000,
     },
     content: {
-      top: "390px",
-      left: "60vw",
+      top: "50%",
+      left: "50%",
       right: "auto",
       bottom: "auto",
-      marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       backgroundColor: "#fff",
       borderRadius: "10px",
@@ -44,9 +43,9 @@ const JobFeedCard = ({ job, date, idx, status }) => {
       width: "70vw",
       height: "90vh",
       overflowY: "scroll",
-      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for the modal
-      scrollbarWidth: "thin", // For Firefox
-      scrollbarColor: "#4a4a4a #e5e5e5", // For Firefox
+      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+      scrollbarWidth: "thin",
+      scrollbarColor: "#4a4a4a #e5e5e5",
       zIndex: 1001,
     },
   };
@@ -57,6 +56,14 @@ const JobFeedCard = ({ job, date, idx, status }) => {
 
   function closeModal() {
     setIsOpen(false);
+  }
+
+  function openFeedbackModal() {
+    setFeedbackModalIsOpen(true);
+  }
+
+  function closeFeedbackModal() {
+    setFeedbackModalIsOpen(false);
   }
 
   const color = (status) => {
@@ -97,11 +104,25 @@ const JobFeedCard = ({ job, date, idx, status }) => {
       </td>
       <td>{date.toLocaleDateString("en-US", options)}</td>
       <td>{Object.keys(job.status).length}</td>
+
       <td>
-        <span className={`p-2 rounded-2xl ` + color(getStatus(status))}>
+        <span className={`p-2 rounded-2xl ${color(getStatus(status))}`}>
           {getStatus(status)}
         </span>
+
+        <span>
+          <button className="ml-8" onClick={openFeedbackModal}>
+            <LuPencil />
+          </button>
+          {feedbackModalIsOpen && (
+            <FeedbackModals
+              closeModal={closeFeedbackModal}
+              stylesfeedback={stylesfeedback}
+            />
+          )}
+        </span>
       </td>
+
       <Modals
         key={idx}
         modalIsOpen={modalIsOpen}
@@ -195,6 +216,45 @@ const Modals = ({ modalIsOpen, closeModal, customStyles, job }) => {
         {job?.location && <li>Location : {job?.location}</li>}
         <li>Job Nature : {job?.location ? "on Site" : "Work From Home"}</li>
       </ul>
+    </Modal>
+  );
+};
+
+const stylesfeedback = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    zIndex: 1000,
+  },
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#fff",
+    borderRadius: "10px",
+    outline: "none",
+    padding: "2rem",
+    position: "fixed",
+    width: "55vw",
+    height: "80vh",
+    overflowY: "scroll",
+    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+    scrollbarWidth: "thin",
+    scrollbarColor: "#4a4a4a #e5e5e5",
+    zIndex: 1001,
+  },
+};
+
+const FeedbackModals = ({ closeModal, stylesfeedback }) => {
+  return (
+    <Modal
+      isOpen={true}
+      onRequestClose={closeModal}
+      contentLabel="Example Modal"
+      style={stylesfeedback}
+    >
+      <FeedbackForm closeModal={closeModal} />
     </Modal>
   );
 };
