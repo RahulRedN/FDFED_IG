@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./css/Login_SignUp.module.css";

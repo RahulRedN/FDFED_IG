@@ -22,8 +22,8 @@ const Faqs = () => {
         >
           <h1>Frequently asked questions</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            quis nihil doloribus.
+            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+            quis nihil doloribus. */}
           </p>
           <hr />
         </motion.div>

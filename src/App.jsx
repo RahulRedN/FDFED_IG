@@ -23,6 +23,8 @@ import JobSeeker from "./pages/JobSeeker";
 import ContactUs from "./components/JobSeeker/ContactUs/ContactUs_jobseeker";
 import JLanding from "./components/JobSeeker/Home/JobLanding";
 
+import Admin_Login from "./components/admin_login/Admin_Login";
+
 import Company from "./pages/Company";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
@@ -89,6 +91,7 @@ const Router = createBrowserRouter(
         <Route path="postjob" element={<PostJob />} />
         <Route path="postedjobs" element={<PostedJobs />} />
       </Route>
+      <Route path='/test' element={<Admin_Login />}/>
     </Route>
   )
 );
