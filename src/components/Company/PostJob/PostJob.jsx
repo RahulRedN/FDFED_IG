@@ -129,9 +129,11 @@ const PostJob = () => {
         <h1 className="text-4xl mt-[-1rem] font-semibold text-center">
           POST JOB
         </h1>
+      <div className="flex  justify-center items-center  bg-white">
+        <div></div>
         <form className={"mt-10 w-full"}>
           <div className="flex gap-4 w-full">
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col gap-1 w-[25%]">
               <label className="ml-1 rounded-lg text-base font-semibold">
                 Job Position
               </label>
@@ -147,7 +149,7 @@ const PostJob = () => {
                 placeholder="Ex: Software Developer"
               />
             </div>
-            <div className="flex flex-col gap-1 w-fit items-stretch">
+            <div className="flex flex-col gap-1 w-[24%] items-stretch">
               <label className="ml-1 text-base font-semibold">
                 Joining Date
               </label>
@@ -159,8 +161,12 @@ const PostJob = () => {
                 }
               />
             </div>
-            <div className="w-full flex gap-4">
-              <div className="flex flex-col gap-1 w-full flex-[1]">
+           
+          </div>
+
+        <div className="flex gap-4 w-[50%] mt-8">
+          <div className="w-[30%] flex gap-4 flex-[1]">
+              <div className="flex flex-col gap-1 w-[30%] flex-[1]">
                 <label className="ml-1 text-base font-semibold">
                   Experience
                 </label>
@@ -171,11 +177,13 @@ const PostJob = () => {
                     SetData({ ...Data, experience: event.target.value })
                   }
                   className="border border-none rounded-md bg-white w-full p-2 outline-none"
-                  placeholder="Ex:10 years"
+                  placeholder="Eg: 10 years"
                 />
               </div>
-              <div className="flex flex-col gap-1 w-full flex-[2]">
-                <label className="ml-1 text-base font-semibold">Salary</label>
+              <div className="flex flex-col gap-1 flex-[1]">
+                <label className="ml-1 text-base font-semibold">
+                  Salary
+                </label>
                 <input
                   type="text"
                   id="sal"
@@ -183,43 +191,10 @@ const PostJob = () => {
                     SetData({ ...Data, salary: event.target.value })
                   }
                   className="border border-none rounded-md bg-white w-full p-2 outline-none"
-                  placeholder="Ex: 10000000"
+                  placeholder="Eg: 1000(in Rs.)"
                 />
               </div>
-            </div>
-          </div>
-
-          <div className="flex w-full gap-4 mt-8">
-            <div className="w-full flex gap-4 flex-[6]">
-              <div className="flex flex-col gap-1 w-full flex-[1]">
-                <label className="ml-1 text-base font-semibold">
-                  Required Skills
-                </label>
-                <input
-                  type="text"
-                  id="skills"
-                  onChange={(event) =>
-                    SetData({ ...Data, skills: event.target.value })
-                  }
-                  className="border border-none rounded-md bg-white w-full p-2 outline-none"
-                  placeholder="Ex: C++, Java, Python"
-                />
-              </div>
-              <div className="flex flex-col gap-1 w-full flex-[1]">
-                <label className="ml-1 text-base font-semibold">Benefits</label>
-                <input
-                  type="text"
-                  className="border border-none rounded-md bg-white w-full p-2 outline-none"
-                  id="benifits"
-                  onChange={(event) =>
-                    SetData({ ...Data, benefits: event.target.value })
-                  }
-                  placeholder="Ex: Health Insurance, Paid Leaves"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-1 w-full flex-[1]">
+              <div className="flex flex-col gap-1 flex-[1]">
               <label className="ml-1 text-base font-semibold">
                 Total Positions
               </label>
@@ -236,29 +211,69 @@ const PostJob = () => {
                 step={1}
               />
             </div>
+            </div>
           </div>
 
-          <div className="flex mt-8 gap-6">
-            <div className="flex-[1] gap-1 flex flex-col">
+          <div className="flex w-[50%] gap-4 mt-8">
+            <div className="w-full flex gap-4 flex-[6]">
+              <div className="flex flex-col gap-1 w-full flex-[1]">
+                <label className="ml-1 text-base font-semibold">
+                  Required Skills
+                </label>
+                <input
+                  type="text"
+                  id="skills"
+                  onChange={(event) =>
+                    SetData({ ...Data, skills: event.target.value })
+                  }
+                  className="border border-none rounded-md bg-white w-full p-2 outline-none"
+                  placeholder="Ex: C++, Java, Python"
+                />
+              </div>
+              <div className="flex flex-col gap-1 w-full flex-[1]">
+                <label className="ml-1 text-base font-semibold">
+                  Benefits
+                  </label>
+                <input
+                  type="text"
+                  className="border border-none rounded-md bg-white w-full p-2 outline-none"
+                  id="benifits"
+                  onChange={(event) =>
+                    SetData({ ...Data, benefits: event.target.value })
+                  }
+                  placeholder="Ex: Health Insurance, Paid Leaves"
+                />
+              </div>
+            </div>
+
+            
+          </div>
+
+          <div className="flex flex-col mt-8 gap-6">
+            <div className="gap-1 flex flex-col w-[50%]">
               <label className="ml-1 text-base font-semibold">
                 Job Description
               </label>
               <textarea
-                className="h-[12rem] rounded-lg p-3 placeholder:text-md outline-none"
+                className="h-[4rem] rounded-lg p-3 placeholder:text-md outline-none"
                 id="descr"
-                placeholder="The job specifies that the employee should.."
+                placeholder="Eg: The job specifies that the employee should.."
+                rows={3} // Set the number of rows
+                cols={10} // Set the number of columns
                 onChange={(event) =>
                   SetData({ ...Data, jobDesc: event.target.value })
                 }
               ></textarea>
             </div>
-            <div className="flex-[1] gap-1 flex flex-col">
+            <div className="gap-1 flex flex-col w-[50%]">
               <label className="ml-1 text-base font-semibold">
                 Job Responsibilities
               </label>
               <textarea
-                className="h-[12rem] rounded-lg p-3 placeholder:text-md outline-none"
-                placeholder="Should work for 5 hours;Report all the days work at the end of the day.. "
+                className="h-[4rem] rounded-lg p-3 placeholder:text-md outline-none"
+                placeholder="Eg: Should work for 5 hours;Report work daily. "
+                rows={4}
+                cols={10} // Set the number of columns
                 id="respons"
                 onChange={(event) =>
                   SetData({ ...Data, responsibilities: event.target.value })
@@ -275,6 +290,7 @@ const PostJob = () => {
             POST
           </button>
         </form>
+        </div>
       </div>
     </div>
   );

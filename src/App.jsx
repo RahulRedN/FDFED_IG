@@ -40,6 +40,7 @@ import PostedJobs from "./components/Company/PostedJobs/PostedJobs";
 import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ReviewPage from "./components/Company/ReviewPage/ReviewPage";
 
 const Root = () => {
   return <Outlet />;
@@ -88,6 +89,7 @@ const Router = createBrowserRouter(
         <Route path="pendinglist" element={<PendingList />} />
         <Route path="postjob" element={<PostJob />} />
         <Route path="postedjobs" element={<PostedJobs />} />
+        <Route path="reviews" element={<ReviewPage/>} />
       </Route>
     </Route>
   )

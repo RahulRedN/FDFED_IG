@@ -14,6 +14,7 @@ import {
   SettingsApplications,
   DocumentScanner,
   DocumentScannerSharp,
+  ReviewsOutlined,
 } from "@mui/icons-material";
 import { useAuth } from "../../Firebase/AuthContexts";
 import { useSelector } from "react-redux";
@@ -31,8 +32,8 @@ const Item = ({ title, to, icon, selected, setSelected, onClickHandler }) => {
     <MenuItem
       active={selected == title}
       style={{
-        margin: "7px 0 7px 0",
-        padding : "5px"
+        // margin: "7px 0 7px 0",
+        // padding : "5px"
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -64,14 +65,15 @@ const Sidebar = () => {
       sx={{
         "& .pro-sidebar-inner": {
           background: `#fffcfc !important`,
-          boxShadow: "2.5px 2.5px 2px #f7f5ed",
+          boxShadow: "5px 20px 8px #a0a5fa",
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: " 5px 20px !important",
-          color: "black"
+          padding: " 8px 20px !important",
+          margin : "10px 0 10px 0",
+          color: "black",
         },
         "& .pro-inner-item:hover": {
           color: "white !important",
@@ -160,6 +162,13 @@ const Sidebar = () => {
               title="Posted Jobs"
               to="postedjobs" //private route chks session is actv or not
               icon={<DocumentScannerSharp/>}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Reviews"
+              to="reviews" //private route chks session is actv or not
+              icon={<ReviewsOutlined/>}
               selected={selected}
               setSelected={setSelected}
             />
