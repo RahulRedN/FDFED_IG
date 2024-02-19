@@ -44,9 +44,9 @@ const FindJobs = () => {
 
 
   return (
-    <div className="bg-gray-50 pb-5">
+    <div className="bg-gray-50 pb-5 m-0">
       <ImageHeader src={"FindJobs"} />
-      <div className="ml-[15rem] mt-5 flex gap-10 relative">
+      <div className="ml-[15rem] mt-5 flex flex-wrap gap-10 relative">
         <Filters jobs={user?.jobs} setState={setState} />
         <div className="m-1 flex-[11] flex flex-wrap gap-2">
           {state.jobs?.map((job, idx) => (

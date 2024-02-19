@@ -32,12 +32,11 @@ const Dropdown = () => {
       </div>
 
       <div className={styles.content}>
-        {/* Dropdown content */}
-        <div className="p-2 flex-[1] flex items-center text-xl tracking-wider text-gray-800 rounded-t-lg hover:bg-gray-300 w-full transition ease-in-out duration-300">
-          <NavLink to="profile">Profile</NavLink>
+        <div className="pt-2 px-2 flex-[1] flex items-center text-xl tracking-wider text-gray-800">
+          <NavLink to="profile" className="hover:bg-gray-300 p-1 w-full transition ease-in-out duration-300">Profile</NavLink>
         </div>
-        <div className="flex-[1] p-2 text-xl rounded-b-lg  text-gray-800 hover:bg-red-500 hover:text-white w-full transition ease-in duration-100">
-          <button className="flex items-center gap-1" onClick={logoutHandler}>
+        <div className="flex-[1] py-1 px-2 text-xl rounded-b-lg  text-red-500">
+          <button className="flex items-center gap-1 p-1 hover:bg-red-100 w-full transition ease-in duration-100" onClick={logoutHandler}>
             <IoMdExit strokeWidth={10} size={23} />
             Sign Out
           </button>
