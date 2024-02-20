@@ -12,7 +12,7 @@ import {
   useDisclosure,
   Button,
 } from "@chakra-ui/react";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const RowUser = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -74,7 +74,8 @@ const RowUser = () => {
             <AlertDialogHeader>Delete Jobseeker?</AlertDialogHeader>
             <AlertDialogCloseButton />
             <AlertDialogBody>
-              Are you sure you want to delete the user? You can't undo this.
+              Are you sure you want to delete the user? You can &apos t undo
+              this.
             </AlertDialogBody>
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onClose}>

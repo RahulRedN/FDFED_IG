@@ -43,6 +43,7 @@ import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import TestimonialForm from "./components/TestimonialForm/TestimonialForm";
+import MultiSelect from "./MultiSelect/multiselect";
 
 import Admin from "./pages/Admin";
 import Home_Admin from "./components/Admin/LandingPage/Home_Admin";
@@ -65,6 +66,8 @@ const Router = createBrowserRouter(
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
         <Route path="testimonialform" element={<TestimonialForm />} />
+        <Route path="testimonialform" element={<TestimonialForm/>} />
+        <Route path="multiselect" element={<MultiSelect />} />
 
         <Route path="news" element={<QuesCards />} />
       </Route>
@@ -84,6 +87,7 @@ const Router = createBrowserRouter(
         <Route path="findjobs" element={<FindJobs />} />
 
         <Route path="profile" element={<Profile_Job />} />
+        
 
         <Route path="contactus" element={<ContactUs />} />
       </Route>

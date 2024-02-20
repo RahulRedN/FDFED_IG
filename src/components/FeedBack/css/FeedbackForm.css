@@ -47,10 +47,10 @@
   flex-direction: row;
   align-items: center;
   gap: 50px;
-  margin: 30px 0 30px 0px;
+  margin-right: 380px;
 }
 
-.feedback-buttons {
+/* .feedback-buttons {
   height: 80px;
   width: 150px;
   background-color: #fff;
@@ -62,7 +62,7 @@
   border-radius: 20px;
   color: #656262;
 
-}
+} */
 
 .feedback-buttons:hover {
   background-color: #f0f5ff;
@@ -81,13 +81,13 @@ form h1 {
 
 }
 
-.rating {
+/* .rating {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 8%;
   gap: 15px;
-}
+} */
 
 
 .feedback-form label {
