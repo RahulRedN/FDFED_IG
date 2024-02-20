@@ -19,6 +19,7 @@ const NavCardProfile = ({ Icons, text, link }) => {
           <h1 className="text-white text-xl tracking-wide">{text}</h1>
         </div>
       </Link>
+       
     );
   }
 

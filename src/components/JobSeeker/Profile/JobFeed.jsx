@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../../Firebase/AuthContexts";
 import JobFeedCard from "./JobFeedCard";
 
+
 const JobFeed = ({ status }) => {
+  
   const user = useSelector((state) => state.jobseeker.data);
   const jobs = useSelector((state) => state.jobseeker.jobs)
     ?.filter((job) => job.status[user.id])
@@ -57,21 +59,30 @@ const JobFeed = ({ status }) => {
               </tr>
             </thead>
             <tbody>
-              {applied.map((job, idx) => {
+
+            
+              {applied.map((job, idx , feed) => {
                 const date = new Date(job.status[user?.id].date);
                 return (
-                  <JobFeedCard
-                    job={job}
-                    idx={idx}
-                    date={date}
-                    key={idx}
-                    status={job.status[user?.id].applied}
-                  />
+                  <>
+                    <JobFeedCard
+                      job={job}
+                      idx={idx}
+                      date={date}
+                      key={idx}
+                      status={job.status[user?.id].applied}
+                      feedback={feed}
+                    />
+
+
+                  </>
                 );
               })}
               {applied.length == 0 && (
                 <tr>
-                  <td colSpan={5} className="text-center">Empty</td>
+                  <td colSpan={5} className="text-center">
+                    Empty
+                  </td>
                 </tr>
               )}
             </tbody>

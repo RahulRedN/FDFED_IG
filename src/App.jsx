@@ -23,6 +23,8 @@ import JobSeeker from "./pages/JobSeeker";
 import ContactUs from "./components/JobSeeker/ContactUs/ContactUs_jobseeker";
 import JLanding from "./components/JobSeeker/Home/JobLanding";
 
+import Admin_Login from "./components/admin_login/Admin_Login";
+
 import Company from "./pages/Company";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
@@ -41,6 +43,7 @@ import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ReviewPage from "./components/Company/ReviewPage/ReviewPage";
+import TestimonialForm from "./components/TestimonialForm/TestimonialForm";
 
 const Root = () => {
   return <Outlet />;
@@ -54,6 +57,8 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
+        <Route path="testimonialform" element={<TestimonialForm/>} />
+
         <Route path="news" element={<QuesCards />} />
       </Route>
 
@@ -70,8 +75,10 @@ const Router = createBrowserRouter(
       >
         <Route index element={<JLanding />} />
         <Route path="findjobs" element={<FindJobs />} />
-        <Route path="contactus" element={<ContactUs />} />
+
         <Route path="profile" element={<Profile_Job />} />
+
+        <Route path="contactus" element={<ContactUs />} />
       </Route>
       {/* 
       <Route path="/company" element={<Sidebar />} />
@@ -91,6 +98,7 @@ const Router = createBrowserRouter(
         <Route path="postedjobs" element={<PostedJobs />} />
         <Route path="reviews" element={<ReviewPage/>} />
       </Route>
+      <Route path='/test' element={<Admin_Login />}/>
     </Route>
   )
 );

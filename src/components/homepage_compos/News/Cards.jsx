@@ -51,13 +51,13 @@ const Card = ({ urlToImage, url, title, description }) => {
   };
 
   const [ref, inView] = useInView({
-    triggerOnce: true,
-
-
- 
+    triggerOnce: true, 
   });
 
+  console.log(urlToImage);
+
   return (
+    urlToImage && 
     <motion.div
       ref={ref}
       initial={{ x: 100, opacity: 0 }}
