@@ -81,7 +81,9 @@ const Footer_Job = () => {
             <NavLink to="contactus">Contact us</NavLink>
             <NavLink to="profile">Profile</NavLink>
             <NavLink to="/faqs">FAQ s</NavLink>
-            <NavLink to="/aboutus">About Us</NavLink>
+            <NavLink to="/aboutus">About Us</NavLink> 
+            
+          
           </div>
         </div>
 

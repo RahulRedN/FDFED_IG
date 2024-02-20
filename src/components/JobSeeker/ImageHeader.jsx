@@ -26,11 +26,11 @@ const ImageHeader = ({ src }) => {
       <div className="relative bg-[#092a49] w-full h-full">
         <img src={img} alt="Contact Us" className={classes.image} />
         <div className="absolute inset-0 flex flex-col gap-8 text-white items-center justify-center">
-          <h1 className="text-6xl font-[700] tracking-wider uppercase">{content}</h1>
+          <h1 className="text-3xl font-[700] tracking-wider uppercase sm:text-6xl">{content}</h1>
           <div className="flex items-center gap-3">
-            <Link className="text-2xl">Home</Link>
+            <Link className="sm:text-2xl text-base">Home</Link>
             <ChevronRight size={29} strokeWidth={4} />
-            <Link className="text-2xl">{content}</Link>
+            <Link className="sm:text-2xl text-base">{content}</Link>
           </div>
         </div>
       </div>

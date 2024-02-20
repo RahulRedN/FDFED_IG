@@ -1,12 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaUser,
-  FaEnvelope,
-  FaFileImage,
-  FaPhoneAlt,
-  FaCheck,
-} from "react-icons/fa";
+import { FaUser, FaEnvelope, FaFileImage, FaPhoneAlt } from "react-icons/fa";
 
 const TestimonialForm = () => {
   const [testimonialData, setTestimonialData] = useState({
@@ -41,7 +35,7 @@ const TestimonialForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Testimonial data submitted:", testimonialData);
+    console.log("Testimonial data submitted: ", testimonialData);
   };
 
   return (
@@ -155,7 +149,7 @@ const TestimonialForm = () => {
                 className="mt-2 w-full border border-zinc-400 p-4 h-[13rem] rounded-md outline-none placeholder:text-zinc-500 placeholder:tracking-widest"
               ></textarea>
             </div>
-            {/* 
+            {/*             
             <div className="mb-4 col-span-2">
               <label className="font-normal text-gray-500">Do you agree to our terms?</label>
               <div className="radio-group">
@@ -180,7 +174,8 @@ const TestimonialForm = () => {
                   No
                 </label>
               </div>
-            </div> */}
+            </div> 
+            */}
 
             <motion.button
               whileTap={{ scale: 0.8 }}

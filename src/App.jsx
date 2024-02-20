@@ -12,7 +12,6 @@ import { Toaster } from "react-hot-toast";
 
 import { AuthContexts } from "./Firebase/AuthContexts";
 
-// import Login from "./pages/Login";
 import Home from "./pages/Home";
 import HomePage from "./components/homepage_compos/HomePage";
 import ContactUs_Home from "./components/homepage_compos/ContactUs_Home/ContactUs_Home";
@@ -33,6 +32,7 @@ import Dashboard from "./components/Company/Dashboard/Dashboard";
 // import Navbar from "./components/company_components/Navbar";
 // import { Dashboard } from "@mui/icons-material";
 // import Sidebar from "./components/company_components/Sidebar";
+
 import Employees from "./components/Company/Employees/Employees";
 import PendingList from "./components/Company/PendingList/PendingList";
 import PostJob from "./components/Company/PostJob/PostJob";
@@ -44,6 +44,15 @@ import QuesCards from "./components/homepage_compos/News/QuesCards";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ReviewPage from "./components/Company/ReviewPage/ReviewPage";
 import TestimonialForm from "./components/TestimonialForm/TestimonialForm";
+import MultiSelect from "./MultiSelect/multiselect";
+
+import Admin from "./pages/Admin";
+import Home_Admin from "./components/Admin/LandingPage/Home_Admin";
+import JobSeeker_User from "./components/Admin/JobSeeker_User/JobSeeker_User";
+import Company_User from "./components/Admin/Company_User/Company_User";
+import Pending_Company from "./components/Admin/Pending_Company/Pending_Company";
+import Queries from "./components/Admin/Queries/Queries";
+import Reviews from "./components/Admin/Reviews/Reviews";
 
 const Root = () => {
   return <Outlet />;
@@ -57,7 +66,9 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
+        <Route path="testimonialform" element={<TestimonialForm />} />
         <Route path="testimonialform" element={<TestimonialForm/>} />
+        <Route path="multiselect" element={<MultiSelect />} />
 
         <Route path="news" element={<QuesCards />} />
       </Route>
@@ -77,6 +88,7 @@ const Router = createBrowserRouter(
         <Route path="findjobs" element={<FindJobs />} />
 
         <Route path="profile" element={<Profile_Job />} />
+        
 
         <Route path="contactus" element={<ContactUs />} />
       </Route>
@@ -98,7 +110,16 @@ const Router = createBrowserRouter(
         <Route path="postedjobs" element={<PostedJobs />} />
         <Route path="reviews" element={<ReviewPage/>} />
       </Route>
-      <Route path='/test' element={<Admin_Login />}/>
+
+      <Route path="/admin" element={<Admin />}>
+        <Route path="home" element={<Home_Admin />} />
+        <Route path="jobseekers" element={<JobSeeker_User />} />
+        <Route path="companys" element={<Company_User />} />
+        <Route path="pendingcompany" element={<Pending_Company />} />
+        <Route path="queries" element={<Queries />} />
+        <Route path="reviews" element={<Reviews />} />
+      </Route>
+      <Route path="/test" element={<Admin_Login />} />
     </Route>
   )
 );
