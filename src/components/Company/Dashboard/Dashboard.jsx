@@ -128,23 +128,6 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-        {/* <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          padding="30px"
-        >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
-          Geography Based Traffic
-          </Typography>
-          <Box height="200px">
-          <GeographyChart isDashboard={true} />
-          </Box>
-        </Box> */}
         <Box //pie chart
           gridColumn="span 6"
           gridRow="span 2"

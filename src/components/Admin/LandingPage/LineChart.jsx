@@ -2,7 +2,7 @@ import { ResponsiveLine } from "@nivo/line";
 
 let data = [
     {
-      "id": "japan",
+      "id": "Jobseekers",
       "color": "hsl(79, 70%, 50%)",
       "data": [
         {
@@ -55,6 +55,60 @@ let data = [
         }
       ]
     },
+    {
+      "id": "Company",
+      "color": "hsl(79, 70%, 50%)",
+      "data": [
+        {
+          "x": "January",
+          "y": 32
+        },
+        {
+          "x": "February",
+          "y": 233
+        },
+        {
+          "x": "March",
+          "y": 213
+        },
+        {
+          "x": "April",
+          "y": 53
+        },
+        {
+          "x": "May",
+          "y":332
+        },
+        {
+          "x": "June",
+          "y": 22
+        },
+        {
+          "x": "July",
+          "y": 333
+        },
+        {
+          "x": "August",
+          "y": 543
+        },
+        {
+          "x": "September",
+          "y": 43
+        },
+        {
+          "x": "October",
+          "y": 344
+        },
+        {
+          "x": "November",
+          "y": 434
+        },
+        {
+          "x": "December",
+          "y": 634
+        }
+      ]
+    },
   ]
 
 
@@ -101,7 +155,32 @@ const LineChart = () => (
     pointLabelYOffset={-12}
     enableCrosshair={false}
     useMesh={true}
-    legends={[]}
+    legends={[
+      {
+          anchor: 'bottom',
+          direction: 'row',
+          justify: false,
+          translateX: 0,
+          translateY: 80,
+          itemsSpacing: 0,
+          itemDirection: 'left-to-right',
+          itemWidth: 80,
+          itemHeight: 20,
+          itemOpacity: 0.75,
+          symbolSize: 12,
+          symbolShape: 'circle',
+          symbolBorderColor: 'rgba(0, 0, 0, .5)',
+          effects: [
+              {
+                  on: 'hover',
+                  style: {
+                      itemBackground: 'rgba(0, 0, 0, .03)',
+                      itemOpacity: 1
+                  }
+              }
+          ]
+      }
+  ]}
   />
 );
 

@@ -146,9 +146,6 @@ export default function CaptionCarousel() {
                   </div>
                 </div>
               </div>
-              {/* <p style={{ position: "absolute", top: "20%", fontSize: "3rem" }}>
-                Hello Trending topics here for you
-              </p> */}
             </div>
           </Box>
         ))}

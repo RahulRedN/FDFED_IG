@@ -1,25 +1,41 @@
 import img from "../../../../public/images/mentors.jpg";
 import { Trash } from "lucide-react";
+import React from "react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
+  useDisclosure,
+  Button,
+} from "@chakra-ui/react";
+import {toast} from "react-hot-toast";
 
 const RowUser = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+
   return (
-    <tr className="border-b border-gray-200 h-20">
-      <td className="pl-2 py-2">
+    <tr className="border-b border-gray-200 h-[3.75rem]">
+      <td className="pl-3">1</td>
+
+      <td className="pl-2">
         <div className="flex items-center gap-x-2">
           <img src={img} className="h-9 w-9 rounded-full object-cover" />
           <div className="flex items-center justify-center gap-x-1">
             <h1 className="text-sm font-light">Pavan Kumar</h1>
-            <h1 className="text-[8px] border py-[1px] px-[2px] border-green-500 text-green-500 rounded">
+            <h1 className="text-[8px] border py-[1px] px-[4px] border-green-500 text-green-500 rounded">
               NEW
             </h1>
           </div>
         </div>
       </td>
 
-      <td className="">
-        <h1 className="font-light text-xs text-white border bg-orange-400 rounded w-fit px-[5px] py-[2px]">
-          Software Developer
-        </h1>
+      <td className="pl-3">
+        <h1 className="text-sm">Female</h1>
       </td>
 
       <td className="pl-3">
@@ -39,9 +55,45 @@ const RowUser = () => {
       </td>
 
       <td>
-        <div className="hover:bg-red-50 w-fit py-2 rounded-md px-1 ml-2 text-gray-600 hover:text-red-500 hover:cursor-pointer -mt-2">
+        <div
+          onClick={onOpen}
+          className="hover:bg-red-50 w-fit -mt-1 p-3 rounded-md  ml-2 text-gray-600 hover:text-red-500 hover:cursor-pointer"
+        >
           <Trash size={20} />
         </div>
+        <AlertDialog
+          motionPreset="slideInBottom"
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+          isOpen={isOpen}
+          isCentered
+        >
+          <AlertDialogOverlay />
+
+          <AlertDialogContent>
+            <AlertDialogHeader>Delete Jobseeker?</AlertDialogHeader>
+            <AlertDialogCloseButton />
+            <AlertDialogBody>
+              Are you sure you want to delete the user? You can't undo this.
+            </AlertDialogBody>
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                No
+              </Button>
+              <Button
+                colorScheme="red"
+                ml={3}
+                onClick={() => {
+                  console.log("Deleted");
+                  onClose();
+                  toast.success("User Deleted Successfully!");
+                }}
+              >
+                Yes
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </td>
     </tr>
   );

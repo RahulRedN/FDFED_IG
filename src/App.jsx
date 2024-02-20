@@ -22,6 +22,8 @@ import JobSeeker from "./pages/JobSeeker";
 import ContactUs from "./components/JobSeeker/ContactUs/ContactUs_jobseeker";
 import JLanding from "./components/JobSeeker/Home/JobLanding";
 
+import Admin_Login from "./components/admin_login/Admin_Login";
+
 import Company from "./pages/Company";
 import Login_SignUp from "./pages/Login_SignUp";
 import FindJobs from "./components/JobSeeker/FindJob/FindJobs";
@@ -40,9 +42,7 @@ import PostedJobs from "./components/Company/PostedJobs/PostedJobs";
 import QuesCards from "./components/homepage_compos/News/QuesCards";
 
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-
-
-
+import TestimonialForm from "./components/TestimonialForm/TestimonialForm";
 
 import Admin from "./pages/Admin";
 import Home_Admin from "./components/Admin/LandingPage/Home_Admin";
@@ -64,6 +64,8 @@ const Router = createBrowserRouter(
         <Route path="faqs" element={<Faqs />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs_Home />} />
+        <Route path="testimonialform" element={<TestimonialForm />} />
+
         <Route path="news" element={<QuesCards />} />
       </Route>
 
@@ -80,8 +82,10 @@ const Router = createBrowserRouter(
       >
         <Route index element={<JLanding />} />
         <Route path="findjobs" element={<FindJobs />} />
-        <Route path="contactus" element={<ContactUs />} />
+
         <Route path="profile" element={<Profile_Job />} />
+
+        <Route path="contactus" element={<ContactUs />} />
       </Route>
       {/* 
       <Route path="/company" element={<Sidebar />} />
@@ -105,10 +109,11 @@ const Router = createBrowserRouter(
         <Route path="home" element={<Home_Admin />} />
         <Route path="jobseekers" element={<JobSeeker_User />} />
         <Route path="companys" element={<Company_User />} />
-        <Route path="pendingcompany" element={<Pending_Company/>} />
+        <Route path="pendingcompany" element={<Pending_Company />} />
         <Route path="queries" element={<Queries />} />
         <Route path="reviews" element={<Reviews />} />
       </Route>
+      <Route path="/test" element={<Admin_Login />} />
     </Route>
   )
 );

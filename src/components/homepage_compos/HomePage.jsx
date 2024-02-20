@@ -5,12 +5,12 @@ import Roles from './Roles'
 
 const HomePage = () => {
   return (
-    <>
+    <div>
       <Slider />
       <Roles />
       <OurServices />
       <Testimonials />
-    </>
+    </div>
   );
 };
 

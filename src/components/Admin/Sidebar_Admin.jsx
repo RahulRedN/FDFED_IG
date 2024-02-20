@@ -177,7 +177,7 @@ const Sidebar_Admin = () => {
 
           <button
             className={
-              "mt-3 flex items-center gap-x-2 text-gray-500 w-full ml-2 pl-3 mr-3 px-2 py-3 rounded-md hover:bg-red-100 hover:text-red-500 transition ease-in-out duration-300"
+              "mt-3 flex items-center gap-x-2 text-gray-500 w-full ml-2 pl-3 mr-3 px-2 py-3 rounded-md hover:bg-rose-100 hover:text-rose-500 transition ease-in-out duration-300"
             }
           >
             <VscSignOut size={20} className={"text-inherit"} />

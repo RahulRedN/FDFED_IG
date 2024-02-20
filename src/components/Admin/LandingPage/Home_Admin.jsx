@@ -6,7 +6,7 @@ import Todo_List from "./Todo_List/Todo_List";
 
 const Home_Admin = () => {
   return (
-    <div className="bg-slate-100 p-3">
+    <div className="bg-[#f5f5f5] p-3">
       <DataBoxes />
       <div className="mt-4 flex gap-x-8 h-[28rem] w-full">
         <div className="mt-4 flex-[5] bg-white py-5">
@@ -16,8 +16,8 @@ const Home_Admin = () => {
           <LineChart />
         </div>
         <div className="mt-4 flex-[2] bg-white">
-          <h1 className="pt-8 text-center text-lg font-bold">
-            Accepted/Rejected Requests
+          <h1 className="pt-6 text-center text-lg font-bold">
+            Accepted/Rejected Requests (Company's)
           </h1>
           <PieChart />
         </div>
